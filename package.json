@@ -24,7 +24,11 @@
   "files": [
     "*.js",
     "*.d.ts",
-    "dist/**"
+    "dist",
+    "!**/__mocks__",
+    "!**/*.test.*",
+    "!**/*.spec.*",
+    "!**/*.map"
   ],
   "repository": {
     "type": "git",
