@@ -13,7 +13,7 @@ jobs:
     if: github.repository_owner == 'streetsidesoftware'
     runs-on: ubuntu-latest
     env:
-      NEW_BRANCH: 'update-cspell'
+      NEW_BRANCH: 'update-vscode-types'
       REF_BRANCH: main
     steps:
       - name: Checkout code
