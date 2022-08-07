@@ -1,4 +1,4 @@
-name: Update CSpell
+name: Update VS Code Types
 
 on:
   push:
