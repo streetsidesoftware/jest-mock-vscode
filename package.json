@@ -32,8 +32,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/streetsidesoftware/vscode-spell-checker.git",
-    "directory": "packages/jest-mock-vscode"
+    "url": "https://github.com/streetsidesoftware/jest-mock-vscode.git"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
@@ -46,7 +45,7 @@
     "typescript": "^4.7.4"
   },
   "peerDependencies": {
-    "jest": "^27.0.5"
+    "jest": "^28.1.3"
   },
   "dependencies": {
     "vscode-uri": "^3.0.3"
