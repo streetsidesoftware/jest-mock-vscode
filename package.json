@@ -9,10 +9,10 @@
   "scripts": {
     "test": "jest",
     "lint": "echo Lint",
-    "prepare": "yarn run build",
-    "build-production": "yarn run build",
+    "prepare": "pnpm run build",
+    "build-production": "pnpm run build",
     "build": "tsc -p .",
-    "watch": "yarn run build --watch"
+    "watch": "pnpm run build --watch"
   },
   "keywords": [
     "jest",
@@ -31,12 +31,12 @@
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
-    "@types/jest": "^27.5.2",
+    "@types/jest": "^28.1.6",
     "@types/node": "^18.6.4",
     "@types/vscode": "^1.69.1",
-    "jest": "^27.5.1",
+    "jest": "^28.1.3",
     "rfdc": "^1.3.0",
-    "ts-jest": "^27.1.5",
+    "ts-jest": "^28.0.7",
     "typescript": "^4.7.4"
   },
   "peerDependencies": {
