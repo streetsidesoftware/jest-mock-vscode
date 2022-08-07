@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.0.2](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.0.1...v1.0.2) (2022-08-07)
+
+
+### Updates and Bug Fixes
+
+* add ESLint and prettier ([#4](https://github.com/streetsidesoftware/jest-mock-vscode/issues/4)) ([4a2ab8a](https://github.com/streetsidesoftware/jest-mock-vscode/commit/4a2ab8ac6a88c620ee5902f32622b209fa4ccbd9))
+* Fix repository url ([#3](https://github.com/streetsidesoftware/jest-mock-vscode/issues/3)) ([a8d4c92](https://github.com/streetsidesoftware/jest-mock-vscode/commit/a8d4c92561770b1b83315fc24f2f01cd2fcf22c6))
+
+
+### Continuous Integration
+
+* do not lint lock files. ([f8000d1](https://github.com/streetsidesoftware/jest-mock-vscode/commit/f8000d1566ef895fb3956348cf3562bdfc5c6d5b))
+* Fix name of workflow ([377fa73](https://github.com/streetsidesoftware/jest-mock-vscode/commit/377fa73bbfbccfe534a023bd72a524b0c06499ea))
+* fix workflow branch name ([4aa463f](https://github.com/streetsidesoftware/jest-mock-vscode/commit/4aa463f9670c7fe5fc66355f7e614693051f1c21))
+* only create a PR if VS Code changed ([642466a](https://github.com/streetsidesoftware/jest-mock-vscode/commit/642466a874cb34b12545e764f036d964dd468942))
+* Workflow Bot -- Update ALL Dependencies ([#6](https://github.com/streetsidesoftware/jest-mock-vscode/issues/6)) ([9c43ed0](https://github.com/streetsidesoftware/jest-mock-vscode/commit/9c43ed0d7bc92ac3edd35151ace0ce58f2b8c811))
+
 ## [1.0.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.0.0...v1.0.1) (2022-08-07)
 
 
