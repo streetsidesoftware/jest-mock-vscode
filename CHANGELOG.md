@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.0.0...v1.0.1) (2022-08-07)
+
+
+### Updates and Bug Fixes
+
+* do not publish `.map` files. ([7f43710](https://github.com/streetsidesoftware/jest-mock-vscode/commit/7f43710cf5a635326a5290b0539107c5f14f495b))
+
 ## 1.0.0 (2022-08-07)
 
 
