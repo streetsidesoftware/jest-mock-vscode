@@ -1,5 +1,6 @@
 version: '0.2'
-ignorePaths: []
+ignorePaths:
+  - '*-lock.{yaml,json}'
 dictionaryDefinitions: []
 dictionaries: []
 words:
