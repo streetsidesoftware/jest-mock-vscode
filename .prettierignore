@@ -3,6 +3,7 @@
 [tT]emp/
 **/dist/**
 **/node_modules/**
+**/*-lock.yaml
 **/*-lock.json
 **/.docusaurus/**
 CHANGELOG.md
