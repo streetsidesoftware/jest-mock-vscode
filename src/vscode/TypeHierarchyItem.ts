@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
 import { Uri } from './uri';
 import { SymbolKind, SymbolTag, Range } from './extHostTypes';

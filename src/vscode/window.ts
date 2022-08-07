@@ -1,4 +1,6 @@
+// eslint-disable-next-line node/no-missing-import, import/no-duplicates
 import type { TextEditor, TextDocumentShowOptions, Uri, TextDocument, ViewColumn } from 'vscode';
+// eslint-disable-next-line node/no-missing-import, import/no-duplicates
 import type * as vscode from 'vscode';
 import { workspace } from './workspace';
 import { Selection } from './extHostTypes';

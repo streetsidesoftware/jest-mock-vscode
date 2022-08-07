@@ -123,7 +123,9 @@ describe('WorkspaceConfiguration', () => {
         const configExtName2 = createMockWorkspaceConfiguration<TestConfig>(data, 'myExtension.name');
         const configExtPhp = config.__getConfiguration('myExtension', { languageId: 'php' });
 
-        expect(configExtName2).toEqual(oc(extractFields(configExtName, ['__inspect_data__', '__languageId', '__section'])));
+        expect(configExtName2).toEqual(
+            oc(extractFields(configExtName, ['__inspect_data__', '__languageId', '__section']))
+        );
         expect(configExtName.inspect('')).toEqual({
             key: 'myExtension.name',
             workspaceValue: 'workspace',

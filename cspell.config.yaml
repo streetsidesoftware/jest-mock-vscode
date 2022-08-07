@@ -1,9 +1,13 @@
-version: "0.2"
+version: '0.2'
 ignorePaths: []
 dictionaryDefinitions: []
 dictionaries: []
 words:
+  - endregion
+  - Evaluatable
   - pnpm
+  - quickfix
   - rfdc
+  - VSIX
 ignoreWords: []
 import: []

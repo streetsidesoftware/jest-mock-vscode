@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
 import { EndOfLine, EnvironmentVariableMutatorType } from './baseTypes';
 

@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
 import { MockTextDocument } from './TextDocument';
 import { Uri } from './uri';
@@ -31,6 +32,7 @@ describe('Validate TextDocument', () => {
         ${'isUntitled'} | ${false}
     `('simple getters $method', ({ key, expected }) => {
         const doc = createDoc();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         expect((doc as any)[key]).toEqual(expected);
     });
 

@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
 
 export class MarkdownString implements vscode.MarkdownString {
@@ -5,7 +6,10 @@ export class MarkdownString implements vscode.MarkdownString {
     public isTrusted?: boolean;
     public supportThemeIcons?: boolean;
 
-    constructor(value: string = '', isTrustedOrOptions: boolean | { isTrusted?: boolean; supportThemeIcons?: boolean } = false) {
+    constructor(
+        value = '',
+        isTrustedOrOptions: boolean | { isTrusted?: boolean; supportThemeIcons?: boolean } = false
+    ) {
         this.value = value;
         if (typeof this.value !== 'string') {
             throw illegalArgument('value');
