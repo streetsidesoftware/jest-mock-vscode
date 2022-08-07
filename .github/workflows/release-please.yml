@@ -8,7 +8,6 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     outputs:
-      release: ${{ steps.release.outputs }}
       release_created: ${{ steps.release.outputs.release_created }}
     steps:
       - uses: google-github-actions/release-please-action@v3
@@ -32,6 +31,11 @@ jobs:
               { "type": "test", "section": "Tests", "hidden": false },
               { "type": "build", "section": "Build System", "hidden": false }
             ]
+
+      - name: release please output
+        env:
+          OUTPUTS: ${{ toJSON(steps.release.outputs) }}
+        run: echo "$OUTPUTS"
 
   publish:
     if: ${{ needs.release-please.outputs.release_created }}
