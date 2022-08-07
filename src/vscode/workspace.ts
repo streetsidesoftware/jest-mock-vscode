@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
 import { createMockFileSystem } from './fs';
 import { createMockWorkspaceConfiguration } from './WorkspaceConfiguration';
@@ -42,7 +43,9 @@ export class MockWorkspace implements Workspace {
     asRelativePath = jest.fn((a) => a?.toString());
     createFileSystemWatcher = jest.fn();
     findFiles = jest.fn();
-    getConfiguration = jest.fn((...args: Parameters<Workspace['getConfiguration']>) => this.__mockConfig.__getConfiguration(...args));
+    getConfiguration = jest.fn((...args: Parameters<Workspace['getConfiguration']>) =>
+        this.__mockConfig.__getConfiguration(...args)
+    );
     getWorkspaceFolder = jest.fn((uri) => getWorkspaceFolder(uri, this.workspaceFolders || []));
     onDidSaveTextDocument = jest.fn();
     openTextDocument = openTextDocument;
@@ -88,10 +91,15 @@ function openTextDocument(param?: string | vscode.Uri | OpenTextDocumentOptions)
         return readTextDocument(uri);
     }
 
-    return Promise.resolve(createTextDocument(Uri.parse('untitled:Untitled-1'), options?.content || '', options?.language));
+    return Promise.resolve(
+        createTextDocument(Uri.parse('untitled:Untitled-1'), options?.content || '', options?.language)
+    );
 }
 
-function getWorkspaceFolder(uri: vscode.Uri, folders: readonly vscode.WorkspaceFolder[]): vscode.WorkspaceFolder | undefined {
+function getWorkspaceFolder(
+    uri: vscode.Uri,
+    folders: readonly vscode.WorkspaceFolder[]
+): vscode.WorkspaceFolder | undefined {
     const uriFolder = Uri.joinPath(uri, '..');
 
     return folders

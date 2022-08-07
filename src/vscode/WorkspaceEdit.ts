@@ -1,4 +1,6 @@
+// eslint-disable-next-line node/no-missing-import, import/no-duplicates
 import type * as vscode from 'vscode';
+// eslint-disable-next-line node/no-missing-import, import/no-duplicates
 import type { Range, Uri as URI, TextEdit } from 'vscode';
 import { IFileOperation, IFileTextEdit } from './extHostTypes';
 import { FileEditType } from './baseTypes';
@@ -8,11 +10,16 @@ import { ResourceMap } from './ResourceMap';
 
 type WorkspaceEditEntry = IFileOperation | IFileTextEdit | IFileCellEdit | ICellEdit;
 
+/**
+ * EXPLICIT any
+ */
+type ANY = any; // eslint-disable-line @typescript-eslint/no-explicit-any
+
 export interface IFileCellEdit {
     _type: FileEditType.Cell;
     uri: URI;
     // edit?: ICellPartialMetadataEdit | IDocumentMetadataEdit;
-    notebookMetadata?: Record<string, any>;
+    notebookMetadata?: Record<string, ANY>;
     metadata?: vscode.WorkspaceEditEntryMetadata;
 }
 
@@ -61,7 +68,11 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
 
     // --- notebook
 
-    replaceNotebookMetadata(_uri: URI, _value: Record<string, any>, _metadata?: vscode.WorkspaceEditEntryMetadata): void {
+    replaceNotebookMetadata(
+        _uri: URI,
+        _value: Record<string, ANY>,
+        _metadata?: vscode.WorkspaceEditEntryMetadata
+    ): void {
         throw new Error('Method not implemented.');
     }
 
@@ -91,7 +102,7 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
     replaceNotebookCellMetadata(
         _uri: URI,
         _index: number,
-        _cellMetadata: Record<string, any>,
+        _cellMetadata: Record<string, ANY>,
         _metadata?: vscode.WorkspaceEditEntryMetadata
     ): void {
         throw new Error('Method not implemented.');
@@ -103,7 +114,12 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
         this._edits.push({ _type: FileEditType.Text, uri, edit: new vsMock.TextEdit(range, newText), metadata });
     }
 
-    insert(resource: URI, position: vscode.Position, newText: string, metadata?: vscode.WorkspaceEditEntryMetadata): void {
+    insert(
+        resource: URI,
+        position: vscode.Position,
+        newText: string,
+        metadata?: vscode.WorkspaceEditEntryMetadata
+    ): void {
         this.replace(resource, new vsMock.Range(position, position), newText, metadata);
     }
 
@@ -123,6 +139,7 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
             for (let i = 0; i < this._edits.length; i++) {
                 const element = this._edits[i];
                 if (element._type === FileEditType.Text && element.uri.toString() === uri.toString()) {
+                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                     this._edits[i] = undefined!; // will be coalesced down below
                 }
             }
@@ -166,7 +183,7 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
         return this.entries().length;
     }
 
-    toJSON(): any {
+    toJSON(): ANY {
         return this.entries();
     }
 }

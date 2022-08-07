@@ -1,4 +1,5 @@
 import assert from 'assert';
+// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
 import { ConfigurationTarget } from './extHostTypes';
 
@@ -11,6 +12,7 @@ export interface InspectBaseValues<T> {
     workspaceFolderValue?: T;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type InspectBaseValueKey = keyof InspectBaseValues<any>;
 
 export interface InspectLanguageValues<T> {
@@ -46,7 +48,9 @@ type KeyNames<T> = {
 // type InspectBaseValuesKey = keyof InspectBaseValues<any>;
 // type InspectLanguageValuesKey = keyof InspectLanguageValues<any>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type InspectBaseValuesKeyNames = KeyNames<InspectBaseValues<any>>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type InspectLanguageValuesKeyNames = KeyNames<InspectLanguageValues<any>>;
 
 interface InspectKeyMap extends InspectBaseValuesKeyNames, InspectLanguageValuesKeyNames {}
@@ -62,6 +66,7 @@ const inspectKeyNames: InspectKeyMap = {
     workspaceFolderLanguageValue: 'workspaceFolderLanguageValue',
 } as const;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 interface InspectBaseToLanguageKeyNames extends Record<keyof InspectBaseValues<any>, keyof InspectLanguageValues<any>> {
     defaultValue: 'defaultLanguageValue';
     globalValue: 'globalLanguageValue';
@@ -77,9 +82,9 @@ const inspectBaseToLanguageKeyNames: InspectBaseToLanguageKeyNames = {
 };
 
 type InspectKeyNamesTuple = [base: keyof InspectBaseValuesKeyNames, language: keyof InspectLanguageValuesKeyNames];
-const keyNamesTuple: InspectKeyNamesTuple[] = (Object.keys(inspectBaseToLanguageKeyNames) as (keyof InspectBaseToLanguageKeyNames)[]).map(
-    (k) => [k, inspectBaseToLanguageKeyNames[k]] as InspectKeyNamesTuple
-);
+const keyNamesTuple: InspectKeyNamesTuple[] = (
+    Object.keys(inspectBaseToLanguageKeyNames) as (keyof InspectBaseToLanguageKeyNames)[]
+).map((k) => [k, inspectBaseToLanguageKeyNames[k]] as InspectKeyNamesTuple);
 
 type SectionKey = string;
 type BaseLanguageSection = ['[*]'] | ['[*]', undefined] | ['[*]', LanguageKeyId];
@@ -101,7 +106,10 @@ export interface MockWorkspaceConfiguration<T> extends WorkspaceConfiguration {
     __inspect_data__: MockWorkspaceConfigurationData<T>;
     __languageId: string | undefined;
     __section: string;
-    __getConfiguration: (section: string | undefined, scope?: vscode.ConfigurationScope | null) => MockWorkspaceConfiguration<T>;
+    __getConfiguration: (
+        section: string | undefined,
+        scope?: vscode.ConfigurationScope | null
+    ) => MockWorkspaceConfiguration<T>;
 }
 
 export function createMockWorkspaceConfiguration<T>(
@@ -117,7 +125,9 @@ export function createMockWorkspaceConfiguration<T>(
     }
 
     const cfg: MockWorkspaceConfiguration<T> = {
-        get: jest.fn((section, defaultValue) => getValueFromInspect(data, bls, sectionKey(section)) ?? defaultValue) as GetFn,
+        get: jest.fn(
+            (section, defaultValue) => getValueFromInspect(data, bls, sectionKey(section)) ?? defaultValue
+        ) as GetFn,
         has: jest.fn((section) => getValueFromInspect(data, bls, sectionKey(section)) !== undefined),
         inspect: jest.fn((section) => getInspectForPath(data, bls, sectionKey(section))),
         update: jest.fn((section, ...args) => pVoid(updateInspect(data, bls, sectionKey(section), ...args))),
@@ -137,7 +147,7 @@ function joinPath(a: string, b: string | undefined): string {
 }
 
 function pVoid<T>(t: T): Promise<void> {
-    return Promise.resolve(t).then(() => {});
+    return Promise.resolve(t).then(() => undefined);
 }
 
 function getInspectForPath<T, U>(
@@ -174,10 +184,12 @@ function getKeyValue<T>(
     language: keyof MockWorkspaceConfigurationData<T>,
     inspectKey: InspectBaseValueKey,
     path: string
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): any | undefined {
     return getKeyValueFromRecord(configData[language]?.[inspectKey], path);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function getKeyValueFromRecord(data: Record<string, any> | undefined, key: string): any | undefined {
     const parts = key.split('.');
     for (const k of parts) {
@@ -187,7 +199,11 @@ function getKeyValueFromRecord(data: Record<string, any> | undefined, key: strin
     return data;
 }
 
-function getValueFromInspect<T, U>(configData: MockWorkspaceConfigurationData<T>, bls: BaseLanguageSection, path: string): U | undefined {
+function getValueFromInspect<T, U>(
+    configData: MockWorkspaceConfigurationData<T>,
+    bls: BaseLanguageSection,
+    path: string
+): U | undefined {
     const d = getInspectForPath<T, U>(configData, bls, path);
     return d && mergeInspect(d);
 }
@@ -206,7 +222,9 @@ function mergeInspect<T>(inspect: Inspect<T>): T | undefined {
     return r;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function setKeyValue(data: Record<string, any>, section: string, value: any): any {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     function r(data: Record<string, any>, path: string[]): any {
         if (!path.length) return value;
         const head = path[0];
@@ -223,6 +241,7 @@ function updateInspect<T>(
     data: MockWorkspaceConfigurationData<T>,
     bls: BaseLanguageSection,
     section: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     value: any,
     configurationTarget?: ConfigurationTarget | boolean | null,
     overrideInLanguage?: boolean

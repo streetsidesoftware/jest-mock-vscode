@@ -4,13 +4,19 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
 import { Uri as URI } from './uri';
 import { FileEditType } from './baseTypes';
 
+/**
+ * EXPLICIT any
+ */
+type ANY = any; // eslint-disable-line @typescript-eslint/no-explicit-any
+
 export class Disposable {
-    static from(...inDisposables: { dispose(): any }[]): Disposable {
-        let disposables: ReadonlyArray<{ dispose(): any }> | undefined = inDisposables;
+    static from(...inDisposables: { dispose(): ANY }[]): Disposable {
+        let disposables: ReadonlyArray<{ dispose(): ANY }> | undefined = inDisposables;
         return new Disposable(function () {
             if (disposables) {
                 for (const disposable of disposables) {
@@ -23,13 +29,13 @@ export class Disposable {
         });
     }
 
-    #callOnDispose?: () => any;
+    #callOnDispose?: () => ANY;
 
-    constructor(callOnDispose: () => any) {
+    constructor(callOnDispose: () => ANY) {
         this.#callOnDispose = callOnDispose;
     }
 
-    dispose(): any {
+    dispose(): ANY {
         if (typeof this.#callOnDispose === 'function') {
             this.#callOnDispose();
             this.#callOnDispose = undefined;
@@ -45,6 +51,7 @@ export class Position implements vscode.Position {
         let result = positions[0];
         for (let i = 1; i < positions.length; i++) {
             const p = positions[i];
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             if (p.isBefore(result!)) {
                 result = p;
             }
@@ -59,6 +66,7 @@ export class Position implements vscode.Position {
         let result = positions[0];
         for (let i = 1; i < positions.length; i++) {
             const p = positions[i];
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             if (p.isAfter(result!)) {
                 result = p;
             }
@@ -66,7 +74,7 @@ export class Position implements vscode.Position {
         return result;
     }
 
-    static isPosition(other: any): other is Position {
+    static isPosition(other: ANY): other is Position {
         if (!other) {
             return false;
         }
@@ -156,7 +164,7 @@ export class Position implements vscode.Position {
     translate(lineDelta?: number, characterDelta?: number): Position;
     translate(
         lineDeltaOrChange: number | undefined | { lineDelta?: number; characterDelta?: number },
-        characterDelta: number = 0
+        characterDelta = 0
     ): Position {
         if (lineDeltaOrChange === null || characterDelta === null) {
             throw illegalArgument();
@@ -169,7 +177,8 @@ export class Position implements vscode.Position {
             lineDelta = lineDeltaOrChange;
         } else {
             lineDelta = typeof lineDeltaOrChange.lineDelta === 'number' ? lineDeltaOrChange.lineDelta : 0;
-            characterDelta = typeof lineDeltaOrChange.characterDelta === 'number' ? lineDeltaOrChange.characterDelta : 0;
+            characterDelta =
+                typeof lineDeltaOrChange.characterDelta === 'number' ? lineDeltaOrChange.characterDelta : 0;
         }
 
         if (lineDelta === 0 && characterDelta === 0) {
@@ -180,7 +189,10 @@ export class Position implements vscode.Position {
 
     with(change: { line?: number; character?: number }): Position;
     with(line?: number, character?: number): Position;
-    with(lineOrChange: number | undefined | { line?: number; character?: number }, character: number = this.character): Position {
+    with(
+        lineOrChange: number | undefined | { line?: number; character?: number },
+        character: number = this.character
+    ): Position {
         if (lineOrChange === null || character === null) {
             throw illegalArgument();
         }
@@ -207,7 +219,7 @@ export class Position implements vscode.Position {
 }
 
 export class Range implements vscode.Range {
-    static isRange(thing: any): thing is vscode.Range {
+    static isRange(thing: ANY): thing is vscode.Range {
         if (thing instanceof Range) {
             return true;
         }
@@ -338,13 +350,13 @@ export class Range implements vscode.Range {
         return new Range(start, end);
     }
 
-    toJSON(): any {
+    toJSON(): ANY {
         return [this.start, this.end];
     }
 }
 
 export class Selection extends Range implements vscode.Selection {
-    static isSelection(thing: any): thing is Selection {
+    static isSelection(thing: ANY): thing is Selection {
         if (thing instanceof Selection) {
             return true;
         }
@@ -420,7 +432,7 @@ export class Selection extends Range implements vscode.Selection {
 }
 
 export class TextEdit {
-    static isTextEdit(thing: any): thing is TextEdit {
+    static isTextEdit(thing: ANY): thing is TextEdit {
         if (thing instanceof TextEdit) {
             return true;
         }
@@ -490,7 +502,7 @@ export class TextEdit {
         this._newText = newText;
     }
 
-    toJSON(): any {
+    toJSON(): ANY {
         return {
             range: this.range,
             newText: this.newText,
@@ -522,7 +534,7 @@ export interface IFileTextEdit {
 }
 
 export class SnippetString {
-    static isSnippetString(thing: any): thing is SnippetString {
+    static isSnippetString(thing: ANY): thing is SnippetString {
         if (thing instanceof SnippetString) {
             return true;
         }
@@ -536,7 +548,7 @@ export class SnippetString {
         return value.replace(/\$|}|\\/g, '\\$&');
     }
 
-    private _tabstop: number = 1;
+    private _tabstop = 1;
 
     value: string;
 
@@ -555,7 +567,10 @@ export class SnippetString {
         return this;
     }
 
-    appendPlaceholder(value: string | ((snippet: SnippetString) => any), number: number = this._tabstop++): SnippetString {
+    appendPlaceholder(
+        value: string | ((snippet: SnippetString) => ANY),
+        number: number = this._tabstop++
+    ): SnippetString {
         if (typeof value === 'function') {
             const nested = new SnippetString();
             nested._tabstop = this._tabstop;
@@ -587,7 +602,7 @@ export class SnippetString {
         return this;
     }
 
-    appendVariable(name: string, defaultValue?: string | ((snippet: SnippetString) => any)): SnippetString {
+    appendVariable(name: string, defaultValue?: string | ((snippet: SnippetString) => ANY)): SnippetString {
         if (typeof defaultValue === 'function') {
             const nested = new SnippetString();
             nested._tabstop = this._tabstop;
@@ -623,7 +638,7 @@ export enum DiagnosticSeverity {
 }
 
 export class Location {
-    static isLocation(thing: any): thing is Location {
+    static isLocation(thing: ANY): thing is Location {
         if (thing instanceof Location) {
             return true;
         }
@@ -650,7 +665,7 @@ export class Location {
         }
     }
 
-    toJSON(): any {
+    toJSON(): ANY {
         return {
             uri: this.uri,
             range: this.range,
@@ -659,7 +674,7 @@ export class Location {
 }
 
 export class DiagnosticRelatedInformation {
-    static is(thing: any): thing is DiagnosticRelatedInformation {
+    static is(thing: ANY): thing is DiagnosticRelatedInformation {
         if (!thing) {
             return false;
         }
@@ -687,7 +702,9 @@ export class DiagnosticRelatedInformation {
             return false;
         }
         return (
-            a.message === b.message && a.location.range.isEqual(b.location.range) && a.location.uri.toString() === b.location.uri.toString()
+            a.message === b.message &&
+            a.location.range.isEqual(b.location.range) &&
+            a.location.uri.toString() === b.location.uri.toString()
         );
     }
 }
@@ -713,7 +730,7 @@ export class Diagnostic {
         this.severity = severity;
     }
 
-    toJSON(): any {
+    toJSON(): ANY {
         return {
             severity: DiagnosticSeverity[this.severity],
             message: this.message,
@@ -758,7 +775,7 @@ export class DocumentHighlight {
         this.kind = kind;
     }
 
-    toJSON(): any {
+    toJSON(): ANY {
         return {
             range: this.range,
             kind: DocumentHighlightKind[this.kind],
@@ -832,13 +849,14 @@ export class SymbolInformation {
         if (locationOrUri instanceof Location) {
             this.location = locationOrUri;
         } else if (rangeOrContainer instanceof Range) {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             this.location = new Location(locationOrUri!, rangeOrContainer);
         }
 
         SymbolInformation.validate(this);
     }
 
-    toJSON(): any {
+    toJSON(): ANY {
         return {
             name: this.name,
             kind: SymbolKind[this.kind],
@@ -1082,7 +1100,7 @@ export class CompletionItem /* implements vscode.CompletionItem */ {
         this.kind = kind;
     }
 
-    toJSON(): any {
+    toJSON(): ANY {
         return {
             label: this.label,
             kind: this.kind && CompletionItemKind[this.kind],
@@ -1101,7 +1119,7 @@ export class CompletionList {
     isIncomplete?: boolean;
     items: vscode.CompletionItem[];
 
-    constructor(items: vscode.CompletionItem[] = [], isIncomplete: boolean = false) {
+    constructor(items: vscode.CompletionItem[] = [], isIncomplete = false) {
         this.items = items;
         this.isIncomplete = isIncomplete;
     }

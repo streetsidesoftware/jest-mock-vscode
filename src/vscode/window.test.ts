@@ -3,6 +3,11 @@ import { workspace } from './workspace';
 import { Uri } from './uri';
 import * as fs from 'fs/promises';
 
+/**
+ * EXPLICIT any
+ */
+type ANY = any; // eslint-disable-line @typescript-eslint/no-explicit-any
+
 describe('window', () => {
     test('window', () => {
         expect(typeof window.showErrorMessage).toBe('function');
@@ -18,7 +23,9 @@ describe('window', () => {
 
     test('showTextDocument textDocument', async () => {
         const content = await fs.readFile(__filename, 'utf-8');
-        const editor = await window.showTextDocument(await workspace.openTextDocument({ content, language: 'typescript' }));
+        const editor = await window.showTextDocument(
+            await workspace.openTextDocument({ content, language: 'typescript' })
+        );
         expect(editor.document.uri.toString()).toEqual('untitled:Untitled-1');
         expect(editor.document.getText()).toBe(content);
     });
@@ -41,7 +48,7 @@ describe('window', () => {
         ${'showWarningMessage'}
         ${'showWorkspaceFolderPick'}
     `('partial mocks method resolve to undefined $method', async ({ method }: { method: keyof typeof window }) => {
-        const fn = window[method] as any;
+        const fn = window[method] as ANY;
         await expect(fn()).resolves.toEqual(undefined);
     });
 });

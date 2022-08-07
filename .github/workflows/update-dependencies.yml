@@ -6,14 +6,14 @@ on:
       - main
   workflow_dispatch:
   schedule:
-    - cron: "0 12 * * *"
+    - cron: '0 12 * * *'
 
 jobs:
   update-dependencies:
     if: github.repository_owner == 'streetsidesoftware'
     runs-on: ubuntu-latest
     env:
-      NEW_BRANCH: "update-dependencies-main"
+      NEW_BRANCH: 'update-dependencies-main'
       REF_BRANCH: main
       PR_TYPE: ci
     steps:
@@ -28,7 +28,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          cache: "pnpm"
+          cache: 'pnpm'
 
       - name: Install
         run: pnpm install
@@ -57,10 +57,10 @@ jobs:
         if: env.git_status == 'dirty'
         uses: peter-evans/create-pull-request@v4
         with:
-          commit-message: "${{ env.PR_TYPE }}: Workflow Bot -- Update ALL Dependencies"
+          commit-message: '${{ env.PR_TYPE }}: Workflow Bot -- Update ALL Dependencies'
           branch: ${{ env.NEW_BRANCH }}
           base: ${{ env.REF_BRANCH }}
-          title: "${{ env.PR_TYPE }}: Workflow Bot -- Update ALL Dependencies (${{ env.REF_BRANCH }})"
+          title: '${{ env.PR_TYPE }}: Workflow Bot -- Update ALL Dependencies (${{ env.REF_BRANCH }})'
           token: ${{ steps.generate-token.outputs.token }}
           body: ${{ env.git_body }}
           delete-branch: true

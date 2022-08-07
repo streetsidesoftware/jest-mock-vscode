@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-missing-import
 import type { TabGroup } from 'vscode';
 import { MockTabGroups } from './TabGroups';
 

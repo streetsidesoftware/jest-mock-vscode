@@ -1,0 +1,12 @@
+.vscode/
+[sS]amples/
+[tT]emp/
+**/dist/**
+**/node_modules/**
+**/*-lock.json
+**/.docusaurus/**
+CHANGELOG.md
+coverage
+cspell.json
+cspell.schema.json
+tsconfig*.json

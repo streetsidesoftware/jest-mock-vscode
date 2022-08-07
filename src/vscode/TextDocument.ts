@@ -1,15 +1,21 @@
+// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
 import * as vs from './baseTypes';
 import * as mocked from './extHostTypes';
 
 export class MockTextDocument implements vscode.TextDocument {
     private _lines: string[];
-    private _isDirty: boolean = false;
-    isClosed: boolean = false;
+    private _isDirty = false;
+    isClosed = false;
     eol: vscode.EndOfLine = vs.EndOfLine.LF;
     notebook: undefined;
 
-    constructor(public readonly uri: vscode.Uri, private _contents: string, public _languageId: string = 'plaintext', public version = 1) {
+    constructor(
+        public readonly uri: vscode.Uri,
+        private _contents: string,
+        public _languageId: string = 'plaintext',
+        public version = 1
+    ) {
         this._lines = [];
         this.init();
     }
@@ -74,7 +80,7 @@ export class MockTextDocument implements vscode.TextDocument {
         return this._contents.slice(offsetStart, offsetEnd);
     }
 
-    getWordRangeAtPosition(position: vscode.Position, regex: RegExp = /\w+/): vscode.Range | undefined {
+    getWordRangeAtPosition(position: vscode.Position, regex = /\w+/): vscode.Range | undefined {
         const line = this.lineAt(position);
         const text = line.text;
         const offset = position.character - line.range.start.character;

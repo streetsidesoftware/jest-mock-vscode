@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
 import * as mockedTypes from './extHostTypes';
 
@@ -9,7 +10,10 @@ export class MockTextEditor implements vscode.TextEditor {
     constructor(
         public _document: vscode.TextDocument,
         public _viewColumn?: vscode.ViewColumn | undefined,
-        selection: vscode.Selection = new mockedTypes.Selection(new mockedTypes.Position(0, 0), new mockedTypes.Position(0, 0))
+        selection: vscode.Selection = new mockedTypes.Selection(
+            new mockedTypes.Position(0, 0),
+            new mockedTypes.Position(0, 0)
+        )
     ) {
         this._selections = [selection];
     }
