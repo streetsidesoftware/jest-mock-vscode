@@ -1,5 +1,6 @@
 // eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
+import { nodeFileSystemProvider as fsn } from './fsNode';
 
 export type FileSystem = vscode.FileSystem;
 export type FileSystemProvider = vscode.FileSystemProvider;
@@ -27,15 +28,15 @@ export function createMockFileSystem(provider: FileSystemProvider = createMockFi
 export function createMockFileSystemProvider(): FileSystemProvider {
     const fsp: FileSystemProvider = {
         copy: jest.fn(),
-        createDirectory: jest.fn(),
+        createDirectory: jest.fn(fsn.createDirectory),
         delete: jest.fn(),
         onDidChangeFile: jest.fn(),
         readDirectory: jest.fn(),
-        readFile: jest.fn(),
+        readFile: jest.fn(fsn.readFile),
         rename: jest.fn(),
         stat: jest.fn(),
         watch: jest.fn(),
-        writeFile: jest.fn(),
+        writeFile: jest.fn(fsn.writeFile),
     };
     return fsp;
 }

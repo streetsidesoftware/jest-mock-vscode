@@ -17,6 +17,7 @@
     "lint:eslint": "eslint \"src/**/*.ts\" \"*.js\"",
     "lint:prettier": "prettier -w \"**/*.{yaml,yml,md}\"",
     "lint:prettier-ci": "prettier -c \"**/*.{yaml,yml,md}\"",
+    "lint:spelling": "cspell --dot \"**\"",
     "prepare": "pnpm run build",
     "build-production": "pnpm run build",
     "build": "tsc -p .",
