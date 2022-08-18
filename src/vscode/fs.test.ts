@@ -20,7 +20,7 @@ describe('fs', () => {
         const tempDir = Uri.joinPath(rootTemp, 'writeFile');
         const content = await fs.readFile(Uri.file(__filename));
         const uriTempFile = Uri.joinPath(tempDir, 'depth/test.txt');
-        await fsp.rm(tempDir.fsPath, { recursive: true });
+        await fsp.rm(tempDir.fsPath, { recursive: true }).catch((_) => undefined);
         await expect(fs.writeFile(uriTempFile, content)).resolves.toBeUndefined();
         const result = await fs.readFile(uriTempFile);
         expect(result).toEqual(content);
