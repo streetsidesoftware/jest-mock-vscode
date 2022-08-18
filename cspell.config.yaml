@@ -1,7 +1,11 @@
 version: '0.2'
 ignorePaths:
-  - '*-lock.{yaml,json}'
+  - .gitignore
   - .prettierignore
+  - '*-lock.{yaml,json}'
+  - /dist
+  - .git/*/**
+  - node_modules
 dictionaryDefinitions: []
 dictionaries: []
 words:
