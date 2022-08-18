@@ -1,6 +1,6 @@
-version: "0.2"
+version: '0.2'
 ignorePaths:
-  - "*-lock.{yaml,json}"
+  - '*-lock.{yaml,json}'
   - .prettierignore
 dictionaryDefinitions: []
 dictionaries: []
