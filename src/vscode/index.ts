@@ -5,6 +5,7 @@ export * from './TextDocument';
 export * from './CodeAction';
 export * from './MarkdownString';
 export * from './fs';
+export { FileSystemError } from './FileSystemError';
 export {
     WorkspaceConfiguration,
     createMockWorkspaceConfiguration,
