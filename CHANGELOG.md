@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.1.0](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.0.2...v1.1.0) (2022-08-18)
+
+
+### Features
+
+* Add some support for VS Code File System ([#12](https://github.com/streetsidesoftware/jest-mock-vscode/issues/12)) ([ef0476b](https://github.com/streetsidesoftware/jest-mock-vscode/commit/ef0476b13961ecc121d9b8fbbf32dad0626f88de))
+
+
+### Updates and Bug Fixes
+
+* Update VSCode to (^1.70.0) ([#8](https://github.com/streetsidesoftware/jest-mock-vscode/issues/8)) ([44bd7b4](https://github.com/streetsidesoftware/jest-mock-vscode/commit/44bd7b44f6534e19dbc7f1a849877aae18d8aadf))
+
+
+### Continuous Integration
+
+* add permissions to workflow ([6635d7a](https://github.com/streetsidesoftware/jest-mock-vscode/commit/6635d7acaa2178523df2b178c6e0226a0b91427a))
+* set workflow permissions ([9490da9](https://github.com/streetsidesoftware/jest-mock-vscode/commit/9490da973ce6930454fa124522d395c0e4da3452))
+* Workflow Bot -- Update ALL Dependencies ([#11](https://github.com/streetsidesoftware/jest-mock-vscode/issues/11)) ([582a3dc](https://github.com/streetsidesoftware/jest-mock-vscode/commit/582a3dce73ff774c7acab952297fd86687aaa245))
+* Workflow Bot -- Update ALL Dependencies ([#13](https://github.com/streetsidesoftware/jest-mock-vscode/issues/13)) ([7de38bd](https://github.com/streetsidesoftware/jest-mock-vscode/commit/7de38bd600aa7f8b0cf084e251acea0927fea7e8))
+
 ## [1.0.2](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.0.1...v1.0.2) (2022-08-07)
 
 
