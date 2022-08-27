@@ -190,13 +190,18 @@ function getKeyValue<T>(
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getKeyValueFromRecord(data: Record<string, any> | undefined, key: string): any | undefined {
+function getKeyValueFromRecord(data: Record<string, any> | unknown, key: string): any | undefined {
     const parts = key.split('.');
     for (const k of parts) {
-        if (data === undefined) return undefined;
+        if (!isRecord(data)) return undefined;
         data = data[k];
     }
     return data;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function isRecord(data: unknown): data is Record<string, any> {
+    return !!(data && typeof data === 'object');
 }
 
 function getValueFromInspect<T, U>(
