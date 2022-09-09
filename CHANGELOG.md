@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.1.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.1.0...v1.1.1) (2022-09-09)
+
+
+### Miscellaneous
+
+* Update TypeScript ([#15](https://github.com/streetsidesoftware/jest-mock-vscode/issues/15)) ([a7cd767](https://github.com/streetsidesoftware/jest-mock-vscode/commit/a7cd767bdf02bb2c99bc7952cbc03202e3b7e8cd))
+
+
+### Updates and Bug Fixes
+
+* fix incorrect error codes ([#22](https://github.com/streetsidesoftware/jest-mock-vscode/issues/22)) ([b093e57](https://github.com/streetsidesoftware/jest-mock-vscode/commit/b093e57d93b18cd6386755a46f834a50d0f59c3c))
+* Update VSCode to (^1.71.0) ([#20](https://github.com/streetsidesoftware/jest-mock-vscode/issues/20)) ([6c9cee1](https://github.com/streetsidesoftware/jest-mock-vscode/commit/6c9cee1ee9ccced33a27b57721dfc720a14001fb))
+
+
+### Tests
+
+* fix issue with test race condition. ([#25](https://github.com/streetsidesoftware/jest-mock-vscode/issues/25)) ([30baef2](https://github.com/streetsidesoftware/jest-mock-vscode/commit/30baef251de47c0cbfb3ded92b6c35e24200176d))
+
+
+### Continuous Integration
+
+* Workflow Bot -- Update ALL Dependencies ([#14](https://github.com/streetsidesoftware/jest-mock-vscode/issues/14)) ([2049589](https://github.com/streetsidesoftware/jest-mock-vscode/commit/2049589e74c95442d74a1d52bfa57af0e1c23a27))
+* Workflow Bot -- Update ALL Dependencies ([#24](https://github.com/streetsidesoftware/jest-mock-vscode/issues/24)) ([f9ecafc](https://github.com/streetsidesoftware/jest-mock-vscode/commit/f9ecafc605bf5e48d0d2f6fa7fc9a86077d35c6c))
+
 ## [1.1.0](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.0.2...v1.1.0) (2022-08-18)
 
 
