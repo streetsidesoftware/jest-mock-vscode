@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.2](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.1.1...v1.1.2) (2022-09-09)
+
+
+### Tests
+
+* Add test for instanceOf ([#26](https://github.com/streetsidesoftware/jest-mock-vscode/issues/26)) ([9368008](https://github.com/streetsidesoftware/jest-mock-vscode/commit/93680083e3944590b5a949d3f30b51f061a4c274))
+
+
+### Updates and Bug Fixes
+
+* Add mock for `fs.stat` ([#28](https://github.com/streetsidesoftware/jest-mock-vscode/issues/28)) ([37b61c8](https://github.com/streetsidesoftware/jest-mock-vscode/commit/37b61c8fbe35945204d2b125adac788493c8ba0c))
+
 ## [1.1.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.1.0...v1.1.1) (2022-09-09)
 
 
