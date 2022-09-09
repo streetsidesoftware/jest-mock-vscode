@@ -1,5 +1,5 @@
-// eslint-disable-next-line node/no-missing-import
 import { promises as fs } from 'fs';
+// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
 import { toFileSystemError } from './FileSystemError';
 import { FileType } from './FileType';
