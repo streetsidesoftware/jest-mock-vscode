@@ -3,8 +3,11 @@ import { Uri } from './uri';
 import { promises as fsp } from 'fs';
 import * as path from 'path';
 import { FileSystemError } from './FileSystemError';
+import { FileType } from './FileType';
 
 const rootTemp = Uri.joinPath(Uri.file(__dirname), '../../temp/' + path.basename(__filename, '.ts'));
+
+const oc = expect.objectContaining;
 
 describe('fs', () => {
     const fs = createMockFileSystem();
@@ -33,5 +36,22 @@ describe('fs', () => {
         await expect(fs.writeFile(uriTempFile, content)).resolves.toBeUndefined();
         const result = await fs.readFile(uriTempFile);
         expect(result).toEqual(content);
+    });
+
+    test.each`
+        uri                     | expected
+        ${Uri.file(__dirname)}  | ${oc({ type: FileType.Directory })}
+        ${Uri.file(__filename)} | ${oc({ type: FileType.File })}
+    `('stat $uri', async ({ uri, expected }) => {
+        const result = await fs.stat(uri);
+        expect(result).toEqual(expected);
+    });
+
+    test.each`
+        uri                                        | expected
+        ${Uri.joinPath(rootTemp, 'not_found.txt')} | ${oc({ code: 'FileNotFound' })}
+    `('stat error $uri', async ({ uri, expected }) => {
+        const result = await Promise.resolve(fs.stat(uri)).catch((e) => e);
+        expect(result).toEqual(expected);
     });
 });
