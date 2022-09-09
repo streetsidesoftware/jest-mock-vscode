@@ -1,9 +1,10 @@
+import { promises as fs } from 'fs';
 // eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
-import { Uri } from './uri';
-import { promises as fs } from 'fs';
 import { toFileSystemError } from './FileSystemError';
+import { FileType } from './FileType';
 import { toErrorErrnoException } from './isError';
+import { Uri } from './uri';
 
 type FileSystemProvider = vscode.FileSystemProvider;
 
@@ -57,6 +58,27 @@ function isErrorWithCode(e: unknown, code: string): boolean {
     return toErrorErrnoException(e).code === code;
 }
 
+async function stat(uri: Uri): Promise<vscode.FileStat> {
+    try {
+        const stat = await fs.stat(uri.fsPath);
+
+        return {
+            type: stat.isFile()
+                ? FileType.File
+                : stat.isDirectory()
+                ? FileType.Directory
+                : stat.isSymbolicLink()
+                ? FileType.SymbolicLink
+                : FileType.Unknown,
+            ctime: stat.ctimeMs,
+            mtime: stat.mtimeMs,
+            size: stat.size,
+        };
+    } catch (e) {
+        throw toFileSystemError(uri, e);
+    }
+}
+
 export const nodeFileSystemProvider: FileSystemProvider = {
     createDirectory,
     readFile,
@@ -66,6 +88,6 @@ export const nodeFileSystemProvider: FileSystemProvider = {
     onDidChangeFile: jest.fn(),
     readDirectory: jest.fn(),
     rename: jest.fn(),
-    stat: jest.fn(),
+    stat,
     watch: jest.fn(),
 };

@@ -34,7 +34,7 @@ export function createMockFileSystemProvider(): FileSystemProvider {
         readDirectory: jest.fn(),
         readFile: jest.fn(fsn.readFile),
         rename: jest.fn(),
-        stat: jest.fn(),
+        stat: jest.fn(fsn.stat),
         watch: jest.fn(),
         writeFile: jest.fn(fsn.writeFile),
     };
