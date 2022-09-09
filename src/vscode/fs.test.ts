@@ -2,6 +2,7 @@ import { createMockFileSystem } from './fs';
 import { Uri } from './uri';
 import { promises as fsp } from 'fs';
 import * as path from 'path';
+import { FileSystemError } from './FileSystemError';
 
 const rootTemp = Uri.joinPath(Uri.file(__dirname), '../../temp/' + path.basename(__filename, '.ts'));
 
@@ -15,6 +16,13 @@ describe('fs', () => {
     test('readFile', async () => {
         const content = Buffer.from(await fs.readFile(Uri.file(__filename))).toString('utf8');
         expect(content).toContain('this bit of text');
+    });
+
+    test('file does not exist', async () => {
+        const uriFile = Uri.joinPath(Uri.file(__dirname), 'Does_Not_Exist.txt');
+        const result = await Promise.resolve(fs.readFile(uriFile)).catch((e) => e);
+        expect(result).toBeInstanceOf(FileSystemError);
+        expect(result instanceof FileSystemError).toBe(true);
     });
 
     test('writeFile', async () => {
