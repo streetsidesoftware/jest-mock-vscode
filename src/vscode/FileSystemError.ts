@@ -28,13 +28,13 @@ export function toFileSystemError(uri: Uri, error: NodeJS.ErrnoException | unkno
 }
 
 export const FileSystemProviderErrorCode = {
-    FileExists: 'EntryExists',
-    FileNotFound: 'EntryNotFound',
-    FileNotADirectory: 'EntryNotADirectory',
-    FileIsADirectory: 'EntryIsADirectory',
-    FileExceedsMemoryLimit: 'EntryExceedsMemoryLimit',
-    FileTooLarge: 'EntryTooLarge',
-    FileWriteLocked: 'EntryWriteLocked',
+    FileExists: 'FileExists',
+    FileNotFound: 'FileNotFound',
+    FileNotADirectory: 'FileNotADirectory',
+    FileIsADirectory: 'FileIsADirectory',
+    FileExceedsMemoryLimit: 'FileExceedsMemoryLimit',
+    FileTooLarge: 'FileTooLarge',
+    FileWriteLocked: 'FileWriteLocked',
     NoPermissions: 'NoPermissions',
     Unavailable: 'Unavailable',
     Unknown: 'Unknown',
