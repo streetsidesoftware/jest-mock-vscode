@@ -1,8 +1,9 @@
 import { nodeFileSystemProvider as fs } from './fsNode';
 import { Uri } from './uri';
 import { promises as fsp } from 'fs';
+import * as path from 'path';
 
-const rootTemp = Uri.joinPath(Uri.file(__dirname), '../../temp/fsNode');
+const rootTemp = Uri.joinPath(Uri.file(__dirname), '../../temp/' + path.basename(__filename, '.ts'));
 
 describe('fs', () => {
     test.each`
