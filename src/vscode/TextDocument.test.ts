@@ -68,7 +68,7 @@ describe('Validate TextDocument', () => {
         const doc = createDoc();
         expect(await doc.save()).toEqual(false);
         MockTextDocument.setContents(doc, content());
-        expect(() => doc.save()).toThrowError('Method not implemented.');
+        expect(() => doc.save()).toThrow('Method not implemented.');
     });
 });
 
