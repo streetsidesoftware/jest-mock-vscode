@@ -1,7 +1,7 @@
 // eslint-disable-next-line node/no-missing-import, import/no-duplicates
 import type * as vscode from 'vscode';
 // eslint-disable-next-line node/no-missing-import, import/no-duplicates
-import type { Range, Uri as URI, TextEdit } from 'vscode';
+import type { Range, Uri as URI, TextEdit, NotebookEdit, SnippetTextEdit } from 'vscode';
 import { IFileOperation, IFileTextEdit } from './extHostTypes';
 import { FileEditType } from './baseTypes';
 import * as vsMock from './extHostTypes';
@@ -133,7 +133,47 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
         return this._edits.some((edit) => edit._type === FileEditType.Text && edit.uri.toString() === uri.toString());
     }
 
-    set(uri: URI, edits: TextEdit[]): void {
+    /**
+     * Set (and replace) notebook edits for a resource.
+     *
+     * @param uri A resource identifier.
+     * @param edits An array of edits.
+     */
+    set(uri: URI, edits: NotebookEdit[]): void;
+
+    /**
+     * Set (and replace) notebook edits with metadata for a resource.
+     *
+     * @param uri A resource identifier.
+     * @param edits An array of edits.
+     */
+    set(uri: URI, edits: [NotebookEdit, vscode.WorkspaceEditEntryMetadata][]): void;
+
+    /**
+     * Set (and replace) text edits or snippet edits for a resource.
+     *
+     * @param uri A resource identifier.
+     * @param edits An array of edits.
+     */
+    set(uri: URI, edits: (TextEdit | SnippetTextEdit)[]): void;
+
+    /**
+     * Set (and replace) text edits or snippet edits with metadata for a resource.
+     *
+     * @param uri A resource identifier.
+     * @param edits An array of edits.
+     */
+    set(uri: URI, edits: [TextEdit | vscode.SnippetTextEdit, vscode.WorkspaceEditEntryMetadata][]): void;
+
+    set(
+        uri: URI,
+        edits: (
+            | TextEdit
+            | NotebookEdit
+            | SnippetTextEdit
+            | [TextEdit | vscode.SnippetTextEdit | NotebookEdit, vscode.WorkspaceEditEntryMetadata]
+        )[]
+    ): void {
         if (!edits) {
             // remove all text edits for `uri`
             for (let i = 0; i < this._edits.length; i++) {
@@ -147,6 +187,12 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
         } else {
             // append edit to the end
             for (const edit of edits) {
+                if (Array.isArray(edit)) {
+                    throw new Error('Edit pairs not implemented.');
+                }
+                if (!isTextEdit(edit)) {
+                    throw new Error('Only TextEdits are currently supported.');
+                }
                 if (edit) {
                     this._edits.push({ _type: FileEditType.Text, uri, edit });
                 }
@@ -186,4 +232,9 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
     toJSON(): ANY {
         return this.entries();
     }
+}
+
+function isTextEdit(edit: TextEdit | SnippetTextEdit | NotebookEdit): edit is TextEdit {
+    const tEdit = <TextEdit>edit;
+    return typeof tEdit.newText === 'string';
 }
