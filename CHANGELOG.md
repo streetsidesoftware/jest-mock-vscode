@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.2.0](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.1.2...v1.2.0) (2022-10-10)
+
+
+### Features
+
+* Update to VS Code 1.72 ([#40](https://github.com/streetsidesoftware/jest-mock-vscode/issues/40)) ([8bd16c1](https://github.com/streetsidesoftware/jest-mock-vscode/commit/8bd16c1cf3ab1c7c4f22bfdcd80b7435dda6a340))
+
+
+### Miscellaneous
+
+* **deps-dev:** bump @types/jest from 28.1.8 to 29.1.2 ([#38](https://github.com/streetsidesoftware/jest-mock-vscode/issues/38)) ([2d1f87e](https://github.com/streetsidesoftware/jest-mock-vscode/commit/2d1f87ecab4391cb1b094b934349fa943bd45c74))
+* **deps-dev:** bump eslint-plugin-jest from 26.9.0 to 27.1.1 ([#37](https://github.com/streetsidesoftware/jest-mock-vscode/issues/37)) ([5b08f79](https://github.com/streetsidesoftware/jest-mock-vscode/commit/5b08f7969a62fa50b269e29600ff7d86787251ea))
+
+
+### Continuous Integration
+
+* Workflow Bot -- Update ALL Dependencies ([#29](https://github.com/streetsidesoftware/jest-mock-vscode/issues/29)) ([3b01fe6](https://github.com/streetsidesoftware/jest-mock-vscode/commit/3b01fe6c00e66b531109ba5265a4389b82198bce))
+* Workflow Bot -- Update ALL Dependencies ([#41](https://github.com/streetsidesoftware/jest-mock-vscode/issues/41)) ([0336bb1](https://github.com/streetsidesoftware/jest-mock-vscode/commit/0336bb19e2f1869755c93961bee5a6e470fcebcd))
+
 ## [1.1.2](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.1.1...v1.1.2) (2022-09-09)
 
 
