@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.2.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.2.0...v1.2.1) (2022-11-21)
+
+
+### Miscellaneous
+
+* **deps:** bump pnpm/action-setup from 2.2.2 to 2.2.4 ([#44](https://github.com/streetsidesoftware/jest-mock-vscode/issues/44)) ([b282c97](https://github.com/streetsidesoftware/jest-mock-vscode/commit/b282c973a93d2b90dc22028978065e83bb42362d))
+
+
+### Updates and Bug Fixes
+
+* Update VSCode to (^1.73.1) ([#47](https://github.com/streetsidesoftware/jest-mock-vscode/issues/47)) ([9ecc7ba](https://github.com/streetsidesoftware/jest-mock-vscode/commit/9ecc7ba63eaae3c02899763158ab205c34ec67b8))
+
+
+### Continuous Integration
+
+* Workflow Bot -- Update ALL Dependencies ([#42](https://github.com/streetsidesoftware/jest-mock-vscode/issues/42)) ([6fc1e09](https://github.com/streetsidesoftware/jest-mock-vscode/commit/6fc1e09219852d4c1f3ee38180ee3218b6fb6df9))
+* Workflow Bot -- Update ALL Dependencies ([#48](https://github.com/streetsidesoftware/jest-mock-vscode/issues/48)) ([04ab407](https://github.com/streetsidesoftware/jest-mock-vscode/commit/04ab407c1f69deec0410d92f7dc728c1fd7f463a))
+
 ## [1.2.0](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.1.2...v1.2.0) (2022-10-10)
 
 
