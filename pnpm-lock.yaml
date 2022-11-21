@@ -4,7 +4,7 @@ specifiers:
   '@tsconfig/node16': ^1.0.3
   '@types/jest': ^29.2.0
   '@types/node': ^18.11.0
-  '@types/vscode': ^1.72.0
+  '@types/vscode': ^1.73.1
   '@typescript-eslint/eslint-plugin': ^5.40.1
   '@typescript-eslint/parser': ^5.40.1
   eslint: ^8.25.0
@@ -28,7 +28,7 @@ devDependencies:
   '@tsconfig/node16': 1.0.3
   '@types/jest': 29.2.0
   '@types/node': 18.11.0
-  '@types/vscode': 1.72.0
+  '@types/vscode': 1.73.1
   '@typescript-eslint/eslint-plugin': 5.40.1_ukgdydjtebaxmxfqp5v5ulh64y
   '@typescript-eslint/parser': 5.40.1_z4bbprzjrhnsfa24uvmcbu7f5q
   eslint: 8.25.0
@@ -829,8 +829,8 @@ packages:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==}
     dev: true
 
-  /@types/vscode/1.72.0:
-    resolution: {integrity: sha512-WvHluhUo+lQvE3I4wUagRpnkHuysB4qSyOQUyIAS9n9PYMJjepzTUD8Jyks0YeXoPD0UGctjqp2u84/b3v6Ydw==}
+  /@types/vscode/1.73.1:
+    resolution: {integrity: sha512-eArfOrAoZVV+Ao9zQOCaFNaeXj4kTCD+bGS2gyNgIFZH9xVMuLMlRrEkhb22NyxycFWKV1UyTh03vhaVHmqVMg==}
     dev: true
 
   /@types/yargs-parser/21.0.0:
