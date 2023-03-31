@@ -46,7 +46,7 @@
     "@tsconfig/node16": "^1.0.3",
     "@types/jest": "^29.4.0",
     "@types/node": "^18.11.18",
-    "@types/vscode": "^1.75.1",
+    "@types/vscode": "^1.77.0",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
     "eslint": "^8.32.0",
