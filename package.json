@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "author": "Jason Dent",
   "license": "MIT",
-  "packageManager": "pnpm@7.9.0",
+  "packageManager": "pnpm@8.2.0",
   "engines": {
     "node": ">16.0.0"
   },
