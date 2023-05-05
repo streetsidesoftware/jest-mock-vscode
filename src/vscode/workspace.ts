@@ -66,6 +66,7 @@ export class MockWorkspace implements Workspace {
     onWillCreateFiles = jest.fn();
     onWillDeleteFiles = jest.fn();
     onWillRenameFiles = jest.fn();
+    onWillSaveNotebookDocument = jest.fn();
     onWillSaveTextDocument = jest.fn();
     registerFileSystemProvider = jest.fn();
     registerNotebookSerializer = jest.fn();
