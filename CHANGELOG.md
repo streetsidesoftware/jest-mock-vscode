@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.4.0](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.3.0...v1.4.0) (2023-05-05)
+
+
+### Features
+
+* Update to vscode 1.78.0 ([18a1e17](https://github.com/streetsidesoftware/jest-mock-vscode/commit/18a1e17db6f10570ab99c18e17a0082a08b27dcd))
+
+
+### Continuous Integration
+
+* Workflow Bot -- Update ALL Dependencies ([#55](https://github.com/streetsidesoftware/jest-mock-vscode/issues/55)) ([52a8292](https://github.com/streetsidesoftware/jest-mock-vscode/commit/52a82923f57e4f7d455791157d93d6f91725dbbe))
+
+
+### Updates and Bug Fixes
+
+* Update VSCode to (^1.74.1) ([#58](https://github.com/streetsidesoftware/jest-mock-vscode/issues/58)) ([3623227](https://github.com/streetsidesoftware/jest-mock-vscode/commit/362322747b601fdbaf5019cfcd02a1892c22d9a0))
+* Update VSCode to (^1.75.0) ([#59](https://github.com/streetsidesoftware/jest-mock-vscode/issues/59)) ([ccaecc1](https://github.com/streetsidesoftware/jest-mock-vscode/commit/ccaecc1d07dc4a0afefdc09fc3661ddd3561d178))
+* Update VSCode to (^1.75.1) ([#60](https://github.com/streetsidesoftware/jest-mock-vscode/issues/60)) ([f350b53](https://github.com/streetsidesoftware/jest-mock-vscode/commit/f350b53db14bffc2b5be48fbc3f158e03d5c46b2))
+* Update VSCode to (^1.77.0) ([#61](https://github.com/streetsidesoftware/jest-mock-vscode/issues/61)) ([dd78f07](https://github.com/streetsidesoftware/jest-mock-vscode/commit/dd78f073e0baaa8938c78563f7f54d7819fa7572))
+
+
+### Miscellaneous
+
+* **deps:** bump peter-evans/create-pull-request from 4 to 5 ([#64](https://github.com/streetsidesoftware/jest-mock-vscode/issues/64)) ([1029b6f](https://github.com/streetsidesoftware/jest-mock-vscode/commit/1029b6f14df43eae395249f7f325b29ff590bdc5))
+* update pnpm to 8.2.0 ([03531a4](https://github.com/streetsidesoftware/jest-mock-vscode/commit/03531a4eefd4fe7d7a63b932f3886f689caf15d5))
+
 ## [1.3.0](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.2.1...v1.3.0) (2023-01-08)
 
 
