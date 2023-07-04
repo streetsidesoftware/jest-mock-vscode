@@ -43,7 +43,7 @@
     "url": "https://github.com/streetsidesoftware/jest-mock-vscode.git"
   },
   "devDependencies": {
-    "@tsconfig/node16": "^1.0.4",
+    "@tsconfig/node16": "^16.1.0",
     "@types/jest": "^29.5.2",
     "@types/node": "^18.16.19",
     "@types/vscode": "^1.79.1",

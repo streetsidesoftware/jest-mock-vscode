@@ -7,8 +7,8 @@ dependencies:
 
 devDependencies:
   '@tsconfig/node16':
-    specifier: ^1.0.4
-    version: 1.0.4
+    specifier: ^16.1.0
+    version: 16.1.0
   '@types/jest':
     specifier: ^29.5.2
     version: 29.5.2
@@ -766,8 +766,8 @@ packages:
       '@sinonjs/commons': 3.0.0
     dev: true
 
-  /@tsconfig/node16@1.0.4:
-    resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
+  /@tsconfig/node16@16.1.0:
+    resolution: {integrity: sha512-cfwhqrdZEKS+Iqu1OPDwmKsOV/eo7q4sPhWzOXc1rU77nnPFV3+77yPg8uKQ2e8eir6mERCvrKnd+EGa4qo4bQ==}
     dev: true
 
   /@types/babel__core@7.20.1:
