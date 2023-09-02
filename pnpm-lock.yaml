@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 dependencies:
   vscode-uri:
     specifier: ^3.0.7
@@ -20,7 +16,7 @@ devDependencies:
     specifier: ^18.17.9
     version: 18.17.9
   '@types/vscode':
-    specifier: ^1.79.1
+    specifier: ^1.81.0
     version: 1.81.0
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.62.0
@@ -3748,3 +3744,7 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
