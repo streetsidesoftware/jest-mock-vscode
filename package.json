@@ -46,11 +46,11 @@
   "devDependencies": {
     "@tsconfig/node16": "^16.1.1",
     "@types/jest": "^29.5.4",
-    "@types/node": "^18.17.9",
+    "@types/node": "^18.17.14",
     "@types/vscode": "^1.81.0",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
-    "eslint": "^8.47.0",
+    "eslint": "^8.48.0",
     "eslint-config-prettier": "^8.10.0",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-jest": "^27.2.3",
