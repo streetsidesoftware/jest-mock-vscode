@@ -5,7 +5,8 @@
 	"compilerOptions": {
 		"declaration": true,
 		"declarationMap": true,
-		"moduleResolution": "node",
+        "module": "Node16",
+		"moduleResolution": "Node16",
 		"sourceMap": true,
 		"outDir": "dist",
 		"rootDir": "src"
