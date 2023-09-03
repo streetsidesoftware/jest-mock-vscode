@@ -2,6 +2,7 @@ import assert from 'assert';
 // eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
 import { ConfigurationTarget } from './extHostTypes';
+import { TestFramework } from '../TestFramework';
 
 export type WorkspaceConfiguration = vscode.WorkspaceConfiguration;
 
@@ -113,6 +114,7 @@ export interface MockWorkspaceConfiguration<T> extends WorkspaceConfiguration {
 }
 
 export function createMockWorkspaceConfiguration<T>(
+    jest: TestFramework,
     data: MockWorkspaceConfigurationData<T> = { [allLanguagesKeyId]: {} },
     key = '',
     scope?: vscode.ConfigurationScope | null,
@@ -135,7 +137,7 @@ export function createMockWorkspaceConfiguration<T>(
         __section: key,
         __languageId: languageIdKey,
         __getConfiguration: (section: string | undefined, scope?: vscode.ConfigurationScope | null) =>
-            createMockWorkspaceConfiguration(data, section, scope),
+            createMockWorkspaceConfiguration(jest, data, section, scope),
     };
 
     return cfg;

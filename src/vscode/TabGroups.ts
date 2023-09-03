@@ -1,14 +1,18 @@
 // eslint-disable-next-line node/no-missing-import
 import type { TabGroups, TabGroup } from 'vscode';
+import { TestFramework } from '../TestFramework';
 
 export class MockTabGroups implements TabGroups {
-    constructor(readonly all: TabGroup[]) {}
+    constructor(
+        private jest: TestFramework,
+        readonly all: TabGroup[],
+    ) {}
 
     get activeTabGroup(): TabGroup {
         return this.all[0];
     }
 
-    onDidChangeTabGroups = jest.fn();
-    onDidChangeTabs = jest.fn();
-    close = jest.fn();
+    onDidChangeTabGroups = this.jest.fn();
+    onDidChangeTabs = this.jest.fn();
+    close = this.jest.fn();
 }

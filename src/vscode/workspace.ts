@@ -4,12 +4,14 @@ import { createMockFileSystem } from './fs';
 import { createMockWorkspaceConfiguration } from './WorkspaceConfiguration';
 import { createTextDocument, readTextDocument } from '../vscodeTypesHelper';
 import { isUri, Uri } from './uri';
+import { TestFramework } from '../TestFramework';
 
 export type Workspace = typeof vscode.workspace;
 
-const fs = createMockFileSystem();
-
 export class MockWorkspace implements Workspace {
+    constructor(private jest: TestFramework) {}
+    private _fs = createMockFileSystem(this.jest);
+
     private _workspaceFolders: Workspace['workspaceFolders'] = undefined;
 
     get workspaceFolders(): Workspace['workspaceFolders'] {
@@ -21,7 +23,7 @@ export class MockWorkspace implements Workspace {
     }
 
     get fs(): Workspace['fs'] {
-        return fs;
+        return this._fs;
     }
 
     get name(): Workspace['name'] {
@@ -37,46 +39,49 @@ export class MockWorkspace implements Workspace {
     textDocuments = [];
     notebookDocuments = [];
 
-    __mockConfig = createMockWorkspaceConfiguration();
+    __mockConfig = createMockWorkspaceConfiguration(this.jest);
 
-    applyEdit = jest.fn();
-    asRelativePath = jest.fn((a) => a?.toString());
-    createFileSystemWatcher = jest.fn();
-    findFiles = jest.fn();
-    getConfiguration = jest.fn((...args: Parameters<Workspace['getConfiguration']>) =>
+    applyEdit = this.jest.fn();
+    asRelativePath = this.jest.fn((a) => a?.toString());
+    createFileSystemWatcher = this.jest.fn();
+    findFiles = this.jest.fn();
+    getConfiguration = this.jest.fn((...args: Parameters<Workspace['getConfiguration']>) =>
         this.__mockConfig.__getConfiguration(...args),
     );
-    getWorkspaceFolder = jest.fn((uri) => getWorkspaceFolder(uri, this.workspaceFolders || []));
-    onDidSaveTextDocument = jest.fn();
+    getWorkspaceFolder = this.jest.fn((uri) => getWorkspaceFolder(uri, this.workspaceFolders || []));
+    onDidSaveTextDocument = this.jest.fn();
     openTextDocument = openTextDocument;
-    openNotebookDocument = jest.fn();
-    onDidChangeConfiguration = jest.fn();
-    onDidChangeNotebookDocument = jest.fn();
-    onDidChangeTextDocument = jest.fn();
-    onDidChangeWorkspaceFolders = jest.fn();
-    onDidCloseNotebookDocument = jest.fn();
-    onDidCloseTextDocument = jest.fn();
-    onDidCreateFiles = jest.fn();
-    onDidDeleteFiles = jest.fn();
-    onDidGrantWorkspaceTrust = jest.fn();
-    onDidOpenNotebookDocument = jest.fn();
-    onDidOpenTextDocument = jest.fn();
-    onDidRenameFiles = jest.fn();
-    onDidSaveNotebookDocument = jest.fn();
-    onWillCreateFiles = jest.fn();
-    onWillDeleteFiles = jest.fn();
-    onWillRenameFiles = jest.fn();
-    onWillSaveNotebookDocument = jest.fn();
-    onWillSaveTextDocument = jest.fn();
-    registerFileSystemProvider = jest.fn();
-    registerNotebookSerializer = jest.fn();
-    registerTaskProvider = jest.fn();
-    registerTextDocumentContentProvider = jest.fn();
-    saveAll = jest.fn();
-    updateWorkspaceFolders = jest.fn();
+    openNotebookDocument = this.jest.fn();
+    onDidChangeConfiguration = this.jest.fn();
+    onDidChangeNotebookDocument = this.jest.fn();
+    onDidChangeTextDocument = this.jest.fn();
+    onDidChangeWorkspaceFolders = this.jest.fn();
+    onDidCloseNotebookDocument = this.jest.fn();
+    onDidCloseTextDocument = this.jest.fn();
+    onDidCreateFiles = this.jest.fn();
+    onDidDeleteFiles = this.jest.fn();
+    onDidGrantWorkspaceTrust = this.jest.fn();
+    onDidOpenNotebookDocument = this.jest.fn();
+    onDidOpenTextDocument = this.jest.fn();
+    onDidRenameFiles = this.jest.fn();
+    onDidSaveNotebookDocument = this.jest.fn();
+    onWillCreateFiles = this.jest.fn();
+    onWillDeleteFiles = this.jest.fn();
+    onWillRenameFiles = this.jest.fn();
+    onWillSaveNotebookDocument = this.jest.fn();
+    onWillSaveTextDocument = this.jest.fn();
+    registerFileSystemProvider = this.jest.fn();
+    registerNotebookSerializer = this.jest.fn();
+    registerTaskProvider = this.jest.fn();
+    registerTextDocumentContentProvider = this.jest.fn();
+    saveAll = this.jest.fn();
+    updateWorkspaceFolders = this.jest.fn();
 }
 
-export const workspace = new MockWorkspace();
+export function createWorkspace(jest: TestFramework): MockWorkspace {
+    const workspace = new MockWorkspace(jest);
+    return workspace;
+}
 
 interface OpenTextDocumentOptions {
     language?: string;

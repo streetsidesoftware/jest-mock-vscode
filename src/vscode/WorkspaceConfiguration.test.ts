@@ -1,8 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { describe, expect, test, jest } from '@jest/globals';
 import rfdc from 'rfdc';
 import { ConfigurationTarget } from './index';
 import { createMockWorkspaceConfiguration, MockWorkspaceConfigurationData } from './WorkspaceConfiguration';
 
 const clone = rfdc();
+
+const oc = expect.objectContaining;
 
 interface TestConfig {
     myExtension?: {
@@ -23,7 +27,7 @@ interface TestConfig {
 
 describe('WorkspaceConfiguration', () => {
     test('createMockWorkspaceConfiguration', () => {
-        const config = createMockWorkspaceConfiguration<TestConfig>();
+        const config = createMockWorkspaceConfiguration<TestConfig>(jest);
         expect(config.get('myExtension.show')).toBe(undefined);
         expect(config.get('myExtension.name')).toBe(undefined);
     });
@@ -36,9 +40,15 @@ describe('WorkspaceConfiguration', () => {
         ${'myExtension.name'}       | ${true}
         ${'otherExtension.enabled'} | ${false}
     `('createMockWorkspaceConfiguration has $key', ({ key, expected }) => {
-        const config = createMockWorkspaceConfiguration<TestConfig>(sampleConfigData());
-        expect(config.has(key)).toBe(expected);
+        const config = createMockWorkspaceConfiguration<TestConfig>(jest, sampleConfigData());
+        expect(config.has(key as string)).toBe(expected);
     });
+
+    interface TestCaseCreateMockWSConfig extends Record<string, unknown> {
+        key: string;
+        scope: undefined;
+        expected: any;
+    }
 
     test.each`
         key                         | scope        | expected
@@ -46,9 +56,10 @@ describe('WorkspaceConfiguration', () => {
         ${'myExtension.name'}       | ${undefined} | ${'workspace'}
         ${'myExtension.values'}     | ${undefined} | ${['workspace']}
         ${'otherExtension.enabled'} | ${undefined} | ${undefined}
-    `('createMockWorkspaceConfiguration get $key $scope', ({ key, scope, expected }) => {
+    `('createMockWorkspaceConfiguration get $key $scope', (params) => {
+        const { key, scope, expected } = params as TestCaseCreateMockWSConfig;
         const data = sampleConfigData();
-        const config = createMockWorkspaceConfiguration<TestConfig>(data, undefined, scope);
+        const config = createMockWorkspaceConfiguration<TestConfig>(jest, data, undefined, scope);
         const v = config.get(key);
         expect(v).toEqual(expected);
 
@@ -62,7 +73,7 @@ describe('WorkspaceConfiguration', () => {
 
     test('createMockWorkspaceConfiguration update', async () => {
         const data = sampleConfigData();
-        const config = createMockWorkspaceConfiguration<TestConfig>(data, undefined, { languageId: 'php' });
+        const config = createMockWorkspaceConfiguration<TestConfig>(jest, data, undefined, { languageId: 'php' });
         expect(config.get('myExtension.show')).toBe(false);
         expect(config.get('otherExtension.delay')).toBe(50);
 
@@ -118,9 +129,9 @@ describe('WorkspaceConfiguration', () => {
 
     test('MockWorkspaceConfiguration.inspect', () => {
         const data = sampleConfigData();
-        const config = createMockWorkspaceConfiguration<TestConfig>(data);
+        const config = createMockWorkspaceConfiguration<TestConfig>(jest, data);
         const configExtName = config.__getConfiguration('myExtension.name');
-        const configExtName2 = createMockWorkspaceConfiguration<TestConfig>(data, 'myExtension.name');
+        const configExtName2 = createMockWorkspaceConfiguration<TestConfig>(jest, data, 'myExtension.name');
         const configExtPhp = config.__getConfiguration('myExtension', { languageId: 'php' });
 
         expect(configExtName2).toEqual(
@@ -191,10 +202,6 @@ function sampleConfigData(): MockWorkspaceConfigurationData<TestConfig> {
         },
     });
     return cfg;
-}
-
-function oc<T>(t: Partial<T>): T {
-    return expect.objectContaining(t);
 }
 
 function extractFields<T, K extends keyof T = keyof T>(t: T, keys: K[]): Pick<T, K> {

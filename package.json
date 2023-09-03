@@ -44,8 +44,8 @@
     "url": "https://github.com/streetsidesoftware/jest-mock-vscode.git"
   },
   "devDependencies": {
+    "@jest/globals": "^29.6.4",
     "@tsconfig/node16": "^16.1.1",
-    "@types/jest": "^29.5.4",
     "@types/node": "^18.17.14",
     "@types/vscode": "^1.81.0",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
@@ -63,10 +63,8 @@
     "ts-jest": "^29.1.1",
     "typescript": "^5.2.2"
   },
-  "peerDependencies": {
-    "jest": "^29.5.0"
-  },
   "dependencies": {
+    "jest-mock": "^29.6.3",
     "vscode-uri": "^3.0.7"
   }
 }

@@ -1,5 +1,6 @@
-import { window } from './window';
-import { workspace } from './workspace';
+import { describe, expect, test, jest } from '@jest/globals';
+import { createWindow } from './window';
+import { createWorkspace } from './workspace';
 import { Uri } from './uri';
 import * as fs from 'fs/promises';
 
@@ -7,6 +8,9 @@ import * as fs from 'fs/promises';
  * EXPLICIT any
  */
 type ANY = any; // eslint-disable-line @typescript-eslint/no-explicit-any
+
+const workspace = createWorkspace(jest);
+const window = createWindow(jest, workspace);
 
 describe('window', () => {
     test('window', () => {
@@ -47,8 +51,8 @@ describe('window', () => {
         ${'showSaveDialog'}
         ${'showWarningMessage'}
         ${'showWorkspaceFolderPick'}
-    `('partial mocks method resolve to undefined $method', async ({ method }: { method: keyof typeof window }) => {
-        const fn = window[method] as ANY;
+    `('partial mocks method resolve to undefined $method', async ({ method }) => {
+        const fn = (window as Record<string, ANY>)[method as string];
         await expect(fn()).resolves.toEqual(undefined);
     });
 });

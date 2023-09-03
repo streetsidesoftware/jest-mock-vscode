@@ -1,20 +1,20 @@
-export * from './baseTypes';
-export * from './extHostTypes';
-export * from './uri';
-export * from './TextDocument';
 export * from './CodeAction';
-export * from './MarkdownString';
-export * from './fs';
 export { FileSystemError } from './FileSystemError';
+export * from './MarkdownString';
+export * from './TextDocument';
 export {
-    WorkspaceConfiguration,
-    createMockWorkspaceConfiguration,
     MockWorkspaceConfiguration,
     MockWorkspaceConfigurationData,
+    WorkspaceConfiguration,
+    createMockWorkspaceConfiguration,
 } from './WorkspaceConfiguration';
-export { Workspace, workspace, MockWorkspace } from './workspace';
+export * from './baseTypes';
+export * from './extHostTypes';
+export { createMockFileSystem, createMockFileSystemProvider } from './fs';
+export * from './uri';
+export { MockWorkspace, Workspace, createWorkspace } from './workspace';
 
-export { Window, window } from './window';
 export { MockTextEditor } from './TextEditor';
-export { languages, Languages } from './languages';
 export { TypeHierarchyItem } from './TypeHierarchyItem';
+export { Languages, createLanguages } from './languages';
+export { Window, createWindow } from './window';

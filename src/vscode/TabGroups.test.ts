@@ -1,3 +1,4 @@
+import { describe, expect, test, jest } from '@jest/globals';
 // eslint-disable-next-line node/no-missing-import
 import type { TabGroup } from 'vscode';
 import { MockTabGroups } from './TabGroups';
@@ -10,7 +11,7 @@ describe('TabGroups', () => {
             activeTab: undefined,
             tabs: [],
         };
-        const mtg = new MockTabGroups([tg]);
+        const mtg = new MockTabGroups(jest, [tg]);
         expect(mtg.activeTabGroup).toBe(tg);
     });
 });
