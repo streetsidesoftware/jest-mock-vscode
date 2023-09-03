@@ -24,7 +24,7 @@ describe('window', () => {
     test('showTextDocument textDocument', async () => {
         const content = await fs.readFile(__filename, 'utf-8');
         const editor = await window.showTextDocument(
-            await workspace.openTextDocument({ content, language: 'typescript' })
+            await workspace.openTextDocument({ content, language: 'typescript' }),
         );
         expect(editor.document.uri.toString()).toEqual('untitled:Untitled-1');
         expect(editor.document.getText()).toBe(content);

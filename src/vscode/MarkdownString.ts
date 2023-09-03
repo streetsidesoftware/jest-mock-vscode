@@ -8,7 +8,7 @@ export class MarkdownString implements vscode.MarkdownString {
 
     constructor(
         value = '',
-        isTrustedOrOptions: boolean | { isTrusted?: boolean; supportThemeIcons?: boolean } = false
+        isTrustedOrOptions: boolean | { isTrusted?: boolean; supportThemeIcons?: boolean } = false,
     ) {
         this.value = value;
         if (typeof this.value !== 'string') {

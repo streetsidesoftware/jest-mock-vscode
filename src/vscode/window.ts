@@ -89,12 +89,12 @@ function createStatusBarItem(alignment?: StatusBarAlignment, priority?: number):
 function createStatusBarItem(
     id: string | StatusBarAlignment | undefined,
     alignment: StatusBarAlignment | number | undefined,
-    priority?: number
+    priority?: number,
 ): vscode.StatusBarItem;
 function createStatusBarItem(
     id: string | StatusBarAlignment | undefined,
     alignment: StatusBarAlignment | number | undefined,
-    priority?: number
+    priority?: number,
 ): vscode.StatusBarItem {
     if (typeof id === 'string') {
         return _createStatusBarItem(id, alignment, priority);
@@ -129,7 +129,7 @@ function showTextDocument(uri: Uri, options?: TextDocumentShowOptions): Thenable
 async function showTextDocument(
     a: TextDocument | Uri,
     b?: ViewColumn | TextDocumentShowOptions,
-    _preserveFocus?: boolean
+    _preserveFocus?: boolean,
 ): Promise<TextEditor> {
     const document = isUri(a) ? await workspace.openTextDocument(a) : a;
     const viewColumn = typeof b === 'number' ? b : undefined;

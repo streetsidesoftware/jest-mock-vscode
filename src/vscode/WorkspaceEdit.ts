@@ -45,7 +45,7 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
         from: vscode.Uri,
         to: vscode.Uri,
         options?: { overwrite?: boolean; ignoreIfExists?: boolean },
-        metadata?: vscode.WorkspaceEditEntryMetadata
+        metadata?: vscode.WorkspaceEditEntryMetadata,
     ): void {
         this._edits.push({ _type: FileEditType.File, from, to, options, metadata });
     }
@@ -53,7 +53,7 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
     createFile(
         uri: vscode.Uri,
         options?: { overwrite?: boolean; ignoreIfExists?: boolean },
-        metadata?: vscode.WorkspaceEditEntryMetadata
+        metadata?: vscode.WorkspaceEditEntryMetadata,
     ): void {
         this._edits.push({ _type: FileEditType.File, from: undefined, to: uri, options, metadata });
     }
@@ -61,7 +61,7 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
     deleteFile(
         uri: vscode.Uri,
         options?: { recursive?: boolean; ignoreIfNotExists?: boolean },
-        metadata?: vscode.WorkspaceEditEntryMetadata
+        metadata?: vscode.WorkspaceEditEntryMetadata,
     ): void {
         this._edits.push({ _type: FileEditType.File, from: uri, to: undefined, options, metadata });
     }
@@ -71,7 +71,7 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
     replaceNotebookMetadata(
         _uri: URI,
         _value: Record<string, ANY>,
-        _metadata?: vscode.WorkspaceEditEntryMetadata
+        _metadata?: vscode.WorkspaceEditEntryMetadata,
     ): void {
         throw new Error('Method not implemented.');
     }
@@ -80,21 +80,21 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
         uri: URI,
         range: vscode.NotebookRange,
         cells: vscode.NotebookCellData[],
-        metadata?: vscode.WorkspaceEditEntryMetadata
+        metadata?: vscode.WorkspaceEditEntryMetadata,
     ): void;
     replaceNotebookCells(
         uri: URI,
         start: number,
         end: number,
         cells: vscode.NotebookCellData[],
-        metadata?: vscode.WorkspaceEditEntryMetadata
+        metadata?: vscode.WorkspaceEditEntryMetadata,
     ): void;
     replaceNotebookCells(
         _uri: URI,
         _startOrRange: number | vscode.NotebookRange,
         _endOrCells: number | vscode.NotebookCellData[],
         _cellsOrMetadata?: vscode.NotebookCellData[] | vscode.WorkspaceEditEntryMetadata,
-        _metadata?: vscode.WorkspaceEditEntryMetadata
+        _metadata?: vscode.WorkspaceEditEntryMetadata,
     ): void {
         throw new Error('Method not implemented.');
     }
@@ -103,7 +103,7 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
         _uri: URI,
         _index: number,
         _cellMetadata: Record<string, ANY>,
-        _metadata?: vscode.WorkspaceEditEntryMetadata
+        _metadata?: vscode.WorkspaceEditEntryMetadata,
     ): void {
         throw new Error('Method not implemented.');
     }
@@ -118,7 +118,7 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
         resource: URI,
         position: vscode.Position,
         newText: string,
-        metadata?: vscode.WorkspaceEditEntryMetadata
+        metadata?: vscode.WorkspaceEditEntryMetadata,
     ): void {
         this.replace(resource, new vsMock.Range(position, position), newText, metadata);
     }
@@ -172,7 +172,7 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
             | NotebookEdit
             | SnippetTextEdit
             | [TextEdit | vscode.SnippetTextEdit | NotebookEdit, vscode.WorkspaceEditEntryMetadata]
-        )[]
+        )[],
     ): void {
         if (!edits) {
             // remove all text edits for `uri`

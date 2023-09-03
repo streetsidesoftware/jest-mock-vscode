@@ -41,7 +41,7 @@ async function readFile(uri: Uri): Promise<Uint8Array> {
 async function writeFile(
     uri: Uri,
     content: Uint8Array,
-    options: { readonly create: boolean; readonly overwrite: boolean }
+    options: { readonly create: boolean; readonly overwrite: boolean },
 ): Promise<void> {
     try {
         const flag = (options.create ? 'w' : 'a') + (options.overwrite ? '' : 'x');

@@ -124,7 +124,7 @@ describe('WorkspaceConfiguration', () => {
         const configExtPhp = config.__getConfiguration('myExtension', { languageId: 'php' });
 
         expect(configExtName2).toEqual(
-            oc(extractFields(configExtName, ['__inspect_data__', '__languageId', '__section']))
+            oc(extractFields(configExtName, ['__inspect_data__', '__languageId', '__section'])),
         );
         expect(configExtName.inspect('')).toEqual({
             key: 'myExtension.name',
