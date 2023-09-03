@@ -22,9 +22,9 @@ jobs:
           package-name: cspell-action
           changelog-types: |
             [
-              { "type": "chore", "section": "Miscellaneous", "hidden": false },
-              { "type": "ci", "section": "Continuous Integration", "hidden": false },
-              { "type": "dev", "section": "Ongoing Development", "hidden": false },
+              { "type": "chore", "section": "Miscellaneous", "hidden": true },
+              { "type": "ci", "section": "Continuous Integration", "hidden": true },
+              { "type": "dev", "section": "Ongoing Development", "hidden": true },
               { "type": "docs", "section": "Documentation" },
               { "type": "feat", "section": "Features", "hidden": false },
               { "type": "feature", "section": "Features" },
@@ -33,8 +33,9 @@ jobs:
               { "type": "refactor", "section": "Code Refactoring", "hidden": false },
               { "type": "revert", "section": "Reverts" },
               { "type": "style", "section": "Styles", "hidden": false },
-              { "type": "test", "section": "Tests", "hidden": false },
-              { "type": "build", "section": "Build System", "hidden": false }
+              { "type": "test", "section": "Tests", "hidden": true },
+              { "type": "build", "section": "Build System", "hidden": true },
+              { "type": "", "section": "Unknown", "hidden": true }
             ]
 
       - name: release please output
