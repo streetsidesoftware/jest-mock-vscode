@@ -13,7 +13,7 @@ describe('TypeHierarchyItem', () => {
             'detail',
             Uri.file(__filename),
             new Range(0, 0, 0, 0),
-            new Range(0, 0, 0, 0)
+            new Range(0, 0, 0, 0),
         );
 
         expect(item).toBeInstanceOf(TypeHierarchyItem);

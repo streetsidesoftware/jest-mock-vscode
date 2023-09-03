@@ -12,8 +12,8 @@ export class MockTextEditor implements vscode.TextEditor {
         public _viewColumn?: vscode.ViewColumn | undefined,
         selection: vscode.Selection = new mockedTypes.Selection(
             new mockedTypes.Position(0, 0),
-            new mockedTypes.Position(0, 0)
-        )
+            new mockedTypes.Position(0, 0),
+        ),
     ) {
         this._selections = [selection];
     }

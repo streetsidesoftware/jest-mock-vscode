@@ -44,7 +44,7 @@ export class MockWorkspace implements Workspace {
     createFileSystemWatcher = jest.fn();
     findFiles = jest.fn();
     getConfiguration = jest.fn((...args: Parameters<Workspace['getConfiguration']>) =>
-        this.__mockConfig.__getConfiguration(...args)
+        this.__mockConfig.__getConfiguration(...args),
     );
     getWorkspaceFolder = jest.fn((uri) => getWorkspaceFolder(uri, this.workspaceFolders || []));
     onDidSaveTextDocument = jest.fn();
@@ -93,13 +93,13 @@ function openTextDocument(param?: string | vscode.Uri | OpenTextDocumentOptions)
     }
 
     return Promise.resolve(
-        createTextDocument(Uri.parse('untitled:Untitled-1'), options?.content || '', options?.language)
+        createTextDocument(Uri.parse('untitled:Untitled-1'), options?.content || '', options?.language),
     );
 }
 
 function getWorkspaceFolder(
     uri: vscode.Uri,
-    folders: readonly vscode.WorkspaceFolder[]
+    folders: readonly vscode.WorkspaceFolder[],
 ): vscode.WorkspaceFolder | undefined {
     const uriFolder = Uri.joinPath(uri, '..');
 

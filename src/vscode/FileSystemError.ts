@@ -111,7 +111,10 @@ export class FileSystemError extends Error implements vscode.FileSystemError {
      *
      * @param messageOrUri Message or uri.
      */
-    constructor(readonly messageOrUri?: string | Uri, code?: string) {
+    constructor(
+        readonly messageOrUri?: string | Uri,
+        code?: string,
+    ) {
         const msg = typeof messageOrUri === 'string' ? messageOrUri : messageOrUri?.toString();
         super(msg);
         this.code = code || FileSystemProviderErrorCode.Unknown;

@@ -11,11 +11,11 @@ export function createMockFileSystem(provider: FileSystemProvider = createMockFi
         readDirectory: jest.fn((...p) => Promise.resolve(provider.readDirectory(...p))),
         readFile: jest.fn((...p) => Promise.resolve(provider.readFile(...p))),
         rename: jest.fn((oldUri, newUri, opt) =>
-            Promise.resolve(provider.rename(oldUri, newUri, { ...opt, overwrite: opt?.overwrite ?? false }))
+            Promise.resolve(provider.rename(oldUri, newUri, { ...opt, overwrite: opt?.overwrite ?? false })),
         ),
         createDirectory: jest.fn((...p) => Promise.resolve(provider.createDirectory(...p))),
         copy: jest.fn((src, target, opt) =>
-            Promise.resolve(provider.copy?.(src, target, { ...opt, overwrite: opt?.overwrite ?? true }))
+            Promise.resolve(provider.copy?.(src, target, { ...opt, overwrite: opt?.overwrite ?? true })),
         ),
         writeFile: jest.fn((...p) => Promise.resolve(provider.writeFile(...p, { create: true, overwrite: true }))),
         delete: jest.fn((uri, opt) => Promise.resolve(provider.delete(uri, { recursive: opt?.recursive ?? true }))),

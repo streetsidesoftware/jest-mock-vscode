@@ -14,7 +14,7 @@ export class MockTextDocument implements vscode.TextDocument {
         public readonly uri: vscode.Uri,
         private _contents: string,
         public _languageId: string = 'plaintext',
-        public version = 1
+        public version = 1,
     ) {
         this._lines = [];
         this.init();

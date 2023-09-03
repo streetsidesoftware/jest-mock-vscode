@@ -164,7 +164,7 @@ export class Position implements vscode.Position {
     translate(lineDelta?: number, characterDelta?: number): Position;
     translate(
         lineDeltaOrChange: number | undefined | { lineDelta?: number; characterDelta?: number },
-        characterDelta = 0
+        characterDelta = 0,
     ): Position {
         if (lineDeltaOrChange === null || characterDelta === null) {
             throw illegalArgument();
@@ -191,7 +191,7 @@ export class Position implements vscode.Position {
     with(line?: number, character?: number): Position;
     with(
         lineOrChange: number | undefined | { line?: number; character?: number },
-        character: number = this.character
+        character: number = this.character,
     ): Position {
         if (lineOrChange === null || character === null) {
             throw illegalArgument();
@@ -246,7 +246,7 @@ export class Range implements vscode.Range {
         startLineOrStart: number | vscode.Position,
         startColumnOrEnd: number | vscode.Position,
         endLine?: number,
-        endColumn?: number
+        endColumn?: number,
     ) {
         let start: Position | undefined;
         let end: Position | undefined;
@@ -389,7 +389,7 @@ export class Selection extends Range implements vscode.Selection {
         anchorLineOrAnchor: number | vscode.Position,
         anchorColumnOrActive: number | vscode.Position,
         activeLine?: number,
-        activeColumn?: number
+        activeColumn?: number,
     ) {
         let anchor: Position | undefined;
         let active: Position | undefined;
@@ -569,7 +569,7 @@ export class SnippetString {
 
     appendPlaceholder(
         value: string | ((snippet: SnippetString) => ANY),
-        number: number = this._tabstop++
+        number: number = this._tabstop++,
     ): SnippetString {
         if (typeof value === 'function') {
             const nested = new SnippetString();
@@ -836,7 +836,7 @@ export class SymbolInformation {
         kind: SymbolKind,
         rangeOrContainer: string | undefined | Range,
         locationOrUri?: Location | URI,
-        containerName?: string
+        containerName?: string,
     ) {
         this.name = name;
         this.kind = kind;
@@ -1370,7 +1370,7 @@ export class TreeItem {
     constructor(resourceUri: URI, collapsibleState?: vscode.TreeItemCollapsibleState);
     constructor(
         arg1: string | vscode.TreeItemLabel | URI,
-        public collapsibleState: vscode.TreeItemCollapsibleState = TreeItemCollapsibleState.None
+        public collapsibleState: vscode.TreeItemCollapsibleState = TreeItemCollapsibleState.None,
     ) {
         if (URI.isUri(arg1)) {
             this.resourceUri = arg1;
@@ -1701,7 +1701,7 @@ function illegalArgument(msg?: string) {
 function equals<T>(
     one: ReadonlyArray<T> | undefined,
     other: ReadonlyArray<T> | undefined,
-    itemEquals: (a: T, b: T) => boolean = (a, b) => a === b
+    itemEquals: (a: T, b: T) => boolean = (a, b) => a === b,
 ): boolean {
     if (one === other) {
         return true;

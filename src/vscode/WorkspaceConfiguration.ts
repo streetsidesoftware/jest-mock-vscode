@@ -108,14 +108,14 @@ export interface MockWorkspaceConfiguration<T> extends WorkspaceConfiguration {
     __section: string;
     __getConfiguration: (
         section: string | undefined,
-        scope?: vscode.ConfigurationScope | null
+        scope?: vscode.ConfigurationScope | null,
     ) => MockWorkspaceConfiguration<T>;
 }
 
 export function createMockWorkspaceConfiguration<T>(
     data: MockWorkspaceConfigurationData<T> = { [allLanguagesKeyId]: {} },
     key = '',
-    scope?: vscode.ConfigurationScope | null
+    scope?: vscode.ConfigurationScope | null,
 ): MockWorkspaceConfiguration<T> {
     const languageIdKey = scopeToLanguageId(scope);
     const bls: BaseLanguageSection = [allLanguagesKeyId, languageIdKey];
@@ -126,7 +126,7 @@ export function createMockWorkspaceConfiguration<T>(
 
     const cfg: MockWorkspaceConfiguration<T> = {
         get: jest.fn(
-            (section, defaultValue) => getValueFromInspect(data, bls, sectionKey(section)) ?? defaultValue
+            (section, defaultValue) => getValueFromInspect(data, bls, sectionKey(section)) ?? defaultValue,
         ) as GetFn,
         has: jest.fn((section) => getValueFromInspect(data, bls, sectionKey(section)) !== undefined),
         inspect: jest.fn((section) => getInspectForPath(data, bls, sectionKey(section))),
@@ -153,7 +153,7 @@ function pVoid<T>(t: T): Promise<void> {
 function getInspectForPath<T, U>(
     configData: MockWorkspaceConfigurationData<T>,
     bls: BaseLanguageSection,
-    path: string
+    path: string,
 ): Inspect<U> | undefined {
     const r: Inspect<U> = {
         key: path,
@@ -183,7 +183,7 @@ function getKeyValue<T>(
     configData: MockWorkspaceConfigurationData<T>,
     language: keyof MockWorkspaceConfigurationData<T>,
     inspectKey: InspectBaseValueKey,
-    path: string
+    path: string,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): any | undefined {
     return getKeyValueFromRecord(configData[language]?.[inspectKey], path);
@@ -207,7 +207,7 @@ function isRecord(data: unknown): data is Record<string, any> {
 function getValueFromInspect<T, U>(
     configData: MockWorkspaceConfigurationData<T>,
     bls: BaseLanguageSection,
-    path: string
+    path: string,
 ): U | undefined {
     const d = getInspectForPath<T, U>(configData, bls, path);
     return d && mergeInspect(d);
@@ -249,7 +249,7 @@ function updateInspect<T>(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     value: any,
     configurationTarget?: ConfigurationTarget | boolean | null,
-    overrideInLanguage?: boolean
+    overrideInLanguage?: boolean,
 ): void {
     const inspectKey = fieldToUpdate(bls, configurationTarget, overrideInLanguage);
     setKeyValue(data, joinPath(inspectKey, section), value);
@@ -272,7 +272,7 @@ const fieldToUpdateMap = {
 function fieldToUpdate(
     bls: BaseLanguageSection,
     configurationTarget?: ConfigurationTarget | boolean | null,
-    overrideInLanguage?: boolean
+    overrideInLanguage?: boolean,
 ): string {
     const [base, lang] = bls;
     const root = overrideInLanguage && lang ? lang : base;

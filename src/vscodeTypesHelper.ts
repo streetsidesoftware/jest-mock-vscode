@@ -7,7 +7,7 @@ export function createTextDocument(
     uri: vscode.Uri,
     content: string,
     languageId?: string,
-    version?: number
+    version?: number,
 ): vscode.TextDocument {
     return MockTextDocument.create(uri, content, languageId, version);
 }
