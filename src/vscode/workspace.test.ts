@@ -1,7 +1,10 @@
+import { describe, expect, test, jest } from '@jest/globals';
 // eslint-disable-next-line node/no-missing-import
 import type { WorkspaceFolder } from 'vscode';
 import { Uri } from './uri';
-import { workspace } from './workspace';
+import { createWorkspace } from './workspace';
+
+const workspace = createWorkspace(jest);
 
 describe('workspace', () => {
     test('workspace', () => {

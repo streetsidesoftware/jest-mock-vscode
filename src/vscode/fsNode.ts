@@ -5,6 +5,7 @@ import { toFileSystemError } from './FileSystemError';
 import { FileType } from './FileType';
 import { toErrorErrnoException } from './isError';
 import { Uri } from './uri';
+import { TestFramework } from '../TestFramework';
 
 type FileSystemProvider = vscode.FileSystemProvider;
 
@@ -79,15 +80,19 @@ async function stat(uri: Uri): Promise<vscode.FileStat> {
     }
 }
 
-export const nodeFileSystemProvider: FileSystemProvider = {
-    createDirectory,
-    readFile,
-    writeFile,
-    copy: jest.fn(),
-    delete: jest.fn(),
-    onDidChangeFile: jest.fn(),
-    readDirectory: jest.fn(),
-    rename: jest.fn(),
-    stat,
-    watch: jest.fn(),
-};
+export function createNodeFileSystemProvider(jest: TestFramework) {
+    const nodeFileSystemProvider: FileSystemProvider = {
+        createDirectory,
+        readFile,
+        writeFile,
+        copy: jest.fn(),
+        delete: jest.fn(),
+        onDidChangeFile: jest.fn(),
+        readDirectory: jest.fn(),
+        rename: jest.fn(),
+        stat,
+        watch: jest.fn(),
+    };
+
+    return nodeFileSystemProvider;
+}

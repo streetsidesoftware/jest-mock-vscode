@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { describe, expect, test, jest } from '@jest/globals';
+
 import { createMockFileSystem } from './fs';
 import { Uri } from './uri';
 import { promises as fsp } from 'fs';
@@ -10,7 +13,7 @@ const rootTemp = Uri.joinPath(Uri.file(__dirname), '../../temp/' + path.basename
 const oc = expect.objectContaining;
 
 describe('fs', () => {
-    const fs = createMockFileSystem();
+    const fs = createMockFileSystem(jest);
 
     test('createDirectory', async () => {
         await expect(fs.createDirectory(Uri.file(__dirname))).resolves.toBeUndefined();
@@ -42,7 +45,7 @@ describe('fs', () => {
         uri                     | expected
         ${Uri.file(__dirname)}  | ${oc({ type: FileType.Directory })}
         ${Uri.file(__filename)} | ${oc({ type: FileType.File })}
-    `('stat $uri', async ({ uri, expected }) => {
+    `('stat $uri', async ({ uri, expected }: Record<string, any>) => {
         const result = await fs.stat(uri);
         expect(result).toEqual(expected);
     });
@@ -50,7 +53,7 @@ describe('fs', () => {
     test.each`
         uri                                        | expected
         ${Uri.joinPath(rootTemp, 'not_found.txt')} | ${oc({ code: 'FileNotFound' })}
-    `('stat error $uri', async ({ uri, expected }) => {
+    `('stat error $uri', async ({ uri, expected }: Record<string, any>) => {
         const result = await Promise.resolve(fs.stat(uri)).catch((e) => e);
         expect(result).toEqual(expected);
     });

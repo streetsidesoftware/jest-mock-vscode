@@ -4,8 +4,8 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-// eslint-disable-next-line node/no-missing-import
-import type * as vscode from 'vscode';
+// eslint-disable-next-line node/no-missing-import, import/no-unresolved
+import * as vscode from 'vscode';
 import { Uri as URI } from './uri';
 import { FileEditType } from './baseTypes';
 
@@ -816,7 +816,7 @@ export enum SymbolTag {
     Deprecated = 1,
 }
 
-export class SymbolInformation {
+export class SymbolInformation implements vscode.SymbolInformation {
     static validate(candidate: SymbolInformation): void {
         if (!candidate.name) {
             throw new Error('name must not be falsy');
@@ -827,7 +827,7 @@ export class SymbolInformation {
     location!: Location;
     kind: SymbolKind;
     tags?: SymbolTag[];
-    containerName: string | undefined;
+    containerName: string;
 
     constructor(name: string, kind: SymbolKind, containerName: string | undefined, location: Location);
     constructor(name: string, kind: SymbolKind, range: Range, uri?: URI, containerName?: string);
@@ -840,7 +840,7 @@ export class SymbolInformation {
     ) {
         this.name = name;
         this.kind = kind;
-        this.containerName = containerName;
+        this.containerName = containerName ?? 'unknown';
 
         if (typeof rangeOrContainer === 'string') {
             this.containerName = rangeOrContainer;
@@ -904,7 +904,7 @@ export enum CodeActionTrigger {
     Manual = 2,
 }
 
-export class CodeActionKind {
+export class CodeActionKind implements vscode.CodeActionKind {
     private static readonly sep = '.';
 
     public static Empty: CodeActionKind;
@@ -913,6 +913,7 @@ export class CodeActionKind {
     public static RefactorExtract: CodeActionKind;
     public static RefactorInline: CodeActionKind;
     public static RefactorRewrite: CodeActionKind;
+    public static RefactorMove: CodeActionKind;
     public static Source: CodeActionKind;
     public static SourceOrganizeImports: CodeActionKind;
     public static SourceFixAll: CodeActionKind;
@@ -995,7 +996,7 @@ export class CallHierarchyOutgoingCall {
     }
 }
 
-export class CodeLens {
+export class CodeLens implements vscode.CodeLens {
     range: Range;
 
     command: vscode.Command | undefined;
@@ -1072,13 +1073,17 @@ export enum CompletionItemTag {
 }
 
 export interface CompletionItemLabel {
-    name: string;
-    parameters?: string;
-    qualifier?: string;
-    type?: string;
+    label: string;
+    detail?: string;
+    description?: string;
+
+    // name: string;
+    // parameters?: string;
+    // qualifier?: string;
+    // type?: string;
 }
 
-export class CompletionItem /* implements vscode.CompletionItem */ {
+export class CompletionItem implements vscode.CompletionItem {
     label: string | CompletionItemLabel;
     kind?: CompletionItemKind;
     tags?: CompletionItemTag[];
@@ -1115,11 +1120,11 @@ export class CompletionItem /* implements vscode.CompletionItem */ {
     }
 }
 
-export class CompletionList {
+export class CompletionList<T extends vscode.CompletionItem = CompletionItem> implements vscode.CompletionList<T> {
     isIncomplete?: boolean;
-    items: vscode.CompletionItem[];
+    items: T[];
 
-    constructor(items: vscode.CompletionItem[] = [], isIncomplete = false) {
+    constructor(items: T[] = [], isIncomplete = false) {
         this.items = items;
         this.isIncomplete = isIncomplete;
     }
@@ -1439,13 +1444,12 @@ export class EvaluatableExpression implements vscode.EvaluatableExpression {
 }
 
 export enum LogLevel {
+    Off = 0,
     Trace = 1,
     Debug = 2,
     Info = 3,
     Warning = 4,
     Error = 5,
-    Critical = 6,
-    Off = 7,
 }
 
 //#region file api
@@ -1513,34 +1517,34 @@ export class SemanticTokensLegend {
     }
 }
 
-export class SemanticTokens {
-    readonly resultId?: string;
+export class SemanticTokens implements vscode.SemanticTokens {
+    readonly resultId: string;
     readonly data: Uint32Array;
 
     constructor(data: Uint32Array, resultId?: string) {
-        this.resultId = resultId;
+        this.resultId = resultId ?? '';
         this.data = data;
     }
 }
 
-export class SemanticTokensEdit {
+export class SemanticTokensEdit implements vscode.SemanticTokensEdit {
     readonly start: number;
     readonly deleteCount: number;
-    readonly data?: Uint32Array;
+    readonly data: Uint32Array;
 
     constructor(start: number, deleteCount: number, data?: Uint32Array) {
         this.start = start;
         this.deleteCount = deleteCount;
-        this.data = data;
+        this.data = data ?? Uint32Array.from([]);
     }
 }
 
-export class SemanticTokensEdits {
-    readonly resultId?: string;
+export class SemanticTokensEdits implements vscode.SemanticTokensEdits {
+    readonly resultId: string;
     readonly edits: SemanticTokensEdit[];
 
     constructor(edits: SemanticTokensEdit[], resultId?: string) {
-        this.resultId = resultId;
+        this.resultId = resultId || '';
         this.edits = edits;
     }
 }
@@ -1606,6 +1610,7 @@ export enum ColorThemeKind {
     Light = 1,
     Dark = 2,
     HighContrast = 3,
+    HighContrastLight = 4,
 }
 
 //#endregion Theming
@@ -1641,9 +1646,26 @@ export enum NotebookCellStatusBarAlignment {
 }
 
 export enum NotebookEditorRevealType {
+    /**
+     * The range will be revealed with as little scrolling as possible.
+     */
     Default = 0,
+
+    /**
+     * The range will always be revealed in the center of the viewport.
+     */
     InCenter = 1,
+
+    /**
+     * If the range is outside the viewport, it will be revealed in the center of the viewport.
+     * Otherwise, it will be revealed with as little scrolling as possible.
+     */
     InCenterIfOutsideViewport = 2,
+
+    /**
+     * The range will always be revealed at the top of the viewport.
+     */
+    AtTop = 3,
 }
 
 //#endregion

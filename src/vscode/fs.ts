@@ -1,31 +1,34 @@
 // eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
-import { nodeFileSystemProvider as fsn } from './fsNode';
+import { createNodeFileSystemProvider } from './fsNode';
+import { TestFramework } from '../TestFramework';
 
 export type FileSystem = vscode.FileSystem;
 export type FileSystemProvider = vscode.FileSystemProvider;
 
-export function createMockFileSystem(provider: FileSystemProvider = createMockFileSystemProvider()): FileSystem {
+export function createMockFileSystem(jest: TestFramework, provider?: FileSystemProvider): FileSystem {
+    const _provider = provider ?? createMockFileSystemProvider(jest);
     const fs: FileSystem = {
-        stat: jest.fn((...p) => Promise.resolve(provider.stat(...p))),
-        readDirectory: jest.fn((...p) => Promise.resolve(provider.readDirectory(...p))),
-        readFile: jest.fn((...p) => Promise.resolve(provider.readFile(...p))),
+        stat: jest.fn((...p) => Promise.resolve(_provider.stat(...p))),
+        readDirectory: jest.fn((...p) => Promise.resolve(_provider.readDirectory(...p))),
+        readFile: jest.fn((...p) => Promise.resolve(_provider.readFile(...p))),
         rename: jest.fn((oldUri, newUri, opt) =>
-            Promise.resolve(provider.rename(oldUri, newUri, { ...opt, overwrite: opt?.overwrite ?? false })),
+            Promise.resolve(_provider.rename(oldUri, newUri, { ...opt, overwrite: opt?.overwrite ?? false })),
         ),
-        createDirectory: jest.fn((...p) => Promise.resolve(provider.createDirectory(...p))),
+        createDirectory: jest.fn((...p) => Promise.resolve(_provider.createDirectory(...p))),
         copy: jest.fn((src, target, opt) =>
-            Promise.resolve(provider.copy?.(src, target, { ...opt, overwrite: opt?.overwrite ?? true })),
+            Promise.resolve(_provider.copy?.(src, target, { ...opt, overwrite: opt?.overwrite ?? true })),
         ),
-        writeFile: jest.fn((...p) => Promise.resolve(provider.writeFile(...p, { create: true, overwrite: true }))),
-        delete: jest.fn((uri, opt) => Promise.resolve(provider.delete(uri, { recursive: opt?.recursive ?? true }))),
+        writeFile: jest.fn((...p) => Promise.resolve(_provider.writeFile(...p, { create: true, overwrite: true }))),
+        delete: jest.fn((uri, opt) => Promise.resolve(_provider.delete(uri, { recursive: opt?.recursive ?? true }))),
         isWritableFileSystem: jest.fn(),
     };
 
     return fs;
 }
 
-export function createMockFileSystemProvider(): FileSystemProvider {
+export function createMockFileSystemProvider(jest: TestFramework): FileSystemProvider {
+    const fsn = createNodeFileSystemProvider(jest);
     const fsp: FileSystemProvider = {
         copy: jest.fn(),
         createDirectory: jest.fn(fsn.createDirectory),

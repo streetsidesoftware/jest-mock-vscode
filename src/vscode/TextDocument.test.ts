@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { describe, expect, test } from '@jest/globals';
 // eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
 import { MockTextDocument } from './TextDocument';
 import { Uri } from './uri';
-import * as vsMocks from '..';
+import { Range } from './extHostTypes';
 
 describe('Validate TextDocument', () => {
     test('create', () => {
@@ -15,7 +17,7 @@ describe('Validate TextDocument', () => {
         frag        | line | col
         ${'Line 2'} | ${2} | ${0}
         ${'Line 4'} | ${4} | ${2}
-    `('positionAt/offsetAt $frag $line $col', ({ frag, line, col }) => {
+    `('positionAt/offsetAt $frag $line $col', ({ frag, line, col }: Record<string, any>) => {
         const doc = createDoc();
         const text = doc.getText();
         const offset = text.indexOf(frag);
@@ -30,7 +32,7 @@ describe('Validate TextDocument', () => {
         ${'lineCount'}  | ${10}
         ${'languageId'} | ${'plaintext'}
         ${'isUntitled'} | ${false}
-    `('simple getters $method', ({ key, expected }) => {
+    `('simple getters $method', ({ key, expected }: Record<string, any>) => {
         const doc = createDoc();
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         expect((doc as any)[key]).toEqual(expected);
@@ -41,7 +43,7 @@ describe('Validate TextDocument', () => {
         ${'ge At Position'} | ${'Range'}
         ${'ne 4'}           | ${'Line'}
         ${'  Line 4'}       | ${undefined}
-    `('getWordRangeAtPosition', ({ searchFor, expected }) => {
+    `('getWordRangeAtPosition', ({ searchFor, expected }: Record<string, any>) => {
         const doc = createDoc();
         const pos = doc.positionAt(doc.getText().indexOf(searchFor));
         const r = doc.getWordRangeAtPosition(pos);
@@ -73,7 +75,7 @@ describe('Validate TextDocument', () => {
 });
 
 function r(lineA: number, rowA: number, lineB: number, rowB: number): vscode.Range {
-    return new vsMocks.Range(lineA, rowA, lineB, rowB);
+    return new Range(lineA, rowA, lineB, rowB);
 }
 
 function createDoc(): MockTextDocument {

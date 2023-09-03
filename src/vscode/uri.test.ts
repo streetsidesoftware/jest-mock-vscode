@@ -1,3 +1,4 @@
+import { describe, expect, test } from '@jest/globals';
 import { Uri, isUri } from './uri';
 import { Utils as UriUtils } from 'vscode-uri';
 import * as Path from 'path';

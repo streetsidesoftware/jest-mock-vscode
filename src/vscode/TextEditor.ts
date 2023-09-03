@@ -1,6 +1,7 @@
 // eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
 import * as mockedTypes from './extHostTypes';
+import { TestFramework } from '../TestFramework';
 
 export class MockTextEditor implements vscode.TextEditor {
     _options: vscode.TextEditorOptions = {};
@@ -8,6 +9,7 @@ export class MockTextEditor implements vscode.TextEditor {
     _selections: vscode.Selection[];
 
     constructor(
+        private jest: TestFramework,
         public _document: vscode.TextDocument,
         public _viewColumn?: vscode.ViewColumn | undefined,
         selection: vscode.Selection = new mockedTypes.Selection(
@@ -49,10 +51,10 @@ export class MockTextEditor implements vscode.TextEditor {
         return this._viewColumn;
     }
 
-    edit = jest.fn();
-    insertSnippet = jest.fn();
-    setDecorations = jest.fn();
-    revealRange = jest.fn();
-    show = jest.fn();
-    hide = jest.fn();
+    edit = this.jest.fn();
+    insertSnippet = this.jest.fn();
+    setDecorations = this.jest.fn();
+    revealRange = this.jest.fn();
+    show = this.jest.fn();
+    hide = this.jest.fn();
 }
