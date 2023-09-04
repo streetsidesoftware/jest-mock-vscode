@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.0.0](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.4.1...v2.0.0) (2023-09-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* Support injecting the mock function. ([#117](https://github.com/streetsidesoftware/jest-mock-vscode/issues/117))
+
+### Features
+
+* Support injecting the mock function. ([#117](https://github.com/streetsidesoftware/jest-mock-vscode/issues/117)) ([f0c73bf](https://github.com/streetsidesoftware/jest-mock-vscode/commit/f0c73bf703281a2a4dc485cd4f4ac0736465dbc6))
+
+
+### Updates and Bug Fixes
+
+* Update the usage docs ([#119](https://github.com/streetsidesoftware/jest-mock-vscode/issues/119)) ([a4f0872](https://github.com/streetsidesoftware/jest-mock-vscode/commit/a4f08723ce5ec63c5e7b994bf51bd0a7cee258cd))
+
 ## [1.4.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.4.0...v1.4.1) (2023-09-03)
 
 
