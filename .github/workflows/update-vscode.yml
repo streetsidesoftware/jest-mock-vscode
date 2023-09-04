@@ -1,4 +1,4 @@
-name: Update VS Code Types
+name: ' 🗳️ Update VS Code Types'
 
 on:
   push:
@@ -56,7 +56,7 @@ jobs:
         id: vscode_changed
         uses: ./.github/actions/output
         with:
-          value: ${{ env.VSCODE_VERSION != env.VSCODE_VERSION_OLD }};
+          value: ${{ env.VSCODE_VERSION != env.VSCODE_VERSION_OLD }}
 
       - name: Echo git_status
         env:
