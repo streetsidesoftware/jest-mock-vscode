@@ -5,6 +5,11 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      base:
+        description: The Base Ref to apply the diff
+        required: false
+        default: 'main'
   schedule:
     - cron: '0 12 * * *'
 
@@ -16,8 +21,8 @@ jobs:
     if: github.repository_owner == 'streetsidesoftware'
     runs-on: ubuntu-latest
     env:
-      NEW_BRANCH: 'update-vscode-types'
-      REF_BRANCH: main
+      NEW_BRANCH: update-vscode-types-${{ inputs.base || 'main' }}
+      REF_BRANCH: ${{ inputs.base || 'main' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -46,13 +51,13 @@ jobs:
 
       - name: Check VSCode Version Changed
         id: vscode_changed
-        uses: ./.github/actions/output
+        uses: streetsidesoftware/actions/public/output@v1
         with:
           value: ${{ env.VSCODE_VERSION != env.VSCODE_VERSION_OLD }}
 
       - name: Gen Body
         id: gen_body
-        uses: ./.github/actions/output
+        uses: streetsidesoftware/actions/public/output@v1
         with:
           value: |
             # Update VS Code Types
@@ -62,7 +67,7 @@ jobs:
 
       - name: Create Pull Request
         if: steps.vscode_changed.outputs.value == 'true'
-        uses: ./.github/actions/pr
+        uses: streetsidesoftware/actions/.github/actions/pr@v1
         with:
           commit-message: 'fix: Update VSCode to (${{ env.VSCODE_VERSION }})'
           branch: ${{ env.NEW_BRANCH }}
@@ -73,6 +78,6 @@ jobs:
           app_private_key: ${{ secrets.AUTOMATION_PRIVATE_KEY }}
 
       - name: Summary
-        uses: ./.github/actions/summary
+        uses: streetsidesoftware/actions/public/summary@v1
         with:
           text: ${{ steps.gen_body.outputs.value }}
