@@ -5,6 +5,11 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      base:
+        description: The Base Ref to apply the diff
+        required: false
+        default: 'main'
   schedule:
     - cron: '0 12 * * *'
 
@@ -16,8 +21,8 @@ jobs:
     if: github.repository_owner == 'streetsidesoftware'
     runs-on: ubuntu-latest
     env:
-      NEW_BRANCH: 'update-vscode-types'
-      REF_BRANCH: main
+      NEW_BRANCH: update-vscode-types-${{ inputs.base || 'main' }}
+      REF_BRANCH: ${{ inputs.base || 'main' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
