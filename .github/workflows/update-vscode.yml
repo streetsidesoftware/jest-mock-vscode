@@ -93,7 +93,7 @@ jobs:
         uses: ./.github/actions/summary
         with:
           text: |
-          Git Status: ${{ env.git_status }}
-          CSpell Version: ${{ env.VSCODE_VERSION }}
-          CSpell Old Version: ${{ env.VSCODE_VERSION_OLD }}
-          Changed: ${{ steps.vscode_changed.outputs.value }}
+            Git Status: ${{ env.git_status }}
+            CSpell Version: ${{ env.VSCODE_VERSION }}
+            CSpell Old Version: ${{ env.VSCODE_VERSION_OLD }}
+            Changed: ${{ steps.vscode_changed.outputs.value }}
