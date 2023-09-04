@@ -16,23 +16,14 @@ const config = {
         'plugin:prettier/recommended',
     ],
     ignorePatterns: [
-        '**/[Ss]amples/**', // cspell:disable-line
         '**/[Tt]emp/**',
         '**/*.d.ts',
         '**/*.map',
         '**/coverage/**',
-        '**/cspell-default.config.js',
         '**/dist/**',
         '**/node_modules/**',
         '**/.docusaurus/**',
         'docs/_site/**',
-        'docs/docsV2/**',
-        'integration-tests/repositories/**',
-        'packages/*/fixtures/**',
-        'test-fixtures/**',
-        'test-packages/test-cspell-eslint-plugin',
-        'test-packages/test-cspell-eslint-plugin/**',
-        'test-packages/yarn2/**',
         'website',
         'website/**', // checked with a different config
     ],
@@ -63,12 +54,15 @@ const config = {
             },
         },
         {
-            files: ['**/*.test.ts', '**/*.spec.ts'],
+            files: ['**/*.test.ts', '**/*.spec.ts', '**/__mocks__/**'],
             extends: 'plugin:jest/recommended',
             env: {
                 jest: true,
             },
             rules: {
+                'import/no-unresolved': 'off',
+                'node/no-missing-import': 'off',
+                'node/no-unpublished-import': 'off',
                 'jest/valid-title': 'warn',
             },
         },

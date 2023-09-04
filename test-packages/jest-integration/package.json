@@ -1,0 +1,24 @@
+{
+  "name": "jest-integration",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Jest integration tests for jest-mock-vscode.",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "jest"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.1",
+    "@types/jest": "^29.5.4",
+    "@types/vscode": "^1.81.0",
+    "jest": "^29.6.4",
+    "jest-mock-vscode": "workspace:*",
+    "jest-when": "^3.6.0",
+    "ts-jest": "^29.1.1"
+  },
+  "engines": {
+    "node": ">16.0"
+  }
+}

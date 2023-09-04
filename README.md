@@ -24,6 +24,8 @@ module.exports = require('jest-mock-vscode').createVSCodeMock(jest);
 
 ### `vscode.workspace`
 
+<!--- @@inject: test-packages/jest-integration/src/sample.workspace.test.ts --->
+
 ```ts
 import { Uri, workspace, WorkspaceFolder } from 'vscode';
 import { when } from 'jest-when';
@@ -57,7 +59,7 @@ describe('workspace', () => {
   test('getWorkspaceFolder using when', () => {
     const uri = Uri.joinPath(workspaceFolder1.uri, 'code.test.ts');
 
-    const mockedWorkspace = jest.mocked(workspace, true);
+    const mockedWorkspace = jest.mocked(workspace);
     when(mockedWorkspace.getWorkspaceFolder).calledWith(expect.objectContaining(uri)).mockReturnValue(workspaceFolder2);
 
     const spy = jest.spyOn(workspace, 'workspaceFolders', 'get');
@@ -67,6 +69,8 @@ describe('workspace', () => {
   });
 });
 ```
+
+<!--- @@inject-end: test-packages/jest-integration/src/sample.workspace.test.ts --->
 
 ### Reading Fixtures as TextDocument
 
@@ -98,6 +102,15 @@ Here are a few of items that have been implemented. Most of them are based upon 
 - Uri
 - workspace
 - WorkspaceEdit
+
+## Migrating from 1.x to 2.x
+
+**`__mocks__/vscode.js`**
+
+```diff
+-module.exports = require('jest-mock-vscode');
++module.exports = require('jest-mock-vscode').createVSCodeMock(jest);
+```
 
 ## Notes
 
