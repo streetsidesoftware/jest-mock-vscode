@@ -174,8 +174,8 @@ interface VSCodeMock extends Omit<VSCode, NotImplemented> {}
 /**
  * To use.
  * In your repository add the file:
- * __mocks__/vscode.js
- * ```
+ * `__mocks__/vscode.js`
+ * ```js
  * module.exports = require('jest-mock-vscode').createVSCodeMock(jest);
  * ```
  */
