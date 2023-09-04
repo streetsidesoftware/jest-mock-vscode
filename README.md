@@ -16,8 +16,8 @@ Based upon [Manual Mocks · Jest](https://jestjs.io/docs/manual-mocks) add the f
 
 **`__mocks__/vscode.js`**
 
-```
-module.exports = require('jest-mock-vscode');
+```js
+module.exports = require('jest-mock-vscode').createVSCodeMock(jest);
 ```
 
 ## Usage
