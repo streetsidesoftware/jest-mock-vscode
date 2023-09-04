@@ -1,4 +1,4 @@
-name: Update VS Code Types
+name: ' 🗳️ Update VS Code Types'
 
 on:
   push:
@@ -12,7 +12,7 @@ permissions:
   contents: read
 
 jobs:
-  update-cspell:
+  update-vscode-types:
     if: github.repository_owner == 'streetsidesoftware'
     runs-on: ubuntu-latest
     env:
@@ -43,43 +43,36 @@ jobs:
         run: |
           pnpm run update-vscode
           echo "VSCODE_VERSION=$(jq -r ".devDependencies[\"@types/vscode\"]" package.json )" >> $GITHUB_ENV
-      - name: Install Updates
-        run: |
-          pnpm install
 
-      - name: Has changes
-        run: |
-          git --no-pager diff --compact-summary  --exit-code && echo "git_status=clean" >> $GITHUB_ENV || echo "git_status=dirty" >> $GITHUB_ENV
-          git --no-pager diff --compact-summary
-      - name: Echo git_status
-        env:
-          VSCODE_CHANGED: ${{ env.VSCODE_VERSION != env.VSCODE_VERSION_OLD }}
-        run: |
-          echo Status: ${{ env.git_status }}
-          echo CSpell Version: ${{ env.VSCODE_VERSION }}
-          echo CSpell Old Version: ${{ env.VSCODE_VERSION_OLD }}
-          echo Changed: $VSCODE_CHANGED
-          echo VSCODE_CHANGED=$VSCODE_CHANGED >> $GITHUB_ENV
+      - name: Check VSCode Version Changed
+        id: vscode_changed
+        uses: ./.github/actions/output
+        with:
+          value: ${{ env.VSCODE_VERSION != env.VSCODE_VERSION_OLD }}
 
       - name: Gen Body
-        run: |
-          echo 'git_body<<DIFF' >> $GITHUB_ENV
-          git --no-pager diff --compact-summary >> $GITHUB_ENV
-          echo 'DIFF' >> $GITHUB_ENV
-      - uses: tibdex/github-app-token@v1 # cspell:ignore tibdex
-        if: env.VSCODE_CHANGED == 'true'
-        id: generate-token
+        id: gen_body
+        uses: ./.github/actions/output
         with:
-          app_id: ${{ secrets.AUTOMATION_APP_ID }}
-          private_key: ${{ secrets.AUTOMATION_PRIVATE_KEY }}
+          value: |
+            # Update VS Code Types
+
+            CSpell Version: **`${{ env.VSCODE_VERSION_OLD }}`** --> **`${{ env.VSCODE_VERSION }}`**
+            Changed: **${{ steps.vscode_changed.outputs.value }}**
+
       - name: Create Pull Request
-        if: env.VSCODE_CHANGED == 'true'
-        uses: peter-evans/create-pull-request@v5
+        if: steps.vscode_changed.outputs.value == 'true'
+        uses: ./.github/actions/pr
         with:
           commit-message: 'fix: Update VSCode to (${{ env.VSCODE_VERSION }})'
           branch: ${{ env.NEW_BRANCH }}
           base: ${{ env.REF_BRANCH }}
           title: 'fix: Update VSCode to (${{ env.VSCODE_VERSION }}) (${{ env.REF_BRANCH }})'
-          token: ${{ steps.generate-token.outputs.token }}
-          body: ${{ env.git_body }}
-          delete-branch: true
+          body: ${{ steps.gen_body.outputs.value }}
+          app_id: ${{ secrets.AUTOMATION_APP_ID }}
+          app_private_key: ${{ secrets.AUTOMATION_PRIVATE_KEY }}
+
+      - name: Summary
+        uses: ./.github/actions/summary
+        with:
+          text: ${{ steps.gen_body.outputs.value }}
