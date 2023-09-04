@@ -47,7 +47,7 @@ jobs:
         run: |
           pnpm install
 
-      - name: Has changes
+      - name: Calc Git Status
         run: |
           git --no-pager diff --compact-summary  --exit-code && echo "git_status=clean" >> $GITHUB_ENV || echo "git_status=dirty" >> $GITHUB_ENV
           git --no-pager diff --compact-summary
@@ -58,42 +58,31 @@ jobs:
         with:
           value: ${{ env.VSCODE_VERSION != env.VSCODE_VERSION_OLD }}
 
-      - name: Echo git_status
-        env:
-          VSCODE_CHANGED: ${{ steps.vscode_changed.outputs.value }}
-          Message: |
-            Status: ${{ env.git_status }}
-            CSpell Version: ${{ env.VSCODE_VERSION }}
-            CSpell Old Version: ${{ env.VSCODE_VERSION_OLD }}
-            Changed: ${{ steps.vscode_changed.outputs.value }}
-
-        run: |
-          echo "$Message"
-          echo VSCODE_CHANGED=$VSCODE_CHANGED >> $GITHUB_ENV
-
       - name: Gen Body
-        run: |
-          echo 'git_body<<DIFF' >> $GITHUB_ENV
-          git --no-pager diff --compact-summary >> $GITHUB_ENV
-          echo 'DIFF' >> $GITHUB_ENV
+        id: gen_body
+        uses: ./.github/actions/output
+        with:
+          value: |
+            # Update VS Code Types
+
+            Changed: **${{ steps.vscode_changed.outputs.value }}**
+            CSpell Version: **`${{ env.VSCODE_VERSION }}`**
+            CSpell Old Version: **`${{ env.VSCODE_VERSION_OLD }}`**
+            Git Status: **${{ env.git_status }}**
 
       - name: Create Pull Request
-        if: env.VSCODE_CHANGED == 'true'
+        if: steps.vscode_changed.outputs.value == 'true'
         uses: ./.github/actions/pr
         with:
           commit-message: 'fix: Update VSCode to (${{ env.VSCODE_VERSION }})'
           branch: ${{ env.NEW_BRANCH }}
           base: ${{ env.REF_BRANCH }}
           title: 'fix: Update VSCode to (${{ env.VSCODE_VERSION }}) (${{ env.REF_BRANCH }})'
-          body: ${{ env.git_body }}
+          body: ${{ steps.gen_body.outputs.value }}
           app_id: ${{ secrets.AUTOMATION_APP_ID }}
           app_private_key: ${{ secrets.AUTOMATION_PRIVATE_KEY }}
 
       - name: Summary
         uses: ./.github/actions/summary
         with:
-          text: |
-            Changed: `${{ steps.vscode_changed.outputs.value }}`
-            CSpell Version: `${{ env.VSCODE_VERSION }}`
-            CSpell Old Version: `${{ env.VSCODE_VERSION_OLD }}`
-            Git Status: `${{ env.git_status }}`
+          text: ${{ steps.gen_body.outputs.value }}
