@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v2.0.0...v2.0.1) (2023-09-04)
+
+
+### Updates and Bug Fixes
+
+* Remove dependency upon `jest-mock` ([#122](https://github.com/streetsidesoftware/jest-mock-vscode/issues/122)) ([4d346f7](https://github.com/streetsidesoftware/jest-mock-vscode/commit/4d346f78e4bfab3fd1d110474932ab51f896bede))
+
 ## [2.0.0](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v1.4.1...v2.0.0) (2023-09-04)
 
 
