@@ -51,13 +51,13 @@ jobs:
 
       - name: Check VSCode Version Changed
         id: vscode_changed
-        uses: streetsidesoftware/actions/.github/actions/output@v1
+        uses: streetsidesoftware/actions/public/output@v1
         with:
           value: ${{ env.VSCODE_VERSION != env.VSCODE_VERSION_OLD }}
 
       - name: Gen Body
         id: gen_body
-        uses: streetsidesoftware/actions/.github/actions/output@v1
+        uses: streetsidesoftware/actions/public/output@v1
         with:
           value: |
             # Update VS Code Types
@@ -78,6 +78,6 @@ jobs:
           app_private_key: ${{ secrets.AUTOMATION_PRIVATE_KEY }}
 
       - name: Summary
-        uses: streetsidesoftware/actions/.github/actions/summary@v1
+        uses: streetsidesoftware/actions/public/summary@v1
         with:
           text: ${{ steps.gen_body.outputs.value }}
