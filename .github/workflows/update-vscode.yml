@@ -46,13 +46,13 @@ jobs:
 
       - name: Check VSCode Version Changed
         id: vscode_changed
-        uses: ./.github/actions/output
+        uses: streetsidesoftware/actions/.github/actions/output@v1
         with:
           value: ${{ env.VSCODE_VERSION != env.VSCODE_VERSION_OLD }}
 
       - name: Gen Body
         id: gen_body
-        uses: ./.github/actions/output
+        uses: streetsidesoftware/actions/.github/actions/output@v1
         with:
           value: |
             # Update VS Code Types
@@ -62,7 +62,7 @@ jobs:
 
       - name: Create Pull Request
         if: steps.vscode_changed.outputs.value == 'true'
-        uses: ./.github/actions/pr
+        uses: streetsidesoftware/actions/.github/actions/pr@v1
         with:
           commit-message: 'fix: Update VSCode to (${{ env.VSCODE_VERSION }})'
           branch: ${{ env.NEW_BRANCH }}
@@ -73,6 +73,6 @@ jobs:
           app_private_key: ${{ secrets.AUTOMATION_PRIVATE_KEY }}
 
       - name: Summary
-        uses: ./.github/actions/summary
+        uses: streetsidesoftware/actions/.github/actions/summary@v1
         with:
           text: ${{ steps.gen_body.outputs.value }}
