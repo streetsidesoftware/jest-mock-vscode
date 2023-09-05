@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { Uri, workspace, type WorkspaceFolder } from 'vscode';
 
-vi.mock('vscode');
+vi.mock('vscode', async () => (await import('jest-mock-vscode')).createVSCodeMock(vi));
 
 const rootUri = Uri.file(__dirname);
 const workspaceFolder1: WorkspaceFolder = {
