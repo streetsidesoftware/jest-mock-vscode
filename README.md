@@ -18,6 +18,13 @@ Based upon [Manual Mocks · Jest](https://jestjs.io/docs/manual-mocks) add the f
 
 <!--- @@inject: test-packages/jest-integration/src/__mocks__/vscode.js --->
 
+```js
+/* eslint-disable node/no-unpublished-require */
+module.exports = require('jest-mock-vscode').createVSCodeMock(jest);
+```
+
+<!--- @@inject-end: test-packages/jest-integration/src/__mocks__/vscode.js --->
+
 ### Usage Jest
 
 #### Example Test `vscode.workspace`
@@ -26,7 +33,6 @@ Based upon [Manual Mocks · Jest](https://jestjs.io/docs/manual-mocks) add the f
 
 ```ts
 import { Uri, workspace, WorkspaceFolder } from 'vscode';
-import { when } from 'jest-when';
 
 const rootUri = Uri.file(__dirname);
 const workspaceFolder1: WorkspaceFolder = {
@@ -53,18 +59,6 @@ describe('workspace', () => {
     expect(workspace.getWorkspaceFolder(uri)).toEqual(workspaceFolder1);
     expect(workspace.getWorkspaceFolder(uri2)).toEqual(workspaceFolder2);
   });
-
-  test('getWorkspaceFolder using when', () => {
-    const uri = Uri.joinPath(workspaceFolder1.uri, 'code.test.ts');
-
-    const mockedWorkspace = jest.mocked(workspace);
-    when(mockedWorkspace.getWorkspaceFolder).calledWith(expect.objectContaining(uri)).mockReturnValue(workspaceFolder2);
-
-    const spy = jest.spyOn(workspace, 'workspaceFolders', 'get');
-    spy.mockReturnValue([workspaceFolder1, workspaceFolder2]);
-
-    expect(workspace.getWorkspaceFolder(uri)).toEqual(workspaceFolder2);
-  });
 });
 ```
 
@@ -76,9 +70,60 @@ describe('workspace', () => {
 
 <!--- @@inject: test-packages/vitest-integration/__mocks__/vscode.cts --->
 
+```typescript
+import { vi } from 'vitest';
+import { createVSCodeMock } from 'jest-mock-vscode';
+
+const vscode = createVSCodeMock(vi);
+
+module.exports = vscode;
+```
+
+<!--- @@inject-end: test-packages/vitest-integration/__mocks__/vscode.cts --->
+
 ### Usage Vitest
 
 <!--- @@inject: test-packages/vitest-integration/src/sample.workspace.test.ts --->
+
+```ts
+import { afterEach, describe, expect, test, vi } from 'vitest';
+import { Uri, workspace, type WorkspaceFolder } from 'vscode';
+
+vi.mock('vscode');
+
+const rootUri = Uri.file(__dirname);
+const workspaceFolder1: WorkspaceFolder = {
+  uri: Uri.joinPath(rootUri, 'Folder1'),
+  name: 'Folder1',
+  index: 0,
+};
+
+const workspaceFolder2: WorkspaceFolder = {
+  uri: Uri.joinPath(rootUri, 'Folder2'),
+  name: 'Folder2',
+  index: 1,
+};
+
+describe('workspace', () => {
+  afterEach(() => {
+    vi.resetAllMocks();
+  });
+
+  test('getWorkspaceFolder', () => {
+    const uri = Uri.joinPath(workspaceFolder1.uri, 'code.test.ts');
+    const uri2 = Uri.joinPath(workspaceFolder2.uri, 'test.txt');
+
+    const spy = vi.spyOn(workspace, 'workspaceFolders', 'get');
+    spy.mockReturnValue([workspaceFolder1, workspaceFolder2]);
+
+    expect(workspace.workspaceFolders).toEqual([workspaceFolder1, workspaceFolder2]);
+    expect(workspace.getWorkspaceFolder(uri)).toEqual(workspaceFolder1);
+    expect(workspace.getWorkspaceFolder(uri2)).toEqual(workspaceFolder2);
+  });
+});
+```
+
+<!--- @@inject-end: test-packages/vitest-integration/src/sample.workspace.test.ts --->
 
 ### Using `vi.mock` factory
 
