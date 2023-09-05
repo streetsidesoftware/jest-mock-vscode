@@ -10,7 +10,7 @@ It was create to support [Code Spell Checker](https://marketplace.visualstudio.c
 npm install --save-dev jest-mock-vscode
 ```
 
-### Setup Jest Mock
+## Setup Jest
 
 Based upon [Manual Mocks · Jest](https://jestjs.io/docs/manual-mocks) add the following file to your project:
 
@@ -20,7 +20,7 @@ Based upon [Manual Mocks · Jest](https://jestjs.io/docs/manual-mocks) add the f
 module.exports = require('jest-mock-vscode').createVSCodeMock(jest);
 ```
 
-## Usage
+## Usage Jest
 
 ### `vscode.workspace`
 
@@ -72,7 +72,11 @@ describe('workspace', () => {
 
 <!--- @@inject-end: test-packages/jest-integration/src/sample.workspace.test.ts --->
 
-### Reading Fixtures as TextDocument
+## Usage Vitest
+
+<!--- @@inject: test-packages/vitest-integration/src/sample.workspace.test.ts --->
+
+## Reading Fixtures as TextDocument
 
 ```ts
 import { readTextDocument } from 'jest-mock-vscode';

@@ -16,7 +16,7 @@ export interface MockInstance<T, Y extends any[], C = any> {
      * You should therefore avoid assigning mockFn.mock to other variables, temporary or not, to make sure you
      * don't access stale data.
      */
-    mockClear(): this;
+    // mockClear(): this;
     /**
      * Resets all information stored in the mock, including any initial implementation and mock name given.
      *
@@ -26,7 +26,7 @@ export interface MockInstance<T, Y extends any[], C = any> {
      * You should therefore avoid assigning mockFn.mock to other variables, temporary or not, to make sure you
      * don't access stale data.
      */
-    mockReset(): this;
+    // mockReset(): this;
     /**
      * Does everything that `mockFn.mockReset()` does, and also restores the original (non-mocked) implementation.
      *
@@ -38,11 +38,11 @@ export interface MockInstance<T, Y extends any[], C = any> {
      * The [`restoreMocks`](https://jestjs.io/docs/en/configuration.html#restoremocks-boolean) configuration option is available
      * to restore mocks automatically between tests.
      */
-    mockRestore(): void;
+    // mockRestore(): void;
     /**
      * Returns the function that was set as the implementation of the mock (using mockImplementation).
      */
-    getMockImplementation(): ((...args: Y) => T) | undefined;
+    // getMockImplementation(): ((...args: Y) => T) | undefined;
     /**
      * Accepts a function that should be used as the implementation of the mock. The mock itself will still record
      * all calls that go into and instances that come from itself – the only difference is that the implementation
@@ -50,7 +50,7 @@ export interface MockInstance<T, Y extends any[], C = any> {
      *
      * Note: `jest.fn(implementation)` is a shorthand for `jest.fn().mockImplementation(implementation)`.
      */
-    mockImplementation(fn?: (...args: Y) => T): this;
+    // mockImplementation(fn?: (...args: Y) => T): this;
     /**
      * Accepts a function that will be used as an implementation of the mock for one call to the mocked function.
      * Can be chained so that multiple function calls produce different results.
@@ -66,7 +66,7 @@ export interface MockInstance<T, Y extends any[], C = any> {
      *
      * myMockFn((err, val) => console.log(val)); // false
      */
-    mockImplementationOnce(fn: (...args: Y) => T): this;
+    // mockImplementationOnce(fn: (...args: Y) => T): this;
     /**
      * Temporarily overrides the default mock implementation within the callback,
      * then restores its previous implementation.
@@ -75,14 +75,14 @@ export interface MockInstance<T, Y extends any[], C = any> {
      * If the callback is async or returns a `thenable`, `withImplementation` will return a promise.
      * Awaiting the promise will await the callback and reset the implementation.
      */
-    withImplementation(fn: (...args: Y) => T, callback: () => Promise<unknown>): Promise<void>;
+    // withImplementation(fn: (...args: Y) => T, callback: () => Promise<unknown>): Promise<void>;
     /**
      * Temporarily overrides the default mock implementation within the callback,
      * then restores its previous implementation.
      */
-    withImplementation(fn: (...args: Y) => T, callback: () => void): void;
+    // withImplementation(fn: (...args: Y) => T, callback: () => void): void;
     /** Sets the name of the mock. */
-    mockName(name: string): this;
+    // mockName(name: string): this;
     /**
      * Just a simple sugar function for:
      *
@@ -92,7 +92,7 @@ export interface MockInstance<T, Y extends any[], C = any> {
      *     return this;
      *   });
      */
-    mockReturnThis(): this;
+    // mockReturnThis(): this;
     /**
      * Accepts a value that will be returned whenever the mock function is called.
      *
@@ -104,7 +104,7 @@ export interface MockInstance<T, Y extends any[], C = any> {
      * mock.mockReturnValue(43);
      * mock(); // 43
      */
-    mockReturnValue(value: T): this;
+    // mockReturnValue(value: T): this;
     /**
      * Accepts a value that will be returned for one call to the mock function. Can be chained so that
      * successive calls to the mock function return different values. When there are no more
@@ -121,11 +121,11 @@ export interface MockInstance<T, Y extends any[], C = any> {
      * console.log(myMockFn(), myMockFn(), myMockFn(), myMockFn());
      *
      */
-    mockReturnValueOnce(value: T): this;
+    // mockReturnValueOnce(value: T): this;
     /**
      * Simple sugar function for: `jest.fn().mockImplementation(() => Promise.resolve(value));`
      */
-    mockResolvedValue(value: ResolvedValue<T>): this;
+    // mockResolvedValue(value: ResolvedValue<T>): this;
     /**
      * Simple sugar function for: `jest.fn().mockImplementationOnce(() => Promise.resolve(value));`
      *
@@ -145,7 +145,7 @@ export interface MockInstance<T, Y extends any[], C = any> {
      * });
      *
      */
-    mockResolvedValueOnce(value: ResolvedValue<T>): this;
+    // mockResolvedValueOnce(value: ResolvedValue<T>): this;
     /**
      * Simple sugar function for: `jest.fn().mockImplementation(() => Promise.reject(value));`
      *
@@ -157,8 +157,7 @@ export interface MockInstance<T, Y extends any[], C = any> {
      *   await asyncMock(); // throws "Async error"
      * });
      */
-    mockRejectedValue(value: RejectedValue<T>): this;
-
+    // mockRejectedValue(value: RejectedValue<T>): this;
     /**
      * Simple sugar function for: `jest.fn().mockImplementationOnce(() => Promise.reject(value));`
      *
@@ -175,7 +174,7 @@ export interface MockInstance<T, Y extends any[], C = any> {
      * });
      *
      */
-    mockRejectedValueOnce(value: RejectedValue<T>): this;
+    // mockRejectedValueOnce(value: RejectedValue<T>): this;
 }
 
 export interface Mock<T = any, Y extends any[] = any, C = any> extends Function, MockInstance<T, Y, C> {
@@ -183,5 +182,5 @@ export interface Mock<T = any, Y extends any[] = any, C = any> extends Function,
     (this: C, ...args: Y): T;
 }
 
-type RejectedValue<T> = T extends PromiseLike<any> ? any : never;
-type ResolvedValue<T> = T extends PromiseLike<infer U> ? U | T : never;
+// type RejectedValue<T> = T extends PromiseLike<any> ? any : never;
+// type ResolvedValue<T> = T extends PromiseLike<infer U> ? U | T : never;
