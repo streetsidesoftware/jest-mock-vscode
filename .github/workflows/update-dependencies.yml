@@ -46,6 +46,10 @@ jobs:
           pnpm up
           pnpm -r up
 
+      - name: Update Readme
+        run: |
+          pnpm build:readme
+
       - name: Gen Body
         run: |
           echo 'git_body<<DIFF' >> $GITHUB_ENV
