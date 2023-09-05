@@ -1,4 +1,4 @@
-# VS Code Mocks for Jest
+# VS Code Mocks for Jest and Vitest
 
 This packages is was created to help with the painful process of running unit tests on VS Code extensions.
 
@@ -65,6 +65,14 @@ describe('workspace', () => {
 <!--- @@inject-end: test-packages/jest-integration/src/sample.workspace.test.ts --->
 
 ## Vitest
+
+Based upon:
+
+- [`vi.Mock()` | Vitest](https://vitest.dev/api/vi.html#vi-mock)
+- [Mocking | Guide | Vitest](https://vitest.dev/guide/mocking.html#modules)
+- [Mock Functions | Vitest](https://vitest.dev/api/mock.html)
+
+You can add the following file to your project:
 
 **`__mocks__/vscode.cts`**
 
