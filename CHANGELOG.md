@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.0](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v2.0.1...v2.1.0) (2023-09-05)
+
+
+### Documentation
+
+* Update Vitest discussion in README ([#137](https://github.com/streetsidesoftware/jest-mock-vscode/issues/137)) ([9dc7512](https://github.com/streetsidesoftware/jest-mock-vscode/commit/9dc751247a01a841b8ba448f6f97c6b44d15e057))
+
+
+### Features
+
+* Add Vitest support ([#134](https://github.com/streetsidesoftware/jest-mock-vscode/issues/134)) ([343c413](https://github.com/streetsidesoftware/jest-mock-vscode/commit/343c413dfc51a7ddf3d1bd87eeefadf1dbfe88b4))
+
 ## [2.0.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v2.0.0...v2.0.1) (2023-09-04)
 
 
