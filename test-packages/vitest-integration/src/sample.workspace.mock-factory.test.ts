@@ -1,4 +1,7 @@
-import { Uri, workspace, WorkspaceFolder } from 'vscode';
+import { afterEach, describe, expect, test, vi } from 'vitest';
+import { Uri, workspace, type WorkspaceFolder } from 'vscode';
+
+vi.mock('vscode', async () => (await import('jest-mock-vscode')).createVSCodeMock(vi));
 
 const rootUri = Uri.file(__dirname);
 const workspaceFolder1: WorkspaceFolder = {
@@ -14,11 +17,15 @@ const workspaceFolder2: WorkspaceFolder = {
 };
 
 describe('workspace', () => {
+    afterEach(() => {
+        vi.resetAllMocks();
+    });
+
     test('getWorkspaceFolder', () => {
         const uri = Uri.joinPath(workspaceFolder1.uri, 'code.test.ts');
         const uri2 = Uri.joinPath(workspaceFolder2.uri, 'test.txt');
 
-        const spy = jest.spyOn(workspace, 'workspaceFolders', 'get');
+        const spy = vi.spyOn(workspace, 'workspaceFolders', 'get');
         spy.mockReturnValue([workspaceFolder1, workspaceFolder2]);
 
         expect(workspace.workspaceFolders).toEqual([workspaceFolder1, workspaceFolder2]);

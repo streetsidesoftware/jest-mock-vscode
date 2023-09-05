@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
+    "tsBuildInfoFile": "./dist/compile.tsbuildInfo",
+    "composite": true,
+"esModuleInterop": true,
     "outDir": "dist"
   },
   "include": ["src"]

@@ -1,2 +1,2 @@
 packages:
-  - test-packages/jest-integration
+  - test-packages/*

@@ -169,7 +169,7 @@ type NotImplemented =
     | 'TabInputTerminal'
     | 'TelemetryTrustedValue';
 
-interface VSCodeMock extends Omit<VSCode, NotImplemented> {}
+export interface VSCodeMock extends Omit<VSCode, NotImplemented> {}
 
 /**
  * To use.

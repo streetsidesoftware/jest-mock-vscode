@@ -1,0 +1,12 @@
+{
+    "extends": "@tsconfig/node16",
+    "compilerOptions": {
+        "tsBuildInfoFile": "./dist/compile.tsbuildInfo",
+        "composite": true,
+        "esModuleInterop": true,
+        "types": ["node"],
+        "outDir": "dist",
+        "rootDir": "src"
+    },
+    "include": ["src"]
+}

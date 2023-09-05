@@ -45,12 +45,7 @@ const config = {
                         tryExtensions: ['.js', '.d.ts', '.ts'],
                     },
                 ],
-                'node/no-unsupported-features/es-syntax': [
-                    'error',
-                    {
-                        ignores: ['modules'],
-                    },
-                ],
+                'node/no-unsupported-features/es-syntax': 'off',
             },
         },
         {

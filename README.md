@@ -10,19 +10,17 @@ It was create to support [Code Spell Checker](https://marketplace.visualstudio.c
 npm install --save-dev jest-mock-vscode
 ```
 
-### Setup Jest Mock
+## Jest
 
 Based upon [Manual Mocks · Jest](https://jestjs.io/docs/manual-mocks) add the following file to your project:
 
 **`__mocks__/vscode.js`**
 
-```js
-module.exports = require('jest-mock-vscode').createVSCodeMock(jest);
-```
+<!--- @@inject: test-packages/jest-integration/src/__mocks__/vscode.js --->
 
-## Usage
+### Usage Jest
 
-### `vscode.workspace`
+#### Example Test `vscode.workspace`
 
 <!--- @@inject: test-packages/jest-integration/src/sample.workspace.test.ts --->
 
@@ -72,11 +70,34 @@ describe('workspace', () => {
 
 <!--- @@inject-end: test-packages/jest-integration/src/sample.workspace.test.ts --->
 
-### Reading Fixtures as TextDocument
+## Vitest
+
+**`__mocks__/vscode.cts`**
+
+<!--- @@inject: test-packages/vitest-integration/__mocks__/vscode.cts --->
+
+### Usage Vitest
+
+<!--- @@inject: test-packages/vitest-integration/src/sample.workspace.test.ts --->
+
+### Using `vi.mock` factory
+
+```ts
+import { afterEach, describe, expect, test, vi } from 'vitest';
+import { Uri, workspace, type WorkspaceFolder } from 'vscode';
+
+vi.mock('vscode', async () => (await import('jest-mock-vscode')).createVSCodeMock(vi));
+
+describe(/* ... */);
+```
+
+## Reading Fixtures as TextDocument
 
 ```ts
 import { readTextDocument } from 'jest-mock-vscode';
 import { Uri } from 'vscode';
+
+// vi.mock('vscode')
 
 const pathToFixture = __filename;
 

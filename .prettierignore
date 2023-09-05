@@ -11,3 +11,5 @@ coverage
 cspell.json
 cspell.schema.json
 tsconfig*.json
+**/coverage/**
+**/dist/**
