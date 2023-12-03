@@ -917,6 +917,7 @@ export class CodeActionKind implements vscode.CodeActionKind {
     public static Source: CodeActionKind;
     public static SourceOrganizeImports: CodeActionKind;
     public static SourceFixAll: CodeActionKind;
+    public static Notebook: vscode.CodeActionKind;
 
     constructor(public readonly value: string) {}
 
@@ -933,6 +934,7 @@ export class CodeActionKind implements vscode.CodeActionKind {
     }
 }
 CodeActionKind.Empty = new CodeActionKind('');
+CodeActionKind.Notebook = CodeActionKind.Empty.append('notebook');
 CodeActionKind.QuickFix = CodeActionKind.Empty.append('quickfix');
 CodeActionKind.Refactor = CodeActionKind.Empty.append('refactor');
 CodeActionKind.RefactorExtract = CodeActionKind.Refactor.append('extract');
@@ -1744,4 +1746,26 @@ function equals<T>(
     }
 
     return true;
+}
+
+/**
+ * Enumeration of commonly encountered syntax token types.
+ */
+export enum SyntaxTokenType {
+    /**
+     * Everything except tokens that are part of comments, string literals and regular expressions.
+     */
+    Other = 0,
+    /**
+     * A comment.
+     */
+    Comment = 1,
+    /**
+     * A string literal.
+     */
+    String = 2,
+    /**
+     * A regular expression.
+     */
+    RegEx = 3,
 }
