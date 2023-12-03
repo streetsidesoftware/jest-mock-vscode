@@ -67,10 +67,10 @@ async function stat(uri: Uri): Promise<vscode.FileStat> {
             type: stat.isFile()
                 ? FileType.File
                 : stat.isDirectory()
-                ? FileType.Directory
-                : stat.isSymbolicLink()
-                ? FileType.SymbolicLink
-                : FileType.Unknown,
+                  ? FileType.Directory
+                  : stat.isSymbolicLink()
+                    ? FileType.SymbolicLink
+                    : FileType.Unknown,
             ctime: stat.ctimeMs,
             mtime: stat.mtimeMs,
             size: stat.size,
