@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.1.2](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v2.1.1...v2.1.2) (2023-12-04)
+
+
+### Miscellaneous
+
+* **deps:** bump google-github-actions/release-please-action from 3 to 4 ([#186](https://github.com/streetsidesoftware/jest-mock-vscode/issues/186)) ([f5e661e](https://github.com/streetsidesoftware/jest-mock-vscode/commit/f5e661ecafb99060c51aef5059e8648c162cd4f3))
+* Fix release please workflow ([a2599ab](https://github.com/streetsidesoftware/jest-mock-vscode/commit/a2599ab4479d459d2ca61264033bf46b6791c349))
+* update release please ([f32d86b](https://github.com/streetsidesoftware/jest-mock-vscode/commit/f32d86b8fc4c8a13f9cef508e590d4a91867deab))
+* Update release-please.yml ([00a4c84](https://github.com/streetsidesoftware/jest-mock-vscode/commit/00a4c842a568fbad94da6bb84e44a80b7d1629c5))
+
+
+### Ongoing Development
+
+* keep trying to fix release-please ([d302a87](https://github.com/streetsidesoftware/jest-mock-vscode/commit/d302a8738a860082748b5025dc2753088ce7acfd))
+* Try to get release-please to generate a PR ([9f545d8](https://github.com/streetsidesoftware/jest-mock-vscode/commit/9f545d8ecdb869ccc3d6e66af1db006cc11877c2))
+
 ## [2.1.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v2.1.0...v2.1.1) (2023-12-03)
 
 
