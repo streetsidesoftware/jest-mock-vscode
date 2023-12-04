@@ -6,7 +6,7 @@
         {
             "type": "chore",
             "section": "Miscellaneous",
-            "hidden": false
+            "hidden": true
         },
         {
             "type": "ci",
@@ -16,7 +16,7 @@
         {
             "type": "dev",
             "section": "Ongoing Development",
-            "hidden": false
+            "hidden": true
         },
         {
             "type": "docs",
