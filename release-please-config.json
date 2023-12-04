@@ -1,6 +1,7 @@
 {
     "bootstrap-sha": "fe001e87b89ce227c1b2e8078dc7383de8fb2402",
     "release-type": "node",
+    "include-component-in-tag": false,
     "changelog-sections": [
         {
             "type": "chore",
