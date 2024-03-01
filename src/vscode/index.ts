@@ -14,7 +14,8 @@ export { createMockFileSystem, createMockFileSystemProvider } from './fs';
 export * from './uri';
 export { MockWorkspace, Workspace, createWorkspace } from './workspace';
 
-export { MockTextEditor } from './TextEditor';
+export type { MockTextEditor } from './TextEditor';
+export { createMockTextEditor } from './TextEditor';
 export { TypeHierarchyItem } from './TypeHierarchyItem';
 export { Languages, createLanguages } from './languages';
 export { Window, createWindow } from './window';

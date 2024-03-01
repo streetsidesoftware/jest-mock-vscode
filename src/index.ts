@@ -5,6 +5,9 @@ export {
     createMockFileSystem,
     createMockFileSystemProvider,
     createMockWorkspaceConfiguration,
+    createMockTextEditor,
+    createWindow,
+    createWorkspace,
 } from './vscode';
 export type { MockWorkspaceConfigurationData } from './vscode';
 export { createVSCodeMock } from './vscode-mock';
