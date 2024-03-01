@@ -1,8 +1,9 @@
 import { afterEach, describe, expect, test, vi } from 'vitest';
-import { Uri, workspace, type WorkspaceFolder } from 'vscode';
+import { Uri, workspace, type WorkspaceFolder, window } from 'vscode';
 
 vi.mock('vscode');
 
+const testFileUri = Uri.file(__filename);
 const rootUri = Uri.file(__dirname);
 const workspaceFolder1: WorkspaceFolder = {
     uri: Uri.joinPath(rootUri, 'Folder1'),
@@ -16,7 +17,7 @@ const workspaceFolder2: WorkspaceFolder = {
     index: 1,
 };
 
-describe('workspace', () => {
+describe('vscode.workspace', () => {
     afterEach(() => {
         vi.resetAllMocks();
     });
@@ -31,5 +32,25 @@ describe('workspace', () => {
         expect(workspace.workspaceFolders).toEqual([workspaceFolder1, workspaceFolder2]);
         expect(workspace.getWorkspaceFolder(uri)).toEqual(workspaceFolder1);
         expect(workspace.getWorkspaceFolder(uri2)).toEqual(workspaceFolder2);
+    });
+
+    test('openTextDocument', async () => {
+        const uri = testFileUri;
+        const doc = await workspace.openTextDocument(uri);
+        expect(doc.uri).toEqual(uri);
+        expect(doc.getText()).toContain("vi.mock('vscode');");
+    });
+});
+
+describe('vscode.window', () => {
+    afterEach(() => {
+        vi.resetAllMocks();
+    });
+
+    test('showTextDocument', async () => {
+        const uri = testFileUri;
+        const doc = await workspace.openTextDocument(uri);
+        const editor = await window.showTextDocument(doc);
+        expect(editor.document).toBe(doc);
     });
 });
