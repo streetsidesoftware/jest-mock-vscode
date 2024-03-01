@@ -15,14 +15,14 @@ importers:
       '@jest/globals':
         specifier: ^29.7.0
         version: 29.7.0
-      '@tsconfig/node16':
-        specifier: ^16.1.1
-        version: 16.1.1
+      '@tsconfig/node18':
+        specifier: ^18.2.2
+        version: 18.2.2
       '@types/node':
         specifier: ^18.19.2
         version: 18.19.2
       '@types/vscode':
-        specifier: ^1.86.0
+        specifier: ^1.87.0
         version: 1.87.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.13.1
@@ -1212,10 +1212,6 @@ packages:
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
     dependencies:
       '@sinonjs/commons': 3.0.0
-    dev: true
-
-  /@tsconfig/node16@16.1.1:
-    resolution: {integrity: sha512-+pio93ejHN4nINX4pXqfnR/fPLRtJBaT4ORaa5RH0Oc1zoYmo2B2koG+M328CQhHKn1Wj6FcOxCDFXAot9NhvA==}
     dev: true
 
   /@tsconfig/node18@18.2.2:

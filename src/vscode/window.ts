@@ -3,9 +3,9 @@ import type { TextEditor, TextDocumentShowOptions, Uri, TextDocument, ViewColumn
 // eslint-disable-next-line node/no-missing-import, import/no-duplicates
 import type * as vscode from 'vscode';
 import { Selection } from './extHostTypes';
-import { MockTextEditor } from './TextEditor';
+import { createMockTextEditor } from './TextEditor';
 import { isUri } from './uri';
-import { MockTabGroups } from './TabGroups';
+import { createMockTabGroups } from './TabGroups';
 import { TestFramework } from '../TestFramework';
 import { Workspace } from './workspace';
 
@@ -34,7 +34,7 @@ export function createWindow(jest: TestFramework, workspace: Workspace): Window 
         visibleNotebookEditors: [],
         visibleTextEditors: [],
 
-        tabGroups: new MockTabGroups(jest, []),
+        tabGroups: createMockTabGroups(jest, []),
 
         // Fully mocked methods
         createStatusBarItem: jest.fn(createStatusBarItem),
@@ -145,6 +145,6 @@ export function createWindow(jest: TestFramework, workspace: Workspace): Window 
         const selectionRange = options?.selection;
         const selection = selectionRange && new Selection(selectionRange.start, selectionRange.start);
 
-        return new MockTextEditor(jest, document, viewColumn, selection);
+        return createMockTextEditor(jest, document, viewColumn, selection);
     }
 }
