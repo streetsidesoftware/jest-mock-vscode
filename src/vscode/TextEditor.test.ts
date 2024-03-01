@@ -1,13 +1,13 @@
 import { describe, expect, test, jest } from '@jest/globals';
 
 import { createTextDocument } from '../vscodeTypesHelper';
-import { MockTextEditor } from './TextEditor';
+import { createMockTextEditor } from './TextEditor';
 import { Uri } from './uri';
 
 describe('TextEditor', () => {
     test('MockTextEditor', () => {
         const doc = createTextDocument(Uri.file(__filename), sampleContent());
-        const te = new MockTextEditor(jest, doc);
+        const te = createMockTextEditor(jest, doc);
         expect(te.document).toBe(doc);
         expect(te.selection).toBeDefined();
         expect(te.selections).toHaveLength(1);
