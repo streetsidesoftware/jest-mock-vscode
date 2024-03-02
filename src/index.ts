@@ -4,11 +4,18 @@ export {
     createLanguages,
     createMockFileSystem,
     createMockFileSystemProvider,
-    createMockWorkspaceConfiguration,
+    createMockTabGroups,
     createMockTextEditor,
+    createMockWorkspaceConfiguration,
     createWindow,
     createWorkspace,
 } from './vscode';
-export type { MockWorkspaceConfigurationData } from './vscode';
+export type {
+    MockTabGroups,
+    MockTextDocument,
+    MockTextEditor,
+    MockWorkspace,
+    MockWorkspaceConfigurationData,
+} from './vscode';
 export { createVSCodeMock } from './vscode-mock';
 export { createTextDocument, readTextDocument } from './vscodeTypesHelper';
