@@ -198,6 +198,22 @@ Here are a few of items that have been implemented. Most of them are based upon 
 - workspace
 - WorkspaceEdit
 
+## Migrating from 2.x to 3.x
+
+Migration is only necessary if you used any of the following:
+
+```js
+new MockWorkspace(...)
+new MockTabGroups(...)
+new MockTextEditor(...)
+```
+
+It is now necessary to use a create function.
+
+- `new MockWorkspace(...)` -> `createWorkspace(...)`
+- `new MockTabGroups(...)` -> `createMockTabGroups(...)`
+- `new MockTextEditor(...)` -> `createMockTextEditor(...)`
+
 ## Migrating from 1.x to 2.x
 
 **`__mocks__/vscode.js`**
