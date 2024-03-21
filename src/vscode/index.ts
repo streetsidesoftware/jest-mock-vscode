@@ -21,3 +21,4 @@ export * from './uri';
 export { createWindow } from './window';
 export type { Window } from './window';
 export { MockWorkspace, Workspace, createWorkspace } from './workspace';
+export { EventEmitter } from './EventEmitter';
