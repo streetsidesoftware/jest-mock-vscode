@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.0.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v3.0.0...v3.0.1) (2024-03-21)
+
+
+### Updates and Bug Fixes
+
+* Export `createMockTextEditor` ([#248](https://github.com/streetsidesoftware/jest-mock-vscode/issues/248)) ([e92285c](https://github.com/streetsidesoftware/jest-mock-vscode/commit/e92285c1119dfb80d03ed1cc621a12e7d5d0ce4a))
+* Mock EventEmitter ([#269](https://github.com/streetsidesoftware/jest-mock-vscode/issues/269)) ([afdbacb](https://github.com/streetsidesoftware/jest-mock-vscode/commit/afdbacb211ddc092fd1e095b4259991cac78e379))
+* Update exports to expose `create` functions ([#252](https://github.com/streetsidesoftware/jest-mock-vscode/issues/252)) ([110b979](https://github.com/streetsidesoftware/jest-mock-vscode/commit/110b97947aad2e810b7d3aa8f2297e0e07194bed))
+
 ## [3.0.0](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v2.1.1...v3.0.0) (2024-03-01)
 
 
