@@ -1,6 +1,4 @@
 import { describe, expect, jest, test } from '@jest/globals';
-// eslint-disable-next-line node/no-missing-import
-import type * as vscode from 'vscode';
 
 import { EventEmitter } from './EventEmitter';
 
@@ -12,8 +10,8 @@ describe('EventEmitter', () => {
         emitter.event(listener);
         emitter.event(listener2);
         emitter.fire('foo');
-        expect(listener).toBeCalledWith('foo');
-        expect(listener2).toBeCalledWith('foo');
+        expect(listener).toHaveBeenCalledWith('foo');
+        expect(listener2).toHaveBeenCalledWith('foo');
     });
 
     test('dispose', () => {
@@ -23,6 +21,6 @@ describe('EventEmitter', () => {
         emitter.fire('foo');
         disposable.dispose();
         emitter.fire('bar');
-        expect(listener).toBeCalledWith('foo');
+        expect(listener).toHaveBeenCalledWith('foo');
     });
 });

@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
-import type { Disposable } from 'vscode';
+
+type Disposable = vscode.Disposable;
 
 type Listener<T> = (e: T) => any;
 
