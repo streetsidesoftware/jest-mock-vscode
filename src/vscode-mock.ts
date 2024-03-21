@@ -36,6 +36,7 @@ import {
     EndOfLine,
     EnvironmentVariableMutatorType,
     EvaluatableExpression,
+    EventEmitter,
     ExtensionKind,
     ExtensionMode,
     FileChangeType,
@@ -94,7 +95,6 @@ type NotImplemented =
     | 'CancellationError'
     | 'CancellationTokenSource'
     | 'CodeActionTriggerKind'
-    | 'EventEmitter'
     | 'Hover'
     | 'InlineValueText'
     | 'InlineValueVariableLookup'
@@ -245,6 +245,7 @@ export function createVSCodeMock(jest: TestFramework): VSCodeMock {
         EndOfLine,
         EnvironmentVariableMutatorType,
         EvaluatableExpression,
+        EventEmitter,
         ExtensionKind,
         ExtensionMode,
         FileChangeType,
