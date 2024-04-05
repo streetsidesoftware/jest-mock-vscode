@@ -51,7 +51,7 @@
     "@jest/globals": "^29.7.0",
     "@tsconfig/node18": "^18.2.2",
     "@types/node": "^18.19.26",
-    "@types/vscode": "^1.87.0",
+    "@types/vscode": "^1.88.0",
     "@typescript-eslint/eslint-plugin": "^7.3.1",
     "@typescript-eslint/parser": "^7.3.1",
     "eslint": "^8.57.0",
