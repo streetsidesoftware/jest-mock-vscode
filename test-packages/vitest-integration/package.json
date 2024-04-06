@@ -10,8 +10,8 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@tsconfig/node18": "^18.2.2",
-    "@types/vscode": "^1.87.0",
+    "@tsconfig/node18": "^18.2.4",
+    "@types/vscode": "^1.88.0",
     "jest-mock-vscode": "workspace:*",
     "vitest": "^1.4.0"
   },
