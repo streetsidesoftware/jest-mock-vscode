@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v3.0.1...v3.0.2) (2024-04-06)
+
+
+### Updates and Bug Fixes
+
+* Update VSCode to (^1.88.0) (main) ([#280](https://github.com/streetsidesoftware/jest-mock-vscode/issues/280)) ([c11c6a8](https://github.com/streetsidesoftware/jest-mock-vscode/commit/c11c6a8d20c6869c5bf98abd28c8b170d89f0fd4))
+
 ## [3.0.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v3.0.0...v3.0.1) (2024-03-21)
 
 
