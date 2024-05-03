@@ -29,7 +29,7 @@ export function createWindow(jest: TestFramework, workspace: Workspace): Window 
         activeNotebookEditor: undefined,
         activeTerminal: undefined,
         activeTextEditor: undefined,
-        state: { focused: true },
+        state: { focused: true, active: true },
         terminals: [],
         visibleNotebookEditors: [],
         visibleTextEditors: [],

@@ -15,6 +15,7 @@
     "test": "pnpm test:root && pnpm -r run test",
     "test:root": "jest",
     "test:watch": "jest --watch",
+    "clean": "rm -rf dist coverage temp",
     "lint": "pnpm run lint:eslint --fix && pnpm run lint:prettier",
     "lint:ci": "pnpm run lint:eslint && pnpm run lint:prettier-ci",
     "lint:eslint": "eslint .",
