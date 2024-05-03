@@ -23,7 +23,7 @@ importers:
         version: 18.19.31
       '@types/vscode':
         specifier: ^1.88.0
-        version: 1.88.0
+        version: 1.89.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^7.6.0
         version: 7.6.0(@typescript-eslint/parser@7.6.0)(eslint@8.57.0)(typescript@5.4.5)
@@ -1292,6 +1292,10 @@ packages:
 
   /@types/vscode@1.88.0:
     resolution: {integrity: sha512-rWY+Bs6j/f1lvr8jqZTyp5arRMfovdxolcqGi+//+cPDOh8SBvzXH90e7BiSXct5HJ9HGW6jATchbRTpTJpEkw==}
+    dev: true
+
+  /@types/vscode@1.89.0:
+    resolution: {integrity: sha512-TMfGKLSVxfGfoO8JfIE/neZqv7QLwS4nwPwL/NwMvxtAY2230H2I4Z5xx6836pmJvMAzqooRQ4pmLm7RUicP3A==}
     dev: true
 
   /@types/yargs-parser@21.0.3:
