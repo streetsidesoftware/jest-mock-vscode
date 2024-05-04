@@ -24,7 +24,7 @@
     "lint:spelling": "cspell --dot \"**\"",
     "prepare": "pnpm run build",
     "build-production": "pnpm run build",
-    "build": "tsc -b .",
+    "build": "tsc -b . -f",
     "build:readme": "inject-markdown README.md && pnpm lint:prettier",
     "update-vscode": "pnpm up @types/vscode --latest",
     "watch": "pnpm run build --watch"
