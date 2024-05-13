@@ -7,8 +7,9 @@ describe('EventEmitter', () => {
         const emitter = new EventEmitter<string>();
         const listener = jest.fn();
         const listener2 = jest.fn();
+        const event = emitter.event;
         emitter.event(listener);
-        emitter.event(listener2);
+        event(listener2);
         emitter.fire('foo');
         expect(listener).toHaveBeenCalledWith('foo');
         expect(listener2).toHaveBeenCalledWith('foo');
