@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.4](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v3.0.3...v3.0.4) (2024-05-13)
+
+
+### Updates and Bug Fixes
+
+* Make sure "event" can be passed around. ([#309](https://github.com/streetsidesoftware/jest-mock-vscode/issues/309)) ([6103e83](https://github.com/streetsidesoftware/jest-mock-vscode/commit/6103e83f71dd5180a37584f1ceeb433da316dc4a))
+
 ## [3.0.3](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v3.0.2...v3.0.3) (2024-05-03)
 
 
