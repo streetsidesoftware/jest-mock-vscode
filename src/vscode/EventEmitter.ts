@@ -12,7 +12,7 @@ export class EventEmitter<T> implements vscode.EventEmitter<T> {
     /**
      * The event listeners can subscribe to.
      */
-    event(listener: (e: T) => any, thisArgs?: any, disposables?: Disposable[]): Disposable {
+    event = (listener: (e: T) => any, thisArgs?: any, disposables?: Disposable[]): Disposable => {
         const fn = thisArgs ? listener.bind(thisArgs) : listener;
         this.#listeners.add(fn);
         const disposable = {
@@ -26,7 +26,7 @@ export class EventEmitter<T> implements vscode.EventEmitter<T> {
         }
 
         return disposable;
-    }
+    };
 
     /**
      * Notify all subscribers of the {@link EventEmitter.event event}. Failure
@@ -34,7 +34,7 @@ export class EventEmitter<T> implements vscode.EventEmitter<T> {
      *
      * @param data The event object.
      */
-    fire(data: T): void {
+    fire = (data: T): void => {
         for (const listener of this.#listeners) {
             try {
                 listener(data);
@@ -42,14 +42,14 @@ export class EventEmitter<T> implements vscode.EventEmitter<T> {
                 // ignore
             }
         }
-    }
+    };
 
     /**
      * Dispose this object and free resources.
      */
-    dispose(): void {
+    dispose = (): void => {
         this.#listeners.clear();
-    }
+    };
 
     constructor() {}
 }
