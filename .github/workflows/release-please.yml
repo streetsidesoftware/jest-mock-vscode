@@ -55,4 +55,4 @@ jobs:
         run: |
           pnpm publish
 
-# cspell:ignore noreply
+# cspell:ignore noreply googleapis
