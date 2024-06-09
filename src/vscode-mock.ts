@@ -97,6 +97,16 @@ type NotImplemented =
     | 'Breakpoint'
     | 'CancellationError'
     | 'CancellationTokenSource'
+    | 'chat'
+    | 'ChatRequestTurn'
+    | 'ChatResponseAnchorPart'
+    | 'ChatResponseCommandButtonPart'
+    | 'ChatResponseFileTreePart'
+    | 'ChatResponseMarkdownPart'
+    | 'ChatResponseProgressPart'
+    | 'ChatResponseReferencePart'
+    | 'ChatResponseTurn'
+    | 'ChatResultFeedbackKind'
     | 'CodeActionTriggerKind'
     | 'comments'
     | 'CommentThreadState'
@@ -106,6 +116,8 @@ type NotImplemented =
     | 'DebugAdapterExecutable'
     | 'DebugAdapterNamedPipeServer'
     | 'DebugAdapterServer'
+    | 'DebugStackFrame'
+    | 'DebugThread'
     | 'DeclarationCoverage'
     | 'DocumentDropEdit'
     | 'env'
@@ -126,8 +138,12 @@ type NotImplemented =
     | 'InlineValueVariableLookup'
     | 'InputBoxValidationSeverity'
     | 'l10n'
+    | 'LanguageModelChatMessage'
+    | 'LanguageModelChatMessageRole'
+    | 'LanguageModelError'
     | 'LanguageStatusSeverity'
     | 'LinkedEditingRanges'
+    | 'lm'
     | 'NotebookCellData'
     | 'NotebookCellKind'
     | 'NotebookCellOutput'
@@ -213,7 +229,7 @@ export function createVSCodeMock(jest: TestFramework): VSCodeMock {
     const languages = createLanguages(jest);
 
     const code: VSCodeMock = {
-        version: '1.81.0',
+        version: '1.90.0',
 
         CallHierarchyIncomingCall,
         CallHierarchyItem,
