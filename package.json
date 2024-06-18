@@ -51,10 +51,10 @@
   "devDependencies": {
     "@jest/globals": "^29.7.0",
     "@tsconfig/node18": "^18.2.4",
-    "@types/node": "^18.19.34",
+    "@types/node": "^18.19.36",
     "@types/vscode": "^1.90.0",
-    "@typescript-eslint/eslint-plugin": "^7.13.0",
-    "@typescript-eslint/parser": "^7.13.0",
+    "@typescript-eslint/eslint-plugin": "^7.13.1",
+    "@typescript-eslint/parser": "^7.13.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
