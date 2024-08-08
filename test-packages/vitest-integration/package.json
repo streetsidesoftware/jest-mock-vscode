@@ -11,9 +11,9 @@
   "license": "MIT",
   "devDependencies": {
     "@tsconfig/node18": "^18.2.4",
-    "@types/vscode": "^1.91.0",
+    "@types/vscode": "^1.92.0",
     "jest-mock-vscode": "workspace:*",
-    "vitest": "^2.0.4"
+    "vitest": "^2.0.5"
   },
   "engines": {
     "node": ">16.0"
