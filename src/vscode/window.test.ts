@@ -8,7 +8,7 @@ import { createWorkspace } from './workspace';
 /**
  * EXPLICIT any
  */
-type ANY = any; // eslint-disable-line @typescript-eslint/no-explicit-any
+type ANY = any;
 
 const workspace = createWorkspace(jest);
 const window = createWindow(jest, workspace);

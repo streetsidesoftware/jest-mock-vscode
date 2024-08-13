@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { describe, expect, jest, test } from '@jest/globals';
 import { promises as fsp } from 'fs';
 import * as path from 'path';

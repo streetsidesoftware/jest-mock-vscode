@@ -49,13 +49,12 @@
     "url": "https://github.com/streetsidesoftware/jest-mock-vscode.git"
   },
   "devDependencies": {
-    "@eslint/js": "^8.57.0",
+    "@eslint/js": "^9.9.0",
     "@jest/globals": "^29.7.0",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.14.15",
     "@types/vscode": "^1.92.0",
-    "eslint": "^8.57.0",
-    "eslint-plugin-import": "^2.29.1",
+    "eslint": "^9.9.0",
     "eslint-plugin-n": "^17.10.2",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "inject-markdown": "^3.1.0",

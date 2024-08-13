@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { describe, expect, test } from '@jest/globals';
 import type * as vscode from 'vscode';
 
@@ -34,7 +33,7 @@ describe('Validate TextDocument', () => {
         ${'isUntitled'} | ${false}
     `('simple getters $method', ({ key, expected }: Record<string, any>) => {
         const doc = createDoc();
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
         expect((doc as any)[key]).toEqual(expected);
     });
 

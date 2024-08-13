@@ -60,7 +60,7 @@ export class ResourceMap<T> implements Map<URI, T> {
         return this.map.delete(this.toKey(resource));
     }
 
-    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     forEach(clb: (value: T, key: URI, map: Map<URI, T>) => void, thisArg?: any): void {
         if (typeof thisArg !== 'undefined') {
             clb = clb.bind(thisArg);

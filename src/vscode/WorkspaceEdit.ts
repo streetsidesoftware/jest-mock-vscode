@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/unified-signatures */
 import type * as vscode from 'vscode';
 import type { NotebookEdit, Range, SnippetTextEdit, TextEdit, Uri as URI } from 'vscode';
 
