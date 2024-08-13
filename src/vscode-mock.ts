@@ -1,6 +1,6 @@
-// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
-import { TestFramework } from './TestFramework';
+
+import type { TestFramework } from './TestFramework';
 import {
     CallHierarchyIncomingCall,
     CallHierarchyItem,
@@ -20,6 +20,7 @@ import {
     CompletionList,
     CompletionTriggerKind,
     ConfigurationTarget,
+    createLanguages,
     DebugAdapterInlineImplementation,
     DebugConfigurationProviderTriggerKind,
     DebugConsoleMode,
@@ -81,13 +82,12 @@ import {
     TypeHierarchyItem,
     Uri,
     ViewColumn,
-    createLanguages,
 } from './vscode';
+import { FilePermission, FileType } from './vscode/FileType';
+import { createTasks } from './vscode/tasks';
 import { createWindow } from './vscode/window';
 import { createWorkspace } from './vscode/workspace';
 import { WorkspaceEdit } from './vscode/WorkspaceEdit';
-import { FilePermission, FileType } from './vscode/FileType';
-import { createTasks } from './vscode/tasks';
 
 type VSCode = typeof vscode;
 
@@ -192,7 +192,7 @@ type NotImplemented =
     | 'TreeItemCheckboxState'
     | 'UIKind';
 
-export interface VSCodeMock extends Omit<VSCode, NotImplemented> {}
+export type VSCodeMock = Omit<VSCode, NotImplemented>;
 
 /**
  * To use.

@@ -1,7 +1,7 @@
-// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
+
+import type { TestFramework } from '../TestFramework';
 import { createNodeFileSystemProvider } from './fsNode';
-import { TestFramework } from '../TestFramework';
 
 export type FileSystem = vscode.FileSystem;
 export type FileSystemProvider = vscode.FileSystemProvider;

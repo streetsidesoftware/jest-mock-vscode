@@ -1,7 +1,7 @@
-// eslint-disable-next-line node/no-missing-import
-import type * as vscode from 'vscode';
-import { MockTextDocument } from './vscode';
 import { readFile } from 'fs/promises';
+import type * as vscode from 'vscode';
+
+import { MockTextDocument } from './vscode';
 
 export function createTextDocument(
     uri: vscode.Uri,

@@ -1,6 +1,6 @@
-import { describe, expect, test, jest } from '@jest/globals';
-// eslint-disable-next-line node/no-missing-import
+import { describe, expect, jest, test } from '@jest/globals';
 import type { TabGroup } from 'vscode';
+
 import { createMockTabGroups } from './TabGroups';
 
 describe('TabGroups', () => {

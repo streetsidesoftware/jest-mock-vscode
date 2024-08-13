@@ -1,8 +1,9 @@
-import { describe, expect, test, jest } from '@jest/globals';
-import { createNodeFileSystemProvider } from './fsNode';
-import { Uri } from './uri';
+import { describe, expect, jest, test } from '@jest/globals';
 import { promises as fsp } from 'fs';
 import * as path from 'path';
+
+import { createNodeFileSystemProvider } from './fsNode';
+import { Uri } from './uri';
 
 const rootTemp = Uri.joinPath(Uri.file(__dirname), '../../temp/' + path.basename(__filename, '.ts'));
 const fs = createNodeFileSystemProvider(jest);

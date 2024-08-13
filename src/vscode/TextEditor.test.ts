@@ -1,4 +1,4 @@
-import { describe, expect, test, jest } from '@jest/globals';
+import { describe, expect, jest, test } from '@jest/globals';
 
 import { createTextDocument } from '../vscodeTypesHelper';
 import { createMockTextEditor } from './TextEditor';

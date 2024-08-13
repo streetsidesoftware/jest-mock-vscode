@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { describe, expect, test } from '@jest/globals';
-// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
+
+import { Range } from './extHostTypes';
 import { MockTextDocument } from './TextDocument';
 import { Uri } from './uri';
-import { Range } from './extHostTypes';
 
 describe('Validate TextDocument', () => {
     test('create', () => {
@@ -34,7 +33,7 @@ describe('Validate TextDocument', () => {
         ${'isUntitled'} | ${false}
     `('simple getters $method', ({ key, expected }: Record<string, any>) => {
         const doc = createDoc();
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
         expect((doc as any)[key]).toEqual(expected);
     });
 

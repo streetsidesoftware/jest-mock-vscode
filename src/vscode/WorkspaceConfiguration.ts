@@ -1,8 +1,8 @@
 import assert from 'assert';
-// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
+
+import type { TestFramework } from '../TestFramework';
 import { ConfigurationTarget } from './extHostTypes';
-import { TestFramework } from '../TestFramework';
 
 export type WorkspaceConfiguration = vscode.WorkspaceConfiguration;
 
@@ -288,6 +288,6 @@ interface WithLanguageId {
 
 function scopeToLanguageId(scope?: vscode.ConfigurationScope | null): LanguageKeyId | undefined {
     if (!scope) return undefined;
-    if ((<WithLanguageId>scope).languageId) return `[${(<WithLanguageId>scope).languageId}]`;
+    if ((scope as WithLanguageId).languageId) return `[${(scope as WithLanguageId).languageId}]`;
     return undefined;
 }

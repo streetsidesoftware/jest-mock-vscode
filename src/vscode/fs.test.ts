@@ -1,12 +1,11 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { describe, expect, test, jest } from '@jest/globals';
-
-import { createMockFileSystem } from './fs';
-import { Uri } from './uri';
+import { describe, expect, jest, test } from '@jest/globals';
 import { promises as fsp } from 'fs';
 import * as path from 'path';
+
 import { FileSystemError } from './FileSystemError';
 import { FileType } from './FileType';
+import { createMockFileSystem } from './fs';
+import { Uri } from './uri';
 
 const rootTemp = Uri.joinPath(Uri.file(__dirname), '../../temp/' + path.basename(__filename, '.ts'));
 

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// eslint-disable-next-line node/no-missing-import
+
 import type * as vscode from 'vscode';
 
 type Disposable = vscode.Disposable;
@@ -50,6 +50,4 @@ export class EventEmitter<T> implements vscode.EventEmitter<T> {
     dispose = (): void => {
         this.#listeners.clear();
     };
-
-    constructor() {}
 }

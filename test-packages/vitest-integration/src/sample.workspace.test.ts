@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, test, vi } from 'vitest';
-import { Uri, workspace, type WorkspaceFolder, window } from 'vscode';
+import { Uri, window, workspace, type WorkspaceFolder } from 'vscode';
 
 vi.mock('vscode');
 

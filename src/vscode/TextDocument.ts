@@ -1,5 +1,5 @@
-// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
+
 import * as vs from './baseTypes';
 import * as mocked from './extHostTypes';
 
@@ -13,7 +13,7 @@ export class MockTextDocument implements vscode.TextDocument {
     constructor(
         public readonly uri: vscode.Uri,
         private _contents: string,
-        public _languageId: string = 'plaintext',
+        public _languageId = 'plaintext',
         public version = 1,
     ) {
         this._lines = [];

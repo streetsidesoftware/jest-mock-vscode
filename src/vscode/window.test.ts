@@ -1,13 +1,14 @@
-import { describe, expect, test, jest } from '@jest/globals';
+import { describe, expect, jest, test } from '@jest/globals';
+import * as fs from 'fs/promises';
+
+import { Uri } from './uri';
 import { createWindow } from './window';
 import { createWorkspace } from './workspace';
-import { Uri } from './uri';
-import * as fs from 'fs/promises';
 
 /**
  * EXPLICIT any
  */
-type ANY = any; // eslint-disable-line @typescript-eslint/no-explicit-any
+type ANY = any;
 
 const workspace = createWorkspace(jest);
 const window = createWindow(jest, workspace);

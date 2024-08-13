@@ -1,11 +1,10 @@
-// eslint-disable-next-line node/no-missing-import, import/no-duplicates
 import type * as vscode from 'vscode';
-// eslint-disable-next-line node/no-missing-import, import/no-duplicates
-import type { Range, Uri as URI, TextEdit, NotebookEdit, SnippetTextEdit } from 'vscode';
-import { IFileOperation, IFileTextEdit } from './extHostTypes';
-import { FileEditType } from './baseTypes';
-import * as vsMock from './extHostTypes';
+import type { NotebookEdit, Range, SnippetTextEdit, TextEdit, Uri as URI } from 'vscode';
+
 import { coalesceInPlace } from './arrays';
+import { FileEditType } from './baseTypes';
+import type { IFileOperation, IFileTextEdit } from './extHostTypes';
+import * as vsMock from './extHostTypes';
 import { ResourceMap } from './ResourceMap';
 
 type WorkspaceEditEntry = IFileOperation | IFileTextEdit | IFileCellEdit | ICellEdit;
@@ -35,7 +34,7 @@ export interface ICellEdit {
 export class WorkspaceEdit implements vscode.WorkspaceEdit {
     private readonly _edits: WorkspaceEditEntry[] = [];
 
-    _allEntries(): ReadonlyArray<WorkspaceEditEntry> {
+    _allEntries(): readonly WorkspaceEditEntry[] {
         return this._edits;
     }
 
@@ -235,6 +234,6 @@ export class WorkspaceEdit implements vscode.WorkspaceEdit {
 }
 
 function isTextEdit(edit: TextEdit | SnippetTextEdit | NotebookEdit): edit is TextEdit {
-    const tEdit = <TextEdit>edit;
+    const tEdit = edit as TextEdit;
     return typeof tEdit.newText === 'string';
 }
