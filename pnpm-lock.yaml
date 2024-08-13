@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@types/vscode':
+        specifier: ^1.92.0
+        version: 1.92.0
       vscode-uri:
         specifier: ^3.0.8
         version: 3.0.8
@@ -24,9 +27,6 @@ importers:
       '@types/node':
         specifier: ^20.14.15
         version: 20.14.15
-      '@types/vscode':
-        specifier: ^1.92.0
-        version: 1.92.0
       eslint:
         specifier: ^9.9.0
         version: 9.9.0
