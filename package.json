@@ -19,7 +19,7 @@
     "lint": "pnpm run lint:eslint --fix && pnpm run lint:prettier",
     "lint:ci": "pnpm run lint:eslint && pnpm run lint:prettier-ci",
     "lint:eslint": "eslint .",
-    "lint:prettier": "prettier -w \"**/*.{yaml,yml,md}\"",
+    "lint:prettier": "prettier -w .",
     "lint:prettier-ci": "prettier -c \"**/*.{yaml,yml,md}\"",
     "lint:spelling": "cspell --dot \"**\"",
     "prepare": "pnpm run build",
@@ -49,25 +49,22 @@
     "url": "https://github.com/streetsidesoftware/jest-mock-vscode.git"
   },
   "devDependencies": {
+    "@eslint/js": "^8.57.0",
     "@jest/globals": "^29.7.0",
-    "@tsconfig/node18": "^18.2.4",
-    "@types/node": "^18.19.44",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.14.15",
     "@types/vscode": "^1.92.0",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
     "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jest": "^28.8.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-promise": "^7.1.0",
+    "eslint-plugin-n": "^17.10.2",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
     "inject-markdown": "^3.1.0",
     "jest": "^29.7.0",
     "prettier": "^3.3.3",
     "rfdc": "^1.4.1",
     "ts-jest": "^29.2.4",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.1.0"
   },
   "dependencies": {
     "vscode-uri": "^3.0.8"

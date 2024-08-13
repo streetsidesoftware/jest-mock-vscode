@@ -1,7 +1,7 @@
-// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
+
 import { isErrorErrnoException } from './isError';
-import { Uri } from './uri';
+import type { Uri } from './uri';
 
 export function toFileSystemError(uri: Uri, error: NodeJS.ErrnoException | unknown): FileSystemError {
     if (error instanceof FileSystemError) {

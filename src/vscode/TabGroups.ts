@@ -1,6 +1,6 @@
-// eslint-disable-next-line node/no-missing-import
-import type { TabGroups, TabGroup } from 'vscode';
-import { TestFramework } from '../TestFramework';
+import type { TabGroup, TabGroups } from 'vscode';
+
+import type { TestFramework } from '../TestFramework';
 
 export function createMockTabGroups(jest: TestFramework, all: TabGroup[]) {
     class MockTabGroups implements TabGroups {

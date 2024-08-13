@@ -1,11 +1,11 @@
 import { promises as fs } from 'fs';
-// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
+
+import type { TestFramework } from '../TestFramework';
 import { toFileSystemError } from './FileSystemError';
 import { FileType } from './FileType';
 import { toErrorErrnoException } from './isError';
 import { Uri } from './uri';
-import { TestFramework } from '../TestFramework';
 
 type FileSystemProvider = vscode.FileSystemProvider;
 

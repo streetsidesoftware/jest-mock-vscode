@@ -1,5 +1,12 @@
 export type { TestFramework } from './TestFramework';
 export type { Mock } from './TestFrameworkTypes';
+export type {
+    MockTabGroups,
+    MockTextDocument,
+    MockTextEditor,
+    MockWorkspace,
+    MockWorkspaceConfigurationData,
+} from './vscode';
 export {
     createLanguages,
     createMockFileSystem,
@@ -9,13 +16,6 @@ export {
     createMockWorkspaceConfiguration,
     createWindow,
     createWorkspace,
-} from './vscode';
-export type {
-    MockTabGroups,
-    MockTextDocument,
-    MockTextEditor,
-    MockWorkspace,
-    MockWorkspaceConfigurationData,
 } from './vscode';
 export { createVSCodeMock } from './vscode-mock';
 export { createTextDocument, readTextDocument } from './vscodeTypesHelper';

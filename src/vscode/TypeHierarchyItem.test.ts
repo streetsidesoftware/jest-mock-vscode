@@ -1,5 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
-import { SymbolKind, Range } from './extHostTypes';
+
+import { Range, SymbolKind } from './extHostTypes';
 import { TypeHierarchyItem } from './TypeHierarchyItem';
 import { Uri } from './uri';
 

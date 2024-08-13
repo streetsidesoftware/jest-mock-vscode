@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/ban-types */
-/* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Mock } from './TestFrameworkTypes';
+import type { Mock } from './TestFrameworkTypes';
 
 export interface TestFramework {
     /**

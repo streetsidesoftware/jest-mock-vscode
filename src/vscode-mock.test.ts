@@ -1,8 +1,8 @@
 import { describe, expect, it, jest } from '@jest/globals';
+import * as path from 'path';
 
 // import * as vscode from 'vscode';
 import { createVSCodeMock } from './vscode-mock';
-import * as path from 'path';
 
 describe('Validate Mock', () => {
     const vscodeMock = createVSCodeMock(jest);

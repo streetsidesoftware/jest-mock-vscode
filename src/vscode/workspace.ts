@@ -1,10 +1,11 @@
-// eslint-disable-next-line node/no-missing-import
+/* eslint-disable @typescript-eslint/class-literal-property-style */
 import type * as vscode from 'vscode';
-import { createMockFileSystem } from './fs';
-import { createMockWorkspaceConfiguration } from './WorkspaceConfiguration';
+
+import type { TestFramework } from '../TestFramework';
 import { createTextDocument, readTextDocument } from '../vscodeTypesHelper';
+import { createMockFileSystem } from './fs';
 import { isUri, Uri } from './uri';
-import { TestFramework } from '../TestFramework';
+import { createMockWorkspaceConfiguration } from './WorkspaceConfiguration';
 
 export type Workspace = typeof vscode.workspace;
 
@@ -13,8 +14,6 @@ export function createWorkspace(jest: TestFramework) {
     let _workspaceFolders: Workspace['workspaceFolders'] = undefined;
 
     class MockWorkspace implements Workspace {
-        constructor() {}
-
         get workspaceFolders(): Workspace['workspaceFolders'] {
             return _workspaceFolders;
         }
@@ -91,8 +90,7 @@ interface OpenTextDocumentOptions {
     language?: string;
     content?: string;
 }
-function openTextDocument(uri: vscode.Uri): Thenable<vscode.TextDocument>;
-function openTextDocument(fileName: string): Thenable<vscode.TextDocument>;
+function openTextDocument(uri: vscode.Uri | string): Thenable<vscode.TextDocument>;
 function openTextDocument(options?: OpenTextDocumentOptions): Thenable<vscode.TextDocument>;
 function openTextDocument(param?: string | vscode.Uri | OpenTextDocumentOptions): Promise<vscode.TextDocument> {
     const uri = typeof param === 'string' ? Uri.file(param) : isUri(param) ? param : undefined;

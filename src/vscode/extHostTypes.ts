@@ -4,10 +4,10 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-// eslint-disable-next-line node/no-missing-import, import/no-unresolved
-import * as vscode from 'vscode';
+import type * as vscode from 'vscode';
+
+import type { FileEditType } from './baseTypes';
 import { Uri as URI } from './uri';
-import { FileEditType } from './baseTypes';
 
 /**
  * EXPLICIT any
@@ -16,7 +16,7 @@ type ANY = any; // eslint-disable-line @typescript-eslint/no-explicit-any
 
 export class Disposable {
     static from(...inDisposables: { dispose(): ANY }[]): Disposable {
-        let disposables: ReadonlyArray<{ dispose(): ANY }> | undefined = inDisposables;
+        let disposables: readonly { dispose(): ANY }[] | undefined = inDisposables;
         return new Disposable(function () {
             if (disposables) {
                 for (const disposable of disposables) {
@@ -81,7 +81,7 @@ export class Position implements vscode.Position {
         if (other instanceof Position) {
             return true;
         }
-        const { line, character } = <Position>other;
+        const { line, character } = other as Position;
         if (typeof line === 'number' && typeof character === 'number') {
             return true;
         }
@@ -226,7 +226,7 @@ export class Range implements vscode.Range {
         if (!thing) {
             return false;
         }
-        return Position.isPosition((<Range>thing).start) && Position.isPosition(<Range>thing.end);
+        return Position.isPosition((thing as Range).start) && Position.isPosition(thing.end as Range);
     }
 
     protected _start: Position;
@@ -365,9 +365,9 @@ export class Selection extends Range implements vscode.Selection {
         }
         return (
             Range.isRange(thing) &&
-            Position.isPosition((<Selection>thing).anchor) &&
-            Position.isPosition((<Selection>thing).active) &&
-            typeof (<Selection>thing).isReversed === 'boolean'
+            Position.isPosition((thing as Selection).anchor) &&
+            Position.isPosition((thing as Selection).active) &&
+            typeof (thing as Selection).isReversed === 'boolean'
         );
     }
 
@@ -439,7 +439,7 @@ export class TextEdit {
         if (!thing) {
             return false;
         }
-        return Range.isRange(<TextEdit>thing) && typeof (<TextEdit>thing).newText === 'string';
+        return Range.isRange(thing as TextEdit) && typeof (thing as TextEdit).newText === 'string';
     }
 
     static replace(range: Range, newText: string): TextEdit {
@@ -541,7 +541,7 @@ export class SnippetString {
         if (!thing) {
             return false;
         }
-        return typeof (<SnippetString>thing).value === 'string';
+        return typeof (thing as SnippetString).value === 'string';
     }
 
     private static _escape(value: string): string {
@@ -645,7 +645,7 @@ export class Location {
         if (!thing) {
             return false;
         }
-        return Range.isRange((<Location>thing).range) && URI.isUri((<Location>thing).uri);
+        return Range.isRange((thing as Location).range) && URI.isUri((thing as Location).uri);
     }
 
     uri: URI;
@@ -679,10 +679,10 @@ export class DiagnosticRelatedInformation {
             return false;
         }
         return (
-            typeof (<DiagnosticRelatedInformation>thing).message === 'string' &&
-            (<DiagnosticRelatedInformation>thing).location &&
-            Range.isRange((<DiagnosticRelatedInformation>thing).location.range) &&
-            URI.isUri((<DiagnosticRelatedInformation>thing).location.uri)
+            typeof (thing as DiagnosticRelatedInformation).message === 'string' &&
+            (thing as DiagnosticRelatedInformation).location &&
+            Range.isRange((thing as DiagnosticRelatedInformation).location.range) &&
+            URI.isUri((thing as DiagnosticRelatedInformation).location.uri)
         );
     }
 
@@ -1374,8 +1374,7 @@ export class TreeItem {
     contextValue?: string;
     tooltip?: string | vscode.MarkdownString;
 
-    constructor(label: string | vscode.TreeItemLabel, collapsibleState?: vscode.TreeItemCollapsibleState);
-    constructor(resourceUri: URI, collapsibleState?: vscode.TreeItemCollapsibleState);
+    constructor(labelOrUri: string | vscode.TreeItemLabel | URI, collapsibleState?: vscode.TreeItemCollapsibleState);
     constructor(
         arg1: string | vscode.TreeItemLabel | URI,
         public collapsibleState: vscode.TreeItemCollapsibleState = TreeItemCollapsibleState.None,
@@ -1724,8 +1723,8 @@ function illegalArgument(msg?: string) {
 }
 
 function equals<T>(
-    one: ReadonlyArray<T> | undefined,
-    other: ReadonlyArray<T> | undefined,
+    one: readonly T[] | undefined,
+    other: readonly T[] | undefined,
     itemEquals: (a: T, b: T) => boolean = (a, b) => a === b,
 ): boolean {
     if (one === other) {

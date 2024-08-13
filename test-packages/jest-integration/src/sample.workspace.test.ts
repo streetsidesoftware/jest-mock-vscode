@@ -1,4 +1,5 @@
-import { Uri, workspace, WorkspaceFolder } from 'vscode';
+import type { WorkspaceFolder } from 'vscode';
+import { Uri, workspace } from 'vscode';
 
 const rootUri = Uri.file(__dirname);
 const workspaceFolder1: WorkspaceFolder = {

@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { describe, expect, test, jest } from '@jest/globals';
+import { describe, expect, jest, test } from '@jest/globals';
 import rfdc from 'rfdc';
+
 import { ConfigurationTarget } from './index';
-import { createMockWorkspaceConfiguration, MockWorkspaceConfigurationData } from './WorkspaceConfiguration';
+import type { MockWorkspaceConfigurationData } from './WorkspaceConfiguration';
+import { createMockWorkspaceConfiguration } from './WorkspaceConfiguration';
 
 const clone = rfdc();
 

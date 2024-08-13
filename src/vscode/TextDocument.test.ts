@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { describe, expect, test } from '@jest/globals';
-// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
+
+import { Range } from './extHostTypes';
 import { MockTextDocument } from './TextDocument';
 import { Uri } from './uri';
-import { Range } from './extHostTypes';
 
 describe('Validate TextDocument', () => {
     test('create', () => {

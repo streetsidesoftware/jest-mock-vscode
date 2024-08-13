@@ -1,13 +1,12 @@
-// eslint-disable-next-line node/no-missing-import, import/no-duplicates
-import type { TextEditor, TextDocumentShowOptions, Uri, TextDocument, ViewColumn } from 'vscode';
-// eslint-disable-next-line node/no-missing-import, import/no-duplicates
+import type { TextDocument, TextDocumentShowOptions, TextEditor, Uri, ViewColumn } from 'vscode';
 import type * as vscode from 'vscode';
+
+import type { TestFramework } from '../TestFramework';
 import { Selection } from './extHostTypes';
+import { createMockTabGroups } from './TabGroups';
 import { createMockTextEditor } from './TextEditor';
 import { isUri } from './uri';
-import { createMockTabGroups } from './TabGroups';
-import { TestFramework } from '../TestFramework';
-import { Workspace } from './workspace';
+import type { Workspace } from './workspace';
 
 enum StatusBarAlignment {
     Left = 1,

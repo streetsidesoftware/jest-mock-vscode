@@ -1,7 +1,7 @@
-// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
-import { Uri } from './uri';
-import { SymbolKind, SymbolTag, Range } from './extHostTypes';
+
+import type { Range, SymbolKind, SymbolTag } from './extHostTypes';
+import type { Uri } from './uri';
 
 /**
  * Represents an item of a type hierarchy, like a class or an interface.
@@ -20,7 +20,7 @@ export class TypeHierarchyItem implements vscode.TypeHierarchyItem {
     /**
      * Tags for this item.
      */
-    tags?: ReadonlyArray<SymbolTag>;
+    tags?: readonly SymbolTag[];
 
     /**
      * More detail for this item, e.g. the signature of a function.

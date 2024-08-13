@@ -13,3 +13,4 @@ cspell.schema.json
 tsconfig*.json
 **/coverage/**
 **/dist/**
+.release-please-manifest.json

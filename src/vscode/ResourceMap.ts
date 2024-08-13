@@ -1,10 +1,8 @@
-// eslint-disable-next-line node/no-missing-import
 import type { Uri as URI } from 'vscode';
+
 import { Uri as mockUri } from './uri';
 
-interface ResourceMapKeyFn {
-    (resource: URI): string;
-}
+type ResourceMapKeyFn = (resource: URI) => string;
 
 export class ResourceMap<T> implements Map<URI, T> {
     private static readonly defaultToKey = (resource: URI) => resource.toString();
@@ -69,7 +67,7 @@ export class ResourceMap<T> implements Map<URI, T> {
         }
         for (const [index, value] of this.map) {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            clb(value, mockUri.parse(index), <any>this);
+            clb(value, mockUri.parse(index), this as any);
         }
     }
 

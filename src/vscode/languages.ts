@@ -1,6 +1,6 @@
-// eslint-disable-next-line node/no-missing-import
 import type * as vscode from 'vscode';
-import { TestFramework } from '../TestFramework';
+
+import type { TestFramework } from '../TestFramework';
 
 export type Languages = typeof vscode.languages;
 
