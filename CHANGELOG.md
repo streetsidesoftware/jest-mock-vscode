@@ -1,5 +1,23 @@
 # Changelog
 
+## [4.0.0](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v3.0.5...v4.0.0) (2024-08-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* update eslint and drop support for Node 18 ([#384](https://github.com/streetsidesoftware/jest-mock-vscode/issues/384))
+
+### Documentation
+
+* Add Migration notes ([#386](https://github.com/streetsidesoftware/jest-mock-vscode/issues/386)) ([a2dd34c](https://github.com/streetsidesoftware/jest-mock-vscode/commit/a2dd34c7a66be78bc6ea499b532b6957b35bd894))
+
+
+### Updates and Bug Fixes
+
+* update eslint and drop support for Node 18 ([#384](https://github.com/streetsidesoftware/jest-mock-vscode/issues/384)) ([ed6bcdb](https://github.com/streetsidesoftware/jest-mock-vscode/commit/ed6bcdbe44e0e48995d165fb0f1147348a8d858a))
+* Update VSCode to (^1.91.0) (main) ([#351](https://github.com/streetsidesoftware/jest-mock-vscode/issues/351)) ([cffa410](https://github.com/streetsidesoftware/jest-mock-vscode/commit/cffa41098a949780faeb3a5a9bdd7a6a8f9ab4c3))
+* Update VSCode to (^1.92.0) (main) ([#376](https://github.com/streetsidesoftware/jest-mock-vscode/issues/376)) ([d9ff9b2](https://github.com/streetsidesoftware/jest-mock-vscode/commit/d9ff9b28491126e81b83764a5b314e9b32a9069d))
+
 ## [3.0.5](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v3.0.4...v3.0.5) (2024-06-09)
 
 
