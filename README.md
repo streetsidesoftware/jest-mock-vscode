@@ -19,7 +19,8 @@ Based upon [Manual Mocks · Jest](https://jestjs.io/docs/manual-mocks) add the f
 <!--- @@inject: test-packages/jest-integration/src/__mocks__/vscode.js --->
 
 ```js
-/* eslint-disable node/no-unpublished-require */
+/* eslint-disable @typescript-eslint/no-require-imports */
+
 module.exports = require('jest-mock-vscode').createVSCodeMock(jest);
 ```
 
@@ -32,7 +33,8 @@ module.exports = require('jest-mock-vscode').createVSCodeMock(jest);
 <!--- @@inject: test-packages/jest-integration/src/sample.workspace.test.ts --->
 
 ```ts
-import { Uri, workspace, WorkspaceFolder } from 'vscode';
+import type { WorkspaceFolder } from 'vscode';
+import { Uri, workspace } from 'vscode';
 
 const rootUri = Uri.file(__dirname);
 const workspaceFolder1: WorkspaceFolder = {
@@ -79,8 +81,8 @@ You can add the following file to your project:
 <!--- @@inject: test-packages/vitest-integration/__mocks__/vscode.cts --->
 
 ```typescript
-import { vi } from 'vitest';
 import { createVSCodeMock } from 'jest-mock-vscode';
+import { vi } from 'vitest';
 
 const vscode = createVSCodeMock(vi);
 
@@ -95,7 +97,7 @@ module.exports = vscode;
 
 ```ts
 import { afterEach, describe, expect, test, vi } from 'vitest';
-import { Uri, workspace, type WorkspaceFolder, window } from 'vscode';
+import { Uri, window, workspace, type WorkspaceFolder } from 'vscode';
 
 vi.mock('vscode');
 
