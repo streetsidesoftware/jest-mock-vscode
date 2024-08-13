@@ -200,6 +200,14 @@ Here are a few of items that have been implemented. Most of them are based upon 
 - workspace
 - WorkspaceEdit
 
+## Migrating from 3.x to 4.x
+
+- No migration should be necessary.
+
+### Changes
+
+- `@types/vscode` is now a peer dependency
+
 ## Migrating from 2.x to 3.x
 
 Migration is only necessary if you used any of the following:
