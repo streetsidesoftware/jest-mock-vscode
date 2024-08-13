@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v4.0.0...v4.0.1) (2024-08-13)
+
+
+### Updates and Bug Fixes
+
+* lighten the vscode requirement ([#387](https://github.com/streetsidesoftware/jest-mock-vscode/issues/387)) ([6b4be5b](https://github.com/streetsidesoftware/jest-mock-vscode/commit/6b4be5bdbc627365f17db9bce9ef7bc7d7eb98e0))
+
 ## [4.0.0](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v3.0.5...v4.0.0) (2024-08-13)
 
 
