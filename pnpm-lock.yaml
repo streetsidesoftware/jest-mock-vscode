@@ -26,7 +26,7 @@ importers:
         version: 20.16.10
       '@types/vscode':
         specifier: ^1.93.0
-        version: 1.93.0
+        version: 1.94.0
       eslint:
         specifier: ^9.11.1
         version: 9.11.1
@@ -720,6 +720,9 @@ packages:
 
   '@types/vscode@1.93.0':
     resolution: {integrity: sha512-kUK6jAHSR5zY8ps42xuW89NLcBpw1kOabah7yv38J8MyiYuOHxLQBi0e7zeXbQgVefDy/mZZetqEFC+Fl5eIEQ==}
+
+  '@types/vscode@1.94.0':
+    resolution: {integrity: sha512-UyQOIUT0pb14XSqJskYnRwD2aG0QrPVefIfrW1djR+/J4KeFQ0i1+hjZoaAmeNf3Z2jleK+R2hv+EboG/m8ruw==}
 
   '@types/yargs-parser@21.0.3':
     resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
@@ -3135,6 +3138,8 @@ snapshots:
   '@types/unist@3.0.3': {}
 
   '@types/vscode@1.93.0': {}
+
+  '@types/vscode@1.94.0': {}
 
   '@types/yargs-parser@21.0.3': {}
 
