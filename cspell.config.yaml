@@ -9,6 +9,7 @@ ignorePaths:
 dictionaryDefinitions: []
 dictionaries: []
 words:
+  - corepack
   - endregion
   - Evaluatable
   - linkcode

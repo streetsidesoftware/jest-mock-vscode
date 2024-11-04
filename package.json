@@ -7,9 +7,9 @@
   "types": "dist/index.d.ts",
   "author": "Jason Dent",
   "license": "MIT",
-  "packageManager": "pnpm@9.4.0",
+  "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee",
   "engines": {
-    "node": ">16.0.0"
+    "node": ">20.0.0"
   },
   "scripts": {
     "test": "pnpm test:root && pnpm -r run test",
@@ -53,7 +53,7 @@
     "@jest/globals": "^29.7.0",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.17.2",
-    "@types/vscode": "^1.94.0",
+    "@types/vscode": "^1.95.0",
     "eslint": "^9.13.0",
     "eslint-plugin-n": "^17.11.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",

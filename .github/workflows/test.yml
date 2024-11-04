@@ -24,8 +24,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4.0.0
+      - name: Corepack Enable
+        run: corepack enable
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
@@ -51,8 +51,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4.0.0
+      - name: Corepack Enable
+        run: corepack enable
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4

@@ -140,7 +140,13 @@ type NotImplemented =
     | 'l10n'
     | 'LanguageModelChatMessage'
     | 'LanguageModelChatMessageRole'
+    | 'LanguageModelChatToolMode'
     | 'LanguageModelError'
+    | 'LanguageModelPromptTsxPart'
+    | 'LanguageModelTextPart'
+    | 'LanguageModelToolCallPart'
+    | 'LanguageModelToolResult'
+    | 'LanguageModelToolResultPart'
     | 'LanguageStatusSeverity'
     | 'LinkedEditingRanges'
     | 'lm'
@@ -230,7 +236,7 @@ export function createVSCodeMock(jest: TestFramework): VSCodeMock {
     const languages = createLanguages(jest);
 
     const code: VSCodeMock = {
-        version: '1.90.0',
+        version: '1.95.0',
 
         CallHierarchyIncomingCall,
         CallHierarchyItem,
