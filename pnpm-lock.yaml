@@ -38,7 +38,7 @@ importers:
         version: 12.1.1(eslint@9.14.0)
       inject-markdown:
         specifier: ^3.1.0
-        version: 3.1.0
+        version: 3.1.4
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@20.17.6)
@@ -1384,8 +1384,8 @@ packages:
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
 
-  inject-markdown@3.1.0:
-    resolution: {integrity: sha512-ZtCOzS36vPy6UfyIJ1Gd9Hump8Psu6U5ooDlLNoNauXmdIwtGh7MZrvibubgUW8HIJU+EuCBZQUNltaoUhKFXg==}
+  inject-markdown@3.1.4:
+    resolution: {integrity: sha512-PKn0pdzF283r5HQI0czE51dozVw3dui5v9Et5cSBFezgMnbsq+J74y1hlAPcgNvws9yt+QIUspY39LT2FHDqlg==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -3826,7 +3826,7 @@ snapshots:
 
   inherits@2.0.4: {}
 
-  inject-markdown@3.1.0:
+  inject-markdown@3.1.4:
     dependencies:
       chalk: 5.3.0
       commander: 12.1.0
