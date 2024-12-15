@@ -1368,7 +1368,7 @@ export enum ProgressLocation {
 export class TreeItem {
     label?: string | vscode.TreeItemLabel;
     resourceUri?: URI;
-    iconPath?: string | URI | { light: string | URI; dark: string | URI };
+    iconPath?: string | URI | { light: URI; dark: URI };
     command?: vscode.Command;
     contextValue?: string;
     tooltip?: string | vscode.MarkdownString;
