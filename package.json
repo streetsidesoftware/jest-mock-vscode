@@ -53,12 +53,12 @@
     "patchedDependencies": {}
   },
   "devDependencies": {
-    "@eslint/js": "^9.18.0",
+    "@eslint/js": "^9.19.0",
     "@jest/globals": "^29.7.0",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.17.16",
     "@types/vscode": "^1.96.0",
-    "eslint": "^9.18.0",
+    "eslint": "^9.19.0",
     "eslint-plugin-n": "^17.15.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "inject-markdown": "^3.1.4",
@@ -67,7 +67,7 @@
     "rfdc": "^1.4.1",
     "ts-jest": "^29.2.5",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.21.0"
+    "typescript-eslint": "^8.22.0"
   },
   "dependencies": {
     "vscode-uri": "^3.0.8"
