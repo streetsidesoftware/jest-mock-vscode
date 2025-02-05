@@ -13,7 +13,7 @@
     "@tsconfig/node20": "^20.1.4",
     "@types/vscode": "^1.96.0",
     "jest-mock-vscode": "workspace:*",
-    "vitest": "^3.0.4"
+    "vitest": "^3.0.5"
   },
   "engines": {
     "node": ">16.0"
