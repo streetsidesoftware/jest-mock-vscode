@@ -31,7 +31,9 @@ jobs:
           ref: ${{ env.REF_BRANCH }}
 
       - name: Corepack Enable
-        run: corepack enable
+        run: |
+          npm install -g --force corepack
+          corepack enable
 
       - name: Use Node.js
         uses: actions/setup-node@v4
