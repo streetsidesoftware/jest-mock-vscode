@@ -24,5 +24,8 @@ jobs:
       - name: Setup Node
         uses: ./.github/actions/setup-node
 
+      - name: Install Dependencies
+        run: pnpm i
+
       - name: lint
         run: pnpm run lint:ci
