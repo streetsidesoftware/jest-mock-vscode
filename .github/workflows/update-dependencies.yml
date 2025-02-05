@@ -38,6 +38,11 @@ jobs:
         with:
           cache: 'pnpm'
 
+      - name: Corepack Enable
+        run: |
+          npm install -g --force corepack
+          corepack enable
+
       - name: Install
         run: pnpm install
 
