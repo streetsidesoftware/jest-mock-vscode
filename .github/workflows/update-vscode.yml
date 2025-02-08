@@ -64,10 +64,10 @@ jobs:
         if: steps.vscode_changed.outputs.value == 'true'
         uses: streetsidesoftware/actions/.github/actions/pr@v1
         with:
-          commit-message: 'fix: Update VSCode to (${{ env.VSCODE_VERSION }})'
+          commit-message: 'feat: Update VSCode to (${{ env.VSCODE_VERSION }})'
           branch: ${{ env.NEW_BRANCH }}
           base: ${{ env.REF_BRANCH }}
-          title: 'fix: Update VSCode to (${{ env.VSCODE_VERSION }}) (${{ env.REF_BRANCH }})'
+          title: 'feat: Update VSCode to (${{ env.VSCODE_VERSION }}) (${{ env.REF_BRANCH }})'
           body: ${{ steps.gen_body.outputs.value }}
           app_id: ${{ secrets.AUTOMATION_APP_ID }}
           app_private_key: ${{ secrets.AUTOMATION_PRIVATE_KEY }}
