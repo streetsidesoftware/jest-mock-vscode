@@ -34,7 +34,8 @@ jobs:
         uses: ./.github/actions/setup-node
 
       - name: Install
-        run: pnpm install
+        run: |
+          pnpm install
 
       - name: Update packages
         run: |
