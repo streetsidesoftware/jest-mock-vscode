@@ -23,6 +23,7 @@ export function createLanguages(jest: TestFramework) {
         registerDocumentFormattingEditProvider: jest.fn(),
         registerDocumentHighlightProvider: jest.fn(),
         registerDocumentLinkProvider: jest.fn(),
+        registerDocumentPasteEditProvider: jest.fn(),
         registerDocumentRangeFormattingEditProvider: jest.fn(),
         registerDocumentRangeSemanticTokensProvider: jest.fn(),
         registerDocumentSemanticTokensProvider: jest.fn(),
