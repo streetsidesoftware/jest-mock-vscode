@@ -53,12 +53,12 @@
     "patchedDependencies": {}
   },
   "devDependencies": {
-    "@eslint/js": "^9.19.0",
+    "@eslint/js": "^9.20.0",
     "@jest/globals": "^29.7.0",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.17.17",
     "@types/vscode": "^1.97.0",
-    "eslint": "^9.19.0",
+    "eslint": "^9.20.0",
     "eslint-plugin-n": "^17.15.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "inject-markdown": "^3.1.4",
