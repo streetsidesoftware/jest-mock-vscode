@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.3.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v4.3.0...v4.3.1) (2025-04-13)
+
+
+### Updates and Bug Fixes
+
+* Update VSCode to (^1.99.1) (main) ([#547](https://github.com/streetsidesoftware/jest-mock-vscode/issues/547)) ([bab402d](https://github.com/streetsidesoftware/jest-mock-vscode/commit/bab402da5b133c1571453fe756c423e7b7f1de83))
+
 ## [4.3.0](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v4.2.0...v4.3.0) (2025-04-07)
 
 
