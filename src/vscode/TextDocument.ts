@@ -46,13 +46,14 @@ export class MockTextDocument implements vscode.TextDocument {
         const lineNumber = typeof line === 'number' ? line : line.line;
         const fullLineText = this._lines[lineNumber];
         const text = fullLineText.replace(/\r?\n/, '');
+        const firstNonWhitespaceCharacterIndex = /^(\s*)/.exec(text)![1].length
         return {
             lineNumber,
             text,
             range: new mocked.Range(lineNumber, 0, lineNumber, text.length),
-            firstNonWhitespaceCharacterIndex: 0,
+            firstNonWhitespaceCharacterIndex,
             rangeIncludingLineBreak: new mocked.Range(lineNumber, 0, lineNumber, fullLineText.length),
-            isEmptyOrWhitespace: !!text.replace(/\s+/, ''),
+            isEmptyOrWhitespace: firstNonWhitespaceCharacterIndex === text.length,
         };
     }
 
