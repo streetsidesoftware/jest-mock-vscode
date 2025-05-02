@@ -71,6 +71,28 @@ describe('Validate TextDocument', () => {
         MockTextDocument.setContents(doc, content());
         expect(() => doc.save()).toThrow('Method not implemented.');
     });
+
+    test('lineAt', async () => {
+        const doc = createDoc();
+        
+        const line1 = doc.lineAt(1)
+        expect(line1.lineNumber).toEqual(1)
+        expect(line1.text).toEqual('Line 1')
+        expect(line1.firstNonWhitespaceCharacterIndex).toEqual(0)
+        expect(line1.isEmptyOrWhitespace).toEqual(false)
+
+        const line3 = doc.lineAt(3)
+        expect(line3.lineNumber).toEqual(3)
+        expect(line3.text).toEqual('')
+        expect(line3.firstNonWhitespaceCharacterIndex).toEqual(0)
+        expect(line3.isEmptyOrWhitespace).toEqual(true)
+
+        const line4 = doc.lineAt(4)
+        expect(line4.lineNumber).toEqual(4)
+        expect(line4.text).toEqual('  Line 4')
+        expect(line4.firstNonWhitespaceCharacterIndex).toEqual(2)
+        expect(line4.isEmptyOrWhitespace).toEqual(false)
+    });
 });
 
 function r(lineA: number, rowA: number, lineB: number, rowB: number): vscode.Range {
