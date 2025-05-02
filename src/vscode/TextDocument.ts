@@ -50,7 +50,7 @@ export class MockTextDocument implements vscode.TextDocument {
          * See: https://github.com/microsoft/vscode/blob/56222f3441914d033791e7e7a09b99423864751b/src/vs/workbench/api/common/extHostDocumentData.ts#L284-L291
          */
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        const firstNonWhitespaceCharacterIndex = /^(\s*)/.exec(text)![1].length
+        const firstNonWhitespaceCharacterIndex = /^(\s*)/.exec(text)![1].length;
         return {
             lineNumber,
             text,
