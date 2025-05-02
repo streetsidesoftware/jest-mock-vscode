@@ -46,6 +46,10 @@ export class MockTextDocument implements vscode.TextDocument {
         const lineNumber = typeof line === 'number' ? line : line.line;
         const fullLineText = this._lines[lineNumber];
         const text = fullLineText.replace(/\r?\n/, '');
+        /**
+         * See: https://github.com/microsoft/vscode/blob/56222f3441914d033791e7e7a09b99423864751b/src/vs/workbench/api/common/extHostDocumentData.ts#L284-L291
+         */
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         const firstNonWhitespaceCharacterIndex = /^(\s*)/.exec(text)![1].length
         return {
             lineNumber,
