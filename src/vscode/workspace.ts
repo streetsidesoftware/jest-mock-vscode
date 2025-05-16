@@ -78,6 +78,10 @@ export function createWorkspace(jest: TestFramework) {
         save = jest.fn();
         saveAs = jest.fn();
         updateWorkspaceFolders = jest.fn();
+
+        // vscode 1.100.0
+        encode = jest.fn();
+        decode = jest.fn();
     }
 
     const workspace = new MockWorkspace();
