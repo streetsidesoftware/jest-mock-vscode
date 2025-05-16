@@ -3,6 +3,7 @@
 	"display": "Jest Mock for VS Code Typescript Config",
 	"extends": "@tsconfig/node20/tsconfig.json",
     "compilerOptions": {
+        "isolatedModules": true
     },
     "files": [],
     "references": [

@@ -15,6 +15,7 @@ export class MockTextDocument implements vscode.TextDocument {
         private _contents: string,
         public _languageId = 'plaintext',
         public version = 1,
+        public encoding = 'utf8',
     ) {
         this._lines = [];
         this.init();
