@@ -93,7 +93,8 @@ type VSCode = typeof vscode;
 
 type OnlyKeyOf<T, K extends keyof T> = K;
 
-type NotImplemented = OnlyKeyOf<VSCode,
+type NotImplemented = OnlyKeyOf<
+    VSCode,
     | 'authentication'
     | 'BranchCoverage'
     | 'Breakpoint'
@@ -204,7 +205,8 @@ type NotImplemented = OnlyKeyOf<VSCode,
     | 'TextDocumentChangeReason'
     | 'TextEditorCursorStyle'
     | 'TreeItemCheckboxState'
-    | 'UIKind'>;
+    | 'UIKind'
+>;
 
 export type VSCodeMock = Omit<VSCode, NotImplemented>;
 
