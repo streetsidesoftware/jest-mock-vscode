@@ -41,7 +41,7 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 23.x
+          - 22.x
 
         os:
           - windows-latest
