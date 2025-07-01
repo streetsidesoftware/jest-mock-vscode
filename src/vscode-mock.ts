@@ -91,7 +91,9 @@ import { WorkspaceEdit } from './vscode/WorkspaceEdit';
 
 type VSCode = typeof vscode;
 
-type NotImplemented =
+type OnlyKeyOf<T, K extends keyof T> = K;
+
+type NotImplemented = OnlyKeyOf<VSCode,
     | 'authentication'
     | 'BranchCoverage'
     | 'Breakpoint'
@@ -153,6 +155,8 @@ type NotImplemented =
     | 'LanguageStatusSeverity'
     | 'LinkedEditingRanges'
     | 'lm'
+    | 'McpHttpServerDefinition'
+    | 'McpStdioServerDefinition'
     | 'NotebookCellData'
     | 'NotebookCellKind'
     | 'NotebookCellOutput'
@@ -200,7 +204,7 @@ type NotImplemented =
     | 'TextDocumentChangeReason'
     | 'TextEditorCursorStyle'
     | 'TreeItemCheckboxState'
-    | 'UIKind';
+    | 'UIKind'>;
 
 export type VSCodeMock = Omit<VSCode, NotImplemented>;
 
