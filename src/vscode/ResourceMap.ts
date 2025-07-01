@@ -71,23 +71,23 @@ export class ResourceMap<T> implements Map<URI, T> {
         }
     }
 
-    values(): IterableIterator<T> {
+    values(): ReturnType<Map<URI, T>['values']> {
         return this.map.values();
     }
 
-    *keys(): IterableIterator<URI> {
+    *keys(): ReturnType<Map<URI, T>['keys']> {
         for (const key of this.map.keys()) {
             yield mockUri.parse(key);
         }
     }
 
-    *entries(): IterableIterator<[URI, T]> {
+    *entries(): ReturnType<Map<URI, T>['entries']> {
         for (const tuple of this.map.entries()) {
             yield [mockUri.parse(tuple[0]), tuple[1]];
         }
     }
 
-    *[Symbol.iterator](): IterableIterator<[URI, T]> {
+    *[Symbol.iterator](): ReturnType<Map<URI, T>[typeof Symbol.iterator]> {
         for (const item of this.map) {
             yield [mockUri.parse(item[0]), item[1]];
         }
