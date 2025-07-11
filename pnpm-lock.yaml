@@ -26,7 +26,7 @@ importers:
         version: 20.19.4
       '@types/vscode':
         specifier: ^1.101.0
-        version: 1.101.0
+        version: 1.102.0
       eslint:
         specifier: ^9.30.1
         version: 9.30.1
@@ -68,7 +68,7 @@ importers:
         version: 30.0.0
       '@types/vscode':
         specifier: ^1.101.0
-        version: 1.101.0
+        version: 1.102.0
       jest:
         specifier: ^30.0.4
         version: 30.0.4(@types/node@20.19.4)
@@ -86,7 +86,7 @@ importers:
         version: 20.1.6
       '@types/vscode':
         specifier: ^1.101.0
-        version: 1.101.0
+        version: 1.102.0
       jest-mock-vscode:
         specifier: workspace:*
         version: link:../..
@@ -845,8 +845,8 @@ packages:
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
 
-  '@types/vscode@1.101.0':
-    resolution: {integrity: sha512-ZWf0IWa+NGegdW3iU42AcDTFHWW7fApLdkdnBqwYEtHVIBGbTu0ZNQKP/kX3Ds/uMJXIMQNAojHR4vexCEEz5Q==}
+  '@types/vscode@1.102.0':
+    resolution: {integrity: sha512-V9sFXmcXz03FtYTSUsYsu5K0Q9wH9w9V25slddcxrh5JgORD14LpnOA7ov0L9ALi+6HrTjskLJ/tY5zeRF3TFA==}
 
   '@types/yargs-parser@21.0.3':
     resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
@@ -3608,7 +3608,7 @@ snapshots:
 
   '@types/unist@3.0.3': {}
 
-  '@types/vscode@1.101.0': {}
+  '@types/vscode@1.102.0': {}
 
   '@types/yargs-parser@21.0.3': {}
 
