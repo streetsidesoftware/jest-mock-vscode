@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",
-    "@jest/globals": "^29.7.0",
+    "@jest/globals": "^30.0.5",
     "@tsconfig/node20": "^20.1.6",
     "@types/node": "^20.19.9",
     "@types/vscode": "^1.102.0",
