@@ -59,7 +59,7 @@
     "@types/node": "^20.19.9",
     "@types/vscode": "^1.102.0",
     "eslint": "^9.32.0",
-    "eslint-plugin-n": "^17.21.0",
+    "eslint-plugin-n": "^17.21.2",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "inject-markdown": "^4.0.0",
     "jest": "^30.0.5",
