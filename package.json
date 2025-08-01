@@ -59,14 +59,14 @@
     "@types/node": "^20.19.9",
     "@types/vscode": "^1.102.0",
     "eslint": "^9.32.0",
-    "eslint-plugin-n": "^17.21.2",
+    "eslint-plugin-n": "^17.21.3",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "inject-markdown": "^4.0.0",
     "jest": "^30.0.5",
     "prettier": "^3.6.2",
     "rfdc": "^1.4.1",
     "ts-jest": "^29.4.0",
-    "typescript": "^5.8.3",
+    "typescript": "^5.9.2",
     "typescript-eslint": "^8.38.0"
   },
   "dependencies": {
