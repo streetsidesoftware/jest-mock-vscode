@@ -15,7 +15,7 @@
     "@types/vscode": "^1.102.0",
     "jest": "^30.0.5",
     "jest-mock-vscode": "workspace:*",
-    "ts-jest": "^29.4.0"
+    "ts-jest": "^29.4.1"
   },
   "engines": {
     "node": ">16.0"
