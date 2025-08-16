@@ -56,8 +56,8 @@
     "@eslint/js": "^9.33.0",
     "@jest/globals": "^30.0.5",
     "@tsconfig/node20": "^20.1.6",
-    "@types/node": "^20.19.10",
-    "@types/vscode": "^1.102.0",
+    "@types/node": "^20.19.11",
+    "@types/vscode": "^1.103.0",
     "eslint": "^9.33.0",
     "eslint-plugin-n": "^17.21.3",
     "eslint-plugin-simple-import-sort": "^12.1.1",
@@ -67,7 +67,7 @@
     "rfdc": "^1.4.1",
     "ts-jest": "^29.4.1",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.39.0"
+    "typescript-eslint": "^8.39.1"
   },
   "dependencies": {
     "vscode-uri": "^3.1.0"
