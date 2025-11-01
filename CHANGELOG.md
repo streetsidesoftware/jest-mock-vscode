@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.8.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v4.8.0...v4.8.1) (2025-11-01)
+
+
+### Updates and Bug Fixes
+
+* Loosen the type restrictions on the Test Framework (was breaking with ViTest update). ([#709](https://github.com/streetsidesoftware/jest-mock-vscode/issues/709)) ([da1bdfc](https://github.com/streetsidesoftware/jest-mock-vscode/commit/da1bdfcbe58d1e21c621f402161c889274c54de5))
+
 ## [4.8.0](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v4.7.0...v4.8.0) (2025-11-01)
 
 
