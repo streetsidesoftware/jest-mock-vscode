@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/prefer-function-type */
 /* eslint-disable @typescript-eslint/no-unsafe-function-type */
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -181,6 +182,12 @@ export interface MockInstance<T, Y extends any[], C = any> {
 export interface Mock<T = any, Y extends any[] = any, C = any> extends Function, MockInstance<T, Y, C> {
     new (...args: Y): T;
     (this: C, ...args: Y): T;
+}
+
+export type Procedure = (...args: any[]) => any;
+
+export interface Constructable {
+    new (...args: any[]): any;
 }
 
 // type RejectedValue<T> = T extends PromiseLike<any> ? any : never;

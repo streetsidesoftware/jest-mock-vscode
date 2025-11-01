@@ -1,6 +1,6 @@
 import type * as vscode from 'vscode';
 
-import type { TestFramework } from './TestFramework';
+import type { GenericTestFramework, TestFramework } from './TestFramework';
 import {
     CallHierarchyIncomingCall,
     CallHierarchyItem,
@@ -218,7 +218,8 @@ export type VSCodeMock = Omit<VSCode, NotImplemented>;
  * module.exports = require('jest-mock-vscode').createVSCodeMock(jest);
  * ```
  */
-export function createVSCodeMock(jest: TestFramework): VSCodeMock {
+export function createVSCodeMock(testFramework: GenericTestFramework): VSCodeMock {
+    const tf: TestFramework = testFramework as TestFramework;
     const OverviewRulerLane: VSCode['OverviewRulerLane'] = {
         Left: 1,
         Center: 2,
@@ -227,22 +228,22 @@ export function createVSCodeMock(jest: TestFramework): VSCodeMock {
     };
 
     const debug: VSCode['debug'] = {
-        onDidTerminateDebugSession: jest.fn(),
-        startDebugging: jest.fn(),
-        registerDebugAdapterDescriptorFactory: jest.fn(),
+        onDidTerminateDebugSession: tf.fn(),
+        startDebugging: tf.fn(),
+        registerDebugAdapterDescriptorFactory: tf.fn(),
     } as unknown as VSCode['debug'];
 
     const commands: VSCode['commands'] = {
-        executeCommand: jest.fn(),
-        registerCommand: jest.fn(),
-        getCommands: jest.fn(),
-        registerTextEditorCommand: jest.fn(),
+        executeCommand: tf.fn(),
+        registerCommand: tf.fn(),
+        getCommands: tf.fn(),
+        registerTextEditorCommand: tf.fn(),
     };
 
-    const workspace = createWorkspace(jest);
-    const window = createWindow(jest, workspace);
-    const tasks = createTasks(jest);
-    const languages = createLanguages(jest);
+    const workspace = createWorkspace(tf);
+    const window = createWindow(tf, workspace);
+    const tasks = createTasks(tf);
+    const languages = createLanguages(tf);
 
     const code: VSCodeMock = {
         version: '1.95.0',
