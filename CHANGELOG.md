@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.8.2](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v4.8.1...v4.8.2) (2025-11-01)
+
+
+### Updates and Bug Fixes
+
+* Correct createMockWorkspaceConfiguration signature ([#711](https://github.com/streetsidesoftware/jest-mock-vscode/issues/711)) ([497765c](https://github.com/streetsidesoftware/jest-mock-vscode/commit/497765cd0b54fb62dc500be7538714901e09c4c1))
+
 ## [4.8.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v4.8.0...v4.8.1) (2025-11-01)
 
 
