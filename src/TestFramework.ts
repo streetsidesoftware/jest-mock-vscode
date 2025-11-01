@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { Mock } from './TestFrameworkTypes';
+import type { Constructable, Mock, Procedure } from './TestFrameworkTypes';
 
 export interface TestFramework {
     /**
@@ -11,3 +11,9 @@ export interface TestFramework {
      */
     fn<T, Y extends any[], C = any>(implementation?: (this: C, ...args: Y) => T): Mock<T, Y, C>;
 }
+
+interface TF<P> {
+    fn(implementation?: P): P;
+}
+
+export type GenericTestFramework = TestFramework | TF<Procedure> | TF<Constructable> | TF<Procedure | Constructable>;

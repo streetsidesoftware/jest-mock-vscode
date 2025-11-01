@@ -18,5 +18,6 @@ words:
   - rfdc
   - tsbuild
   - VSIX
+  - unrs-resolver
 ignoreWords: []
 import: []

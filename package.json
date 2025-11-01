@@ -7,7 +7,7 @@
   "types": "dist/index.d.ts",
   "author": "Jason Dent",
   "license": "MIT",
-  "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee",
+  "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd",
   "engines": {
     "node": ">20.0.0"
   },
@@ -50,15 +50,19 @@
   },
   "pnpm": {
     "overrides": {},
-    "patchedDependencies": {}
+    "patchedDependencies": {},
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "unrs-resolver"
+    ]
   },
   "devDependencies": {
-    "@eslint/js": "^9.38.0",
+    "@eslint/js": "^9.39.0",
     "@jest/globals": "^30.2.0",
     "@tsconfig/node20": "^20.1.6",
     "@types/node": "^20.19.24",
     "@types/vscode": "^1.105.0",
-    "eslint": "^9.38.0",
+    "eslint": "^9.39.0",
     "eslint-plugin-n": "^17.23.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "inject-markdown": "^4.0.0",
