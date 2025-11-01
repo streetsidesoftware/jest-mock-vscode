@@ -1,7 +1,7 @@
 import assert from 'assert';
 import type * as vscode from 'vscode';
 
-import type { TestFramework } from '../TestFramework';
+import type { GenericTestFramework, TestFramework } from '../TestFramework';
 import { ConfigurationTarget } from './extHostTypes';
 
 export type WorkspaceConfiguration = vscode.WorkspaceConfiguration;
@@ -114,11 +114,12 @@ export interface MockWorkspaceConfiguration<T> extends WorkspaceConfiguration {
 }
 
 export function createMockWorkspaceConfiguration<T>(
-    jest: TestFramework,
+    testFrameWork: GenericTestFramework,
     data: MockWorkspaceConfigurationData<T> = { [allLanguagesKeyId]: {} },
     key = '',
     scope?: vscode.ConfigurationScope | null,
 ): MockWorkspaceConfiguration<T> {
+    const jest: TestFramework = testFrameWork as TestFramework;
     const languageIdKey = scopeToLanguageId(scope);
     const bls: BaseLanguageSection = [allLanguagesKeyId, languageIdKey];
 
