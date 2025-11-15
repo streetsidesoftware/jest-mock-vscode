@@ -10,10 +10,10 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@tsconfig/node20": "^20.1.6",
-    "@types/vscode": "^1.105.0",
+    "@tsconfig/node20": "^20.1.7",
+    "@types/vscode": "^1.106.0",
     "jest-mock-vscode": "workspace:*",
-    "vitest": "^4.0.8"
+    "vitest": "^4.0.9"
   },
   "engines": {
     "node": ">16.0"
