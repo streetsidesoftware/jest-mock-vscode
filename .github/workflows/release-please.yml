@@ -60,7 +60,7 @@ jobs:
         env:
           NPM_CONFIG_PROVENANCE: true
         run: |
-          pnpm publish
+          pnpm publish --access public
 
       - name: Summary
         uses: streetsidesoftware/actions/public/summary@v1
