@@ -13,11 +13,12 @@ words:
   - endregion
   - Evaluatable
   - linkcode
+  - nodenext
   - pnpm
   - quickfix
   - rfdc
   - tsbuild
-  - VSIX
   - unrs-resolver
+  - VSIX
 ignoreWords: []
 import: []

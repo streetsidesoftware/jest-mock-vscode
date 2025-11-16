@@ -84,6 +84,7 @@ import {
     ViewColumn,
 } from './vscode';
 import { FilePermission, FileType } from './vscode/FileType';
+import { LanguageModelDataPart } from './vscode/LanguageModelDataPart';
 import { createTasks } from './vscode/tasks';
 import { createWindow } from './vscode/window';
 import { createWorkspace } from './vscode/workspace';
@@ -293,6 +294,7 @@ export function createVSCodeMock(testFramework: GenericTestFramework): VSCodeMoc
         FileType,
         FoldingRange,
         FoldingRangeKind,
+        LanguageModelDataPart,
         languages,
         Location,
         LogLevel,
