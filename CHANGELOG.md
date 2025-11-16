@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.9.3](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v4.9.2...v4.9.3) (2025-11-16)
+
+
+### Updates and Bug Fixes
+
+* bump node requirement to 22.x ([#734](https://github.com/streetsidesoftware/jest-mock-vscode/issues/734)) ([f96d116](https://github.com/streetsidesoftware/jest-mock-vscode/commit/f96d1169aaf3804e7fb1262a48b53ce50ad83518))
+
 ## [4.9.2](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v4.9.1...v4.9.2) (2025-11-16)
 
 
