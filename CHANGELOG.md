@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.9.2](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v4.9.1...v4.9.2) (2025-11-16)
+
+
+### Updates and Bug Fixes
+
+* Ensure provenance ([#732](https://github.com/streetsidesoftware/jest-mock-vscode/issues/732)) ([7e150b0](https://github.com/streetsidesoftware/jest-mock-vscode/commit/7e150b05c9be72381882a8c89da654b674dce9f1))
+
 ## [4.9.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v4.9.0...v4.9.1) (2025-11-16)
 
 
