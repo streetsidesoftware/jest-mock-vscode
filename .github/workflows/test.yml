@@ -33,7 +33,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - run: |
+      - run: npm -v
+
+      - name: Install and Build
+        run: |
           pnpm install
           pnpm build
+
       - run: pnpm test
