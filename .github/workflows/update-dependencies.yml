@@ -50,8 +50,7 @@ jobs:
         id: body
         uses: streetsidesoftware/actions/public/pr-body@v1
         with:
-          message: |
-            ## Update Dependencies
+          title: Update ALL Dependencies
           path: >-
             package.json
 
