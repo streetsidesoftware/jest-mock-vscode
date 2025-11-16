@@ -1,5 +1,9 @@
 {
   "name": "jest-mock-vscode",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "version": "4.9.1",
   "description": "VS Code Mock for jest",
   "type": "commonjs",
