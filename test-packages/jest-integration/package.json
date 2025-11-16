@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@tsconfig/node20": "^20.1.6",
+    "@tsconfig/node22": "^22.0.4",
     "@types/jest": "^30.0.0",
     "@types/vscode": "^1.105.0",
     "jest": "^30.2.0",
