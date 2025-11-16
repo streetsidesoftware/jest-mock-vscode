@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.9.1](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v4.9.0...v4.9.1) (2025-11-16)
+
+
+### Updates and Bug Fixes
+
+* Publish from main ([#730](https://github.com/streetsidesoftware/jest-mock-vscode/issues/730)) ([0360027](https://github.com/streetsidesoftware/jest-mock-vscode/commit/036002776d10279e4d41d42dc816fe72a82caa52))
+
 ## [4.9.0](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v4.8.2...v4.9.0) (2025-11-16)
 
 
