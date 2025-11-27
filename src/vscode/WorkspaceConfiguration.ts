@@ -39,8 +39,7 @@ type AllLanguagesKeyId = '[*]';
 const allLanguagesKeyId: AllLanguagesKeyId = '[*]';
 
 export interface MockWorkspaceConfigurationData<T>
-    extends Record<AllLanguagesKeyId, InspectBaseValues<T>>,
-        Record<LanguageKeyId, InspectBaseValues<T>> {}
+    extends Record<AllLanguagesKeyId, InspectBaseValues<T>>, Record<LanguageKeyId, InspectBaseValues<T>> {}
 
 type KeyNames<T> = {
     [key in keyof T]-?: key;
