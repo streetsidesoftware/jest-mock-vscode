@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.9.5](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v4.9.4...v4.9.5) (2025-11-30)
+
+
+### Updates and Bug Fixes
+
+* CSpell Version: **`^1.106.0`** --&gt; **`^1.106.1`** ([76595f3](https://github.com/streetsidesoftware/jest-mock-vscode/commit/76595f3fff70f8e38e15a5658740af34e55ea56d))
+
 ## [4.9.4](https://github.com/streetsidesoftware/jest-mock-vscode/compare/v4.9.3...v4.9.4) (2025-11-16)
 
 
