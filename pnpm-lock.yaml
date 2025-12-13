@@ -68,7 +68,7 @@ importers:
         version: 30.0.0
       '@types/vscode':
         specifier: ^1.106.1
-        version: 1.106.1
+        version: 1.107.0
       jest:
         specifier: ^30.2.0
         version: 30.2.0(@types/node@22.19.1)
@@ -86,7 +86,7 @@ importers:
         version: 22.0.5
       '@types/vscode':
         specifier: ^1.106.1
-        version: 1.106.1
+        version: 1.107.0
       jest-mock-vscode:
         specifier: workspace:*
         version: link:../..
@@ -810,9 +810,6 @@ packages:
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
-
-  '@types/vscode@1.106.1':
-    resolution: {integrity: sha512-R/HV8u2h8CAddSbX8cjpdd7B8/GnE4UjgjpuGuHcbp1xV6yh4OeqU4L1pKjlwujCrSFS0MOpwJAIs/NexMB1fQ==}
 
   '@types/vscode@1.107.0':
     resolution: {integrity: sha512-XS8YE1jlyTIowP64+HoN30OlC1H9xqSlq1eoLZUgFEC8oUTO6euYZxti1xRiLSfZocs4qytTzR6xCBYtioQTCg==}
@@ -3408,8 +3405,6 @@ snapshots:
   '@types/unist@2.0.11': {}
 
   '@types/unist@3.0.3': {}
-
-  '@types/vscode@1.106.1': {}
 
   '@types/vscode@1.107.0': {}
 
