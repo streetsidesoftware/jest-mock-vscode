@@ -64,7 +64,7 @@
     "@eslint/js": "^9.39.1",
     "@jest/globals": "^30.2.0",
     "@tsconfig/node22": "^22.0.5",
-    "@types/node": "^22.19.1",
+    "@types/node": "^25.0.1",
     "@types/vscode": "^1.107.0",
     "eslint": "^9.39.1",
     "eslint-plugin-n": "^17.23.1",
