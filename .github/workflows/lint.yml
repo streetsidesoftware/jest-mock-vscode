@@ -13,13 +13,13 @@ jobs:
   cspell:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.1
+      - uses: actions/checkout@v6.0.2
       - uses: streetsidesoftware/cspell-action@v8
 
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6.0.1
+      - uses: actions/checkout@v6.0.2
 
       - name: Setup Node
         uses: ./.github/actions/setup-node
