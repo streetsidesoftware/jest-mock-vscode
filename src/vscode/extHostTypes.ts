@@ -1411,12 +1411,29 @@ export class ThemeIcon {
 ThemeIcon.File = new ThemeIcon('file');
 ThemeIcon.Folder = new ThemeIcon('folder');
 
+
 export class ThemeColor {
     id: string;
     constructor(id: string) {
         this.id = id;
     }
 }
+
+/**
+ * Represents an icon in the UI. This is either an uri, separate uris for the light- and dark-themes,
+ * or a {@link ThemeIcon theme icon}.
+ */
+export type IconPath = URI | {
+    /**
+     * The icon path for the light theme.
+     */
+    light: URI;
+    /**
+     * The icon path for the dark theme.
+     */
+    dark: URI;
+} | ThemeIcon;
+
 
 export enum ConfigurationTarget {
     Global = 1,

@@ -6,6 +6,8 @@ export { FileSystemError } from './FileSystemError';
 export { createMockFileSystem, createMockFileSystemProvider } from './fs';
 export { createLanguages, Languages } from './languages';
 export * from './MarkdownString';
+export type { QuickInputButton } from './QuickInput';
+export { QuickInputButtonLocation } from './QuickInput';
 export type { MockTabGroups } from './TabGroups';
 export { createMockTabGroups } from './TabGroups';
 export * from './TextDocument';
