@@ -64,18 +64,18 @@
     "@eslint/js": "^9.39.2",
     "@jest/globals": "^30.2.0",
     "@tsconfig/node22": "^22.0.5",
-    "@types/node": "^22.19.3",
+    "@types/node": "^22.19.10",
     "@types/vscode": "^1.109.0",
     "eslint": "^9.39.2",
-    "eslint-plugin-n": "^17.23.1",
+    "eslint-plugin-n": "^17.23.2",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "inject-markdown": "^4.0.0",
     "jest": "^30.2.0",
-    "prettier": "^3.7.4",
+    "prettier": "^3.8.1",
     "rfdc": "^1.4.1",
     "ts-jest": "^29.4.6",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.50.0"
+    "typescript-eslint": "^8.54.0"
   },
   "dependencies": {
     "vscode-uri": "^3.1.0"
