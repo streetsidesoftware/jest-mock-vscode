@@ -65,7 +65,7 @@
     "@jest/globals": "^30.2.0",
     "@tsconfig/node22": "^22.0.5",
     "@types/node": "^22.19.13",
-    "@types/vscode": "^1.109.0",
+    "@types/vscode": "^1.110.0",
     "eslint": "^10.0.2",
     "eslint-plugin-n": "^17.24.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
