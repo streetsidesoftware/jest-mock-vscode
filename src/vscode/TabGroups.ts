@@ -1,6 +1,7 @@
-import type { TabGroup, TabGroups } from 'vscode';
+import type { TabChangeEvent, TabGroup, TabGroupChangeEvent, TabGroups } from 'vscode';
 
 import type { TestFramework } from '../TestFramework';
+import { eventStub } from './event';
 
 export function createMockTabGroups(jest: TestFramework, all: TabGroup[]) {
     class MockTabGroups implements TabGroups {
@@ -10,8 +11,8 @@ export function createMockTabGroups(jest: TestFramework, all: TabGroup[]) {
             return this.all[0];
         }
 
-        onDidChangeTabGroups = jest.fn();
-        onDidChangeTabs = jest.fn();
+        onDidChangeTabGroups = eventStub<TabGroupChangeEvent>(jest);
+        onDidChangeTabs = eventStub<TabChangeEvent>(jest);
         close = jest.fn();
     }
 

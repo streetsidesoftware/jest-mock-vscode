@@ -45,4 +45,11 @@ describe('workspace', () => {
         expect(workspace.getWorkspaceFolder(Uri.joinPath(rootUri, 'Folder1/NestedFolder/README.md'))).toBe(folders[2]);
         expect(workspace.getWorkspaceFolder(rootUri)).toBeUndefined();
     });
+
+    test('event registration returns a Disposable', () => {
+        const sub = workspace.onDidChangeWorkspaceFolders(() => undefined);
+        expect(sub).toBeDefined();
+        expect(typeof sub.dispose).toBe('function');
+        expect(() => sub.dispose()).not.toThrow();
+    });
 });

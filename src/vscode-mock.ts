@@ -84,6 +84,7 @@ import {
     Uri,
     ViewColumn,
 } from './vscode';
+import { eventStub } from './vscode/event';
 import { FilePermission, FileType } from './vscode/FileType';
 import { LanguageModelDataPart } from './vscode/LanguageModelDataPart';
 import { createTasks } from './vscode/tasks';
@@ -230,7 +231,7 @@ export function createVSCodeMock(testFramework: GenericTestFramework): VSCodeMoc
     };
 
     const debug: VSCode['debug'] = {
-        onDidTerminateDebugSession: tf.fn(),
+        onDidTerminateDebugSession: eventStub<vscode.DebugSession>(tf),
         startDebugging: tf.fn(),
         registerDebugAdapterDescriptorFactory: tf.fn(),
     } as unknown as VSCode['debug'];

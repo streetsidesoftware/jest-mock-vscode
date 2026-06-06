@@ -1,6 +1,7 @@
 import type * as vscode from 'vscode';
 
 import type { TestFramework } from '../TestFramework';
+import { eventStub } from './event';
 import { createNodeFileSystemProvider } from './fsNode';
 
 export type FileSystem = vscode.FileSystem;
@@ -33,7 +34,7 @@ export function createMockFileSystemProvider(jest: TestFramework): FileSystemPro
         copy: jest.fn(),
         createDirectory: jest.fn(fsn.createDirectory),
         delete: jest.fn(),
-        onDidChangeFile: jest.fn(),
+        onDidChangeFile: eventStub(jest),
         readDirectory: jest.fn(),
         readFile: jest.fn(fsn.readFile),
         rename: jest.fn(),
