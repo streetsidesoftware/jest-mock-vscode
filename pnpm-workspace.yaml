@@ -6,3 +6,8 @@ minimumReleaseAgeExclude:
   - 'vscode'
 blockExoticSubdeps: true
 trustPolicy: no-downgrade
+trustPolicyExclude:
+  - semver@6.3.1
+  - undici-types@6.21.0
+allowBuilds:
+  unrs-resolver: true

@@ -17,6 +17,7 @@ words:
   - pnpm
   - quickfix
   - rfdc
+  - Subdeps
   - tsbuild
   - unrs-resolver
   - VSIX
