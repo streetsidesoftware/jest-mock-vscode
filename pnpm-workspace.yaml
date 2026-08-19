@@ -1,2 +1,8 @@
 packages:
   - test-packages/*
+
+minimumReleaseAge: 2880 # two days
+minimumReleaseAgeExclude:
+  - 'vscode'
+blockExoticSubdeps: true
+trustPolicy: no-downgrade
