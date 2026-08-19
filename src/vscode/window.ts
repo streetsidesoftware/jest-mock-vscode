@@ -1,5 +1,5 @@
-import type { TextDocument, TextDocumentShowOptions, TextEditor, Uri, ViewColumn } from 'vscode';
 import type * as vscode from 'vscode';
+import type { TextDocument, TextDocumentShowOptions, TextEditor, Uri, ViewColumn } from 'vscode';
 
 import type { TestFramework } from '../TestFramework';
 import { eventStub } from './event';

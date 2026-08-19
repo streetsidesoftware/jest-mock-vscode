@@ -52,14 +52,6 @@
     "type": "git",
     "url": "https://github.com/streetsidesoftware/jest-mock-vscode.git"
   },
-  "pnpm": {
-    "overrides": {},
-    "patchedDependencies": {},
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "unrs-resolver"
-    ]
-  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@jest/globals": "^30.4.1",
