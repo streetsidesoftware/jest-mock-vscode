@@ -2,8 +2,9 @@
   "compilerOptions": {
     "tsBuildInfoFile": "./dist/compile.tsbuildInfo",
     "composite": true,
-"esModuleInterop": true,
-    "outDir": "dist"
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "types": ["node", "jest"]
   },
   "include": ["src"]
 }
