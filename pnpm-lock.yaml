@@ -34,8 +34,8 @@ importers:
         specifier: ^18.3.0
         version: 18.3.0(eslint@10.8.1(supports-color@9.4.0))(ts-declaration-location@1.0.7(typescript@6.0.3))(typescript@6.0.3)
       eslint-plugin-simple-import-sort:
-        specifier: ^12.1.1
-        version: 12.1.1(eslint@10.8.1(supports-color@9.4.0))
+        specifier: ^14.0.0
+        version: 14.0.0(eslint@10.8.1(supports-color@9.4.0))
       inject-markdown:
         specifier: ^4.0.0
         version: 4.0.0(supports-color@9.4.0)
@@ -1191,8 +1191,8 @@ packages:
       typescript:
         optional: true
 
-  eslint-plugin-simple-import-sort@12.1.1:
-    resolution: {integrity: sha512-6nuzu4xwQtE3332Uz0to+TxDQYRLTKRESSc2hefVT48Zc8JthmN23Gx9lnYhu0FtkRSL1oxny3kJ2aveVhmOVA==}
+  eslint-plugin-simple-import-sort@14.0.0:
+    resolution: {integrity: sha512-NUJO0+XFCkk+o5EsAJruTgnfMEpeWrPWeJS15UVF60GgXmqz1BJ9/3hzlvG7lkL8Bubzos5cCLptThbFfPnSMQ==}
     peerDependencies:
       eslint: '>=5.0.0'
 
@@ -3743,7 +3743,7 @@ snapshots:
       ts-declaration-location: 1.0.7(typescript@6.0.3)
       typescript: 6.0.3
 
-  eslint-plugin-simple-import-sort@12.1.1(eslint@10.8.1(supports-color@9.4.0)):
+  eslint-plugin-simple-import-sort@14.0.0(eslint@10.8.1(supports-color@9.4.0)):
     dependencies:
       eslint: 10.8.1(supports-color@9.4.0)
 
