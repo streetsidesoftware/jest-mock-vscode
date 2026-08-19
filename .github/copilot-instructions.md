@@ -9,8 +9,8 @@
 ## Tech stack and environment
 
 - Language: TypeScript.
-- Package manager: `pnpm` (see `packageManager` in `/home/runner/work/jest-mock-vscode/jest-mock-vscode/package.json`).
-- Required Node version: `>22.0.0`.
+- Package manager: `pnpm` (see `packageManager` in `package.json`).
+- Declared Node engine in `package.json`: `>22.0.0`.
 - The repo is a pnpm workspace with integration test packages under `test-packages/`.
 
 ## Important paths
