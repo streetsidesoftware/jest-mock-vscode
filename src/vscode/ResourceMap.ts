@@ -60,6 +60,25 @@ export class ResourceMap<T> implements Map<URI, T> {
         return this.map.delete(this.toKey(resource));
     }
 
+    getOrInsert(resource: URI, defaultValue: T): T {
+        const key = this.toKey(resource);
+        if (this.map.has(key)) {
+            return this.map.get(key) as T;
+        }
+        this.map.set(key, defaultValue);
+        return defaultValue;
+    }
+
+    getOrInsertComputed(resource: URI, callback: (key: URI) => T): T {
+        const key = this.toKey(resource);
+        if (this.map.has(key)) {
+            return this.map.get(key) as T;
+        }
+        const value = callback(resource);
+        this.map.set(key, value);
+        return value;
+    }
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     forEach(clb: (value: T, key: URI, map: Map<URI, T>) => void, thisArg?: any): void {
         if (typeof thisArg !== 'undefined') {
