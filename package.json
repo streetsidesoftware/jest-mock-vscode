@@ -68,7 +68,7 @@
     "@types/vscode": "^1.125.0",
     "eslint": "^10.8.1",
     "eslint-plugin-n": "^18.3.0",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-simple-import-sort": "^14.0.0",
     "inject-markdown": "^4.0.0",
     "jest": "^30.4.2",
     "prettier": "^3.9.6",
