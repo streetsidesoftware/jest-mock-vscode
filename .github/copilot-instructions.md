@@ -71,5 +71,6 @@ CI currently installs dependencies, runs `pnpm build`, then runs `pnpm test` and
 
 ## Errors encountered during onboarding
 
-- No repository-specific errors were encountered while preparing these instructions.
-- If `pnpm` is unavailable in the environment, enable the expected package manager first (for example via Corepack) before running repo scripts.
+- `pnpm` was not initially available in the environment. Work-around: run `corepack enable` before using repo scripts.
+- `pnpm lint:ci` failed before a build because `index.js` requires `./dist/index` and ESLint checked that import before `dist/` existed. Work-around: run `pnpm build` before linting, matching the CI workflow order.
+- `pnpm lint:spelling` failed locally because `cspell` is not installed as a repo dependency. Work-around: use the GitHub Actions spelling workflow or run `pnpm dlx cspell --dot <path>` for local spot checks.
