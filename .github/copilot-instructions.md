@@ -3,36 +3,36 @@
 ## Repository purpose
 
 - This package provides Jest and Vitest-friendly mocks for the VS Code API.
-- The main public entry point is `/home/runner/work/jest-mock-vscode/jest-mock-vscode/src/index.ts`.
-- The generated CommonJS package entry point is `/home/runner/work/jest-mock-vscode/jest-mock-vscode/index.js`, which re-exports the compiled output from `dist/`.
+- The main public entry point is `src/index.ts`.
+- The generated CommonJS package entry point is `index.js`, which re-exports the compiled output from `dist/`.
 
 ## Tech stack and environment
 
 - Language: TypeScript.
 - Package manager: `pnpm` (see `packageManager` in `/home/runner/work/jest-mock-vscode/jest-mock-vscode/package.json`).
 - Required Node version: `>22.0.0`.
-- The repo is a pnpm workspace with integration test packages under `/home/runner/work/jest-mock-vscode/jest-mock-vscode/test-packages`.
+- The repo is a pnpm workspace with integration test packages under `test-packages/`.
 
 ## Important paths
 
-- `/home/runner/work/jest-mock-vscode/jest-mock-vscode/src/`
+- `src/`
   - Main source and unit tests.
-- `/home/runner/work/jest-mock-vscode/jest-mock-vscode/src/vscode/`
+- `src/vscode/`
   - Mock implementations for VS Code types and modules.
-- `/home/runner/work/jest-mock-vscode/jest-mock-vscode/test-packages/jest-integration/`
+- `test-packages/jest-integration/`
   - Consumer-style Jest integration tests.
-- `/home/runner/work/jest-mock-vscode/jest-mock-vscode/test-packages/vitest-integration/`
+- `test-packages/vitest-integration/`
   - Consumer-style Vitest integration tests.
-- `/home/runner/work/jest-mock-vscode/jest-mock-vscode/README.md`
+- `README.md`
   - Public usage docs; some examples are injected from files in `test-packages`.
-- `/home/runner/work/jest-mock-vscode/jest-mock-vscode/.github/workflows/test.yml`
+- `.github/workflows/test.yml`
   - CI build and test flow.
-- `/home/runner/work/jest-mock-vscode/jest-mock-vscode/.github/workflows/lint.yml`
+- `.github/workflows/lint.yml`
   - CI lint and spell-check flow.
 
 ## Build, test, and lint commands
 
-Run commands from `/home/runner/work/jest-mock-vscode/jest-mock-vscode`.
+Run commands from the repository root.
 
 - Install dependencies: `pnpm install`
 - Build all TypeScript projects: `pnpm build`
@@ -53,7 +53,7 @@ CI currently installs dependencies, runs `pnpm build`, then runs `pnpm test` and
 - Root Jest tests live in `src/**/*.test.ts`; the root Jest config ignores `test-packages`.
 - Integration coverage lives in the workspace packages under `test-packages`.
 - Formatting uses Prettier with `singleQuote: true` and `printWidth: 120`.
-- ESLint uses the flat config in `/home/runner/work/jest-mock-vscode/jest-mock-vscode/eslint.config.mjs`.
+- ESLint uses the flat config in `eslint.config.mjs`.
 
 ## Efficient agent workflow
 
