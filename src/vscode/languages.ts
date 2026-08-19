@@ -1,6 +1,7 @@
 import type * as vscode from 'vscode';
 
 import type { TestFramework } from '../TestFramework';
+import { eventStub } from './event';
 
 export type Languages = typeof vscode.languages;
 
@@ -11,7 +12,7 @@ export function createLanguages(jest: TestFramework) {
         getDiagnostics: jest.fn(),
         getLanguages: jest.fn(async () => knownLanguageIDs),
         match: jest.fn(),
-        onDidChangeDiagnostics: jest.fn(),
+        onDidChangeDiagnostics: eventStub(jest),
         registerCallHierarchyProvider: jest.fn(),
         registerCodeActionsProvider: jest.fn(),
         registerCodeLensProvider: jest.fn(),

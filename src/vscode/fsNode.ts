@@ -2,6 +2,7 @@ import { promises as fs } from 'fs';
 import type * as vscode from 'vscode';
 
 import type { TestFramework } from '../TestFramework';
+import { eventStub } from './event';
 import { toFileSystemError } from './FileSystemError';
 import { FileType } from './FileType';
 import { toErrorErrnoException } from './isError';
@@ -87,7 +88,7 @@ export function createNodeFileSystemProvider(jest: TestFramework) {
         writeFile,
         copy: jest.fn(),
         delete: jest.fn(),
-        onDidChangeFile: jest.fn(),
+        onDidChangeFile: eventStub(jest),
         readDirectory: jest.fn(),
         rename: jest.fn(),
         stat,
