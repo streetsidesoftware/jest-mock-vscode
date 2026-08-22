@@ -67,8 +67,8 @@ importers:
         specifier: ^30.0.0
         version: 30.0.0
       '@types/vscode':
-        specifier: ^1.125.0
-        version: 1.125.0
+        specifier: ^1.134.0
+        version: 1.134.0
       jest:
         specifier: ^30.4.2
         version: 30.4.2(@types/node@22.20.1)(supports-color@9.4.0)
@@ -85,8 +85,8 @@ importers:
         specifier: ^22.0.6
         version: 22.0.6
       '@types/vscode':
-        specifier: ^1.125.0
-        version: 1.125.0
+        specifier: ^1.134.0
+        version: 1.134.0
       jest-mock-vscode:
         specifier: workspace:*
         version: link:../..
@@ -652,9 +652,6 @@ packages:
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
-
-  '@types/vscode@1.125.0':
-    resolution: {integrity: sha512-0icm/ZQAaism87P0ekHqi4/Ju9du+Tm0RUW+y7vqRsxY2cY0FNRX1nAnaW7nT6npPt2tfHiheZ55Zm9UhqonFA==}
 
   '@types/vscode@1.134.0':
     resolution: {integrity: sha512-NDEu0hg4sF7+vvFsADsktqUJ6f80LHSZvVK2Ovo1XiQ0/VHck1O3zst+ZZyVA/uvz6vo6LcuoqU2q48YMqOwWw==}
@@ -3251,8 +3248,6 @@ snapshots:
   '@types/unist@2.0.11': {}
 
   '@types/unist@3.0.3': {}
-
-  '@types/vscode@1.125.0': {}
 
   '@types/vscode@1.134.0': {}
 
