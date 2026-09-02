@@ -12,5 +12,6 @@ trustPolicyExclude:
 allowBuilds:
   unrs-resolver: true
   esbuild: true
+  '@parcel/watcher': false
 
 # cspell:dictionaries npm
