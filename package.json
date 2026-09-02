@@ -54,20 +54,20 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@jest/globals": "^30.4.1",
+    "@jest/globals": "^30.5.0",
     "@tsconfig/node22": "^22.0.6",
     "@types/node": "^22.20.1",
     "@types/vscode": "^1.134.0",
-    "eslint": "^10.8.1",
+    "eslint": "^10.9.1",
     "eslint-plugin-n": "^18.3.0",
     "eslint-plugin-simple-import-sort": "^14.0.0",
-    "inject-markdown": "^4.0.0",
-    "jest": "^30.4.2",
+    "inject-markdown": "^5.0.3",
+    "jest": "^30.5.0",
     "prettier": "^3.9.6",
     "rfdc": "^1.4.1",
     "ts-jest": "^29.4.12",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.67.0"
+    "typescript-eslint": "^8.68.0"
   },
   "dependencies": {
     "vscode-uri": "^3.1.0"
