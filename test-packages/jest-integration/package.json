@@ -12,10 +12,10 @@
   "devDependencies": {
     "@tsconfig/node22": "^22.0.6",
     "@types/jest": "^30.0.0",
-    "@types/vscode": "^1.134.0",
-    "jest": "^30.5.0",
+    "@types/vscode": "^1.138.0",
+    "jest": "^30.5.2",
     "jest-mock-vscode": "workspace:*",
-    "ts-jest": "^29.4.12"
+    "ts-jest": "^29.4.13"
   },
   "engines": {
     "node": ">22.0.0"
