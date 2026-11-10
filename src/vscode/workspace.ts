@@ -83,6 +83,10 @@ export function createWorkspace(jest: TestFramework) {
         // vscode 1.100.0
         encode = jest.fn();
         decode = jest.fn();
+
+        // vscode 1.145.0
+        registerTimelineProvider = jest.fn();
+        registerWorkspaceTimelineProvider = jest.fn();
     }
 
     const workspace = new MockWorkspace();

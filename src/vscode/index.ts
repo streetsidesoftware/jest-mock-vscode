@@ -13,6 +13,7 @@ export { createMockTabGroups } from './TabGroups';
 export * from './TextDocument';
 export type { MockTextEditor } from './TextEditor';
 export { createMockTextEditor } from './TextEditor';
+export { TimelineItem, TimelineTriggerKind } from './TimelineItem';
 export { TypeHierarchyItem } from './TypeHierarchyItem';
 export * from './uri';
 export type { Window } from './window';
