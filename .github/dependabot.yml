@@ -9,6 +9,11 @@ updates:
     directory: '/' # Location of package manifests
     schedule:
       interval: 'daily'
+    ignore:
+      # Stay on the major of the oldest supported Node version. See `engines` in `package.json`.
+      - dependency-name: '@types/node'
+        update-types:
+          - 'version-update:semver-major'
     groups:
       production-dependencies:
         dependency-type: 'production'
