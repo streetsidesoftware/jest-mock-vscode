@@ -13,7 +13,7 @@
     "@tsconfig/node22": "^22.0.6",
     "@types/vscode": "^1.145.0",
     "jest-mock-vscode": "workspace:*",
-    "vitest": "^4.1.12"
+    "vitest": "^5.1.0"
   },
   "engines": {
     "node": ">22.0.0"
