@@ -11,7 +11,7 @@
   "types": "dist/index.d.ts",
   "author": "Jason Dent",
   "license": "MIT",
-  "packageManager": "pnpm@12.18.0",
+  "packageManager": "pnpm@12.21.0",
   "engines": {
     "node": ">22.0.0"
   },
