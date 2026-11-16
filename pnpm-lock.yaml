@@ -178,13 +178,13 @@ importers:
         version: 30.5.2(supports-color@9.4.0)
       '@tsconfig/node22':
         specifier: ^22.0.6
-        version: 22.0.6
+        version: 22.0.7
       '@types/node':
         specifier: ^22.20.5
         version: 22.20.5
       '@types/vscode':
         specifier: ^1.145.0
-        version: 1.145.0
+        version: 1.146.0
       eslint:
         specifier: ^10.14.0
         version: 10.14.0(supports-color@9.4.0)
@@ -202,7 +202,7 @@ importers:
         version: 30.5.2(@types/node@22.20.5)(supports-color@9.4.0)
       prettier:
         specifier: ^3.9.10
-        version: 3.9.10
+        version: 3.10.1
       rfdc:
         specifier: ^1.4.1
         version: 1.4.1
@@ -220,13 +220,13 @@ importers:
     devDependencies:
       '@tsconfig/node22':
         specifier: ^22.0.6
-        version: 22.0.6
+        version: 22.0.7
       '@types/jest':
         specifier: ^30.0.0
         version: 30.0.0
       '@types/vscode':
         specifier: ^1.145.0
-        version: 1.145.0
+        version: 1.146.0
       jest:
         specifier: ^30.5.2
         version: 30.5.2(@types/node@22.20.5)(supports-color@9.4.0)
@@ -241,10 +241,10 @@ importers:
     devDependencies:
       '@tsconfig/node22':
         specifier: ^22.0.6
-        version: 22.0.6
+        version: 22.0.7
       '@types/vscode':
         specifier: ^1.145.0
-        version: 1.145.0
+        version: 1.146.0
       jest-mock-vscode:
         specifier: workspace:*
         version: link:../..
@@ -804,8 +804,8 @@ packages:
   '@sinonjs/fake-timers@15.4.0':
     resolution: {integrity: sha512-DsG+8/LscQIQg68J6Ef3dv10u6nVyetYn923s3/sus5eaGfTo1of5WMZSLf0UJc9KDuKPilPH0UDJCjvNbDNCA==}
 
-  '@tsconfig/node22@22.0.6':
-    resolution: {integrity: sha512-/5thavHAnWDZwH2H6eEn/T8pBEBhtuKaWGMslsj82kJfvzQgOgEMK7X4goBbIUjgVtAzPTtM9Ml64LA0uxO6Iw==}
+  '@tsconfig/node22@22.0.7':
+    resolution: {integrity: sha512-xnYM5q+HTeLm+jRBIB7Mu61OyOmNpgzPmJuhwPODSyITDPIWVK2TXxn/+O5fJ4n/P0u/gPsgSyPw/Dl3Cz/L4g==}
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -867,8 +867,8 @@ packages:
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
 
-  '@types/vscode@1.145.0':
-    resolution: {integrity: sha512-mADZK4SF/j1n0+Qk4bH8NT1qTQGYDAsbhb5hStbzuB3hKP3mRH7xja5yUaIm7ExCh65Ff+C9XGwxcBvSlTCvkQ==}
+  '@types/vscode@1.146.0':
+    resolution: {integrity: sha512-OtU25faeM997QQsW+D07FN9cX06j+EEI4aQaPw/UO3HWlCM39N1W7fG8ewhdZKluut31KffyMsmDzJzgMu6t8Q==}
 
   '@types/yargs-parser@21.0.3':
     resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
@@ -2177,8 +2177,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier@3.9.10:
-    resolution: {integrity: sha512-skGHTH1Yb9QvaTC4hWnRTzEYtCpApF0UMBPz+t/0ZPzP8ihefo/btKd+QA7pUE0fEwA1SbS/NmhyEcstdXOIdA==}
+  prettier@3.10.1:
+    resolution: {integrity: sha512-70vp3ZUYoPlFbF9uiTdXHUUCGEIp7d4+6p+8DYbkm2jP7x/3i/paXVF6dopSI3zd/CEitrZN1rc4i85xWmmXlg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -3216,7 +3216,7 @@ snapshots:
     dependencies:
       '@sinonjs/commons': 3.0.1
 
-  '@tsconfig/node22@22.0.6': {}
+  '@tsconfig/node22@22.0.7': {}
 
   '@types/babel__core@7.20.5':
     dependencies:
@@ -3287,7 +3287,7 @@ snapshots:
 
   '@types/unist@3.0.3': {}
 
-  '@types/vscode@1.145.0': {}
+  '@types/vscode@1.146.0': {}
 
   '@types/yargs-parser@21.0.3': {}
 
@@ -4887,7 +4887,7 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier@3.9.10: {}
+  prettier@3.10.1: {}
 
   pretty-format@30.5.1:
     dependencies:
